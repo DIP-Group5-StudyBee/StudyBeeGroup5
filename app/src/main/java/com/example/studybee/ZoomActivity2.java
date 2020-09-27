@@ -93,13 +93,13 @@ public class ZoomActivity2 extends AppCompatActivity {
     }
 
 
-//    public void login(String username, String password) {
-//        int result = ZoomSDK.getInstance().loginWithZoom(username, password);
-//        if (result == ZoomApiError.ZOOM_API_ERROR_SUCCESS) {
-//            // Request executed, listen for result to start meeting
-//            ZoomSDK.getInstance().addAuthenticationListener(authListener);
-//        }
-//    }
+    public void login(String username, String password) {
+        int result = ZoomSDK.getInstance().loginWithZoom(username, password);
+        if (result == ZoomApiError.ZOOM_API_ERROR_SUCCESS) {
+            // Request executed, listen for result to start meeting
+            ZoomSDK.getInstance().addAuthenticationListener(authListener);
+        }
+    }
 
 
     public void startMeeting(Context context) {
