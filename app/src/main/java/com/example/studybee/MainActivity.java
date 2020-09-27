@@ -38,4 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, sharedPreferences.getString("username", ""));
         Log.d(TAG, sharedPreferences.getString("password", ""));
     }
+
+    public void JoinClicked(View view){
+        Intent intent = new Intent(MainActivity.this, LobbyActivity.class);
+        startActivity(intent);
+    }
 }

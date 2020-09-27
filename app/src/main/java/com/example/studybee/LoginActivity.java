@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.1.104"; //using your own IP address
+    public static final String HOST = "192.168.0.102"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
     }
 
     public void loginClicked(View v){
-
         if(et_username.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(),"Please enter your username.",Toast.LENGTH_SHORT).show();
             return;

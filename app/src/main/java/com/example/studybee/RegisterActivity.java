@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.1.104"; //use your IP address
+    public static final String HOST = "192.168.0.102"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
