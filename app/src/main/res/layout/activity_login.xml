@@ -75,7 +75,7 @@ android:background="@drawable/background">
         android:padding="3dp"
         android:text="Login"
         android:contentDescription="login"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="17sp"
         android:textStyle="bold"
         android:onClick="loginClicked"/>
@@ -90,7 +90,7 @@ android:background="@drawable/background">
         android:text="Register"
         android:contentDescription="start to register"
         android:onClick="registerClicked"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="17sp"
         android:textStyle="bold"/>
 </LinearLayout>

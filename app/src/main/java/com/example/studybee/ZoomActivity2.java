@@ -48,7 +48,6 @@ public class ZoomActivity2 extends AppCompatActivity {
         initializeSdk(this);
 
         initViews();
-
     }
 
     public void initializeSdk(Context context) {
@@ -78,7 +77,6 @@ public class ZoomActivity2 extends AppCompatActivity {
 
             }
         });
-
     }
 
 
@@ -123,8 +121,5 @@ public class ZoomActivity2 extends AppCompatActivity {
         if (meetingNumber.trim().length() > 0 && password.trim().length() > 0) {
             joinMeeting(ZoomActivity2.this, meetingNumber, password);
         }
-
     }
-
-
 }

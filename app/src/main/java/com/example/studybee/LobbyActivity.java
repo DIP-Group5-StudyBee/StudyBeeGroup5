@@ -72,7 +72,7 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
     TableLayout tbmeetingEvent;
     private final String tag = this.getClass().getSimpleName();
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.102"; //using your own IP address
+    public static final String HOST = "192.168.31.231"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -83,8 +83,6 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
@@ -261,6 +259,8 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
 
     }// refreshTable
 
-
+//    public void createScheduleMeeting(View view){
+//        startActivity(new Intent(LobbyActivity.this, ZoomScheduleActivity.class));
+//    }
 
 }
