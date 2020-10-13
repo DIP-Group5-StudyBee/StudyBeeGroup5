@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="366dp"
+        android:layout_height="206dp"
+        android:layout_gravity="center"
+        android:background="@color/profile_top_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <ImageView
+            android:id="@+id/rectimage"
+            android:layout_width="263dp"
+            android:layout_height="104dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="82dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:background="@drawable/rectangleview"
+            android:contentDescription="Info Box" />
+
+        <TextView
+            android:id="@+id/Username_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="123dp"
+            android:layout_marginEnd="150dp"
+            android:layout_marginRight="150dp"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:text="username" />
+
+        <!-->
+        <circleimageview xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_centerhorizontal="true"
+            android:layout_margintop="20dp"
+            android:src="@drawable/person" /><!-->
+
+    </RelativeLayout>
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="374dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:background="@color/profile_nav"-->
+<!--        android:minHeight="?attr/actionBarSize"-->
+<!--        android:theme="?attr/actionBarTheme"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.32">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/info_button"-->
+<!--            android:layout_width="118dp"-->
+<!--            android:layout_height="58dp"-->
+<!--            android:background="@color/button_nav"-->
+<!--            android:onClick="infotabClicked"-->
+<!--            android:padding="0dp"-->
+<!--            android:paddingLeft="0dp"-->
+<!--            android:paddingTop="0dp"-->
+<!--            android:paddingRight="0dp"-->
+<!--            android:paddingBottom="0dp"-->
+<!--            android:text="INFO"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/toolbar"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/toolbar"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/info_button2"-->
+<!--            android:layout_width="128dp"-->
+<!--            android:layout_height="57dp"-->
+<!--            android:background="@color/button_selected"-->
+<!--            android:onClick="recordtabClicked"-->
+<!--            android:padding="0dp"-->
+<!--            android:paddingLeft="0dp"-->
+<!--            android:paddingTop="0dp"-->
+<!--            android:paddingRight="0dp"-->
+<!--            android:paddingBottom="0dp"-->
+<!--            android:text="RECORDS"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/toolbar"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.517"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/toolbar"-->
+<!--            app:layout_constraintVertical_bias="1.0" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/info_button3"-->
+<!--            android:layout_width="110dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:background="@color/button_nav"-->
+<!--            android:padding="0dp"-->
+<!--            android:paddingLeft="0dp"-->
+<!--            android:paddingTop="0dp"-->
+<!--            android:paddingRight="0dp"-->
+<!--            android:paddingBottom="0dp"-->
+<!--            android:text="FRIENDS"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/toolbar"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.996"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/toolbar"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
+
+<!--    </androidx.appcompat.widget.Toolbar>-->
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="361dp"
+        android:layout_height="436dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/profile_top_bg"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="31dp" />
+
+            <Button
+                android:id="@+id/UMeet_Button"
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                android:onClick="recordUpcomingtabClicked"
+                android:text="Upcoming Meetings" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Past Meetings"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="196dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="163dp"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/records"
+                            android:contentDescription="u_meeting1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="31dp" />
+
+                                <LinearLayout
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <Space
+                                        android:layout_width="28dp"
+                                        android:layout_height="20dp"
+                                        android:layout_weight="1" />
+
+                                    <TextView
+                                        android:id="@+id/meeting1"
+                                        android:layout_width="64dp"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/label_default" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/startTime1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="TextView" />
+
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/records"
+                            android:contentDescription="u_meeting2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="31dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <Space
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="20dp"
+                                        android:layout_weight="1" />
+
+                                    <TextView
+                                        android:id="@+id/meeting2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/label_default" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/startTime2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="TextView" />
+
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/records"
+                            android:contentDescription="u_meeting3">
+
+                            <LinearLayout
+                                android:layout_width="340dp"
+                                android:layout_height="163dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="31dp" />
+
+                                <LinearLayout
+                                    android:layout_width="111dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <Space
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="20dp"
+                                        android:layout_weight="1" />
+
+                                    <TextView
+                                        android:id="@+id/meeting3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/label_default" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/startTime3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="TextView" />
+
+                            </LinearLayout>
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="362dp"-->
+<!--        android:layout_height="69dp"-->
+<!--        android:background="@color/bottom_nav_bg"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/frameLayout"-->
+<!--        app:layout_constraintVertical_bias="0.0">-->
+
+<!--        <Space-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/join"-->
+<!--            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"-->
+<!--            android:layout_width="63dp"-->
+<!--            android:layout_height="63dp"-->
+<!--            android:background="@drawable/join_icon"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/join_icon"-->
+<!--            android:tint="#FFC107"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/lobby"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--        <Space-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/profile"-->
+<!--            android:layout_width="63dp"-->
+<!--            android:layout_height="63dp"-->
+<!--            android:background="@drawable/user"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/user"-->
+<!--            android:tint="#FFC107"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/lobby" />-->
+
+<!--        <Space-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/lobby"-->
+<!--            android:layout_width="63dp"-->
+<!--            android:layout_height="63dp"-->
+<!--            android:background="@drawable/home"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/home"-->
+<!--            android:tint="#FFC107"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--        <Space-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1" />-->
+<!--    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

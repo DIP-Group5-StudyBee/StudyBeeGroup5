@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:andriod="http://schemas.android.com/apk/res-auto"
+    android:background="#fff4c6">
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/profile_image3"-->
+<!--        android:layout_width="130dp"-->
+<!--        android:layout_height="130dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:src="@drawable/person"-->
+<!--        andriod:civ_border_color="#FF000000"-->
+<!--        andriod:civ_border_width="0dp" />-->
+
+    <FrameLayout
+        android:id="@+id/top_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/profile_top_bg">
+
+
+            <ImageView
+                android:id="@+id/rectimage"
+                android:layout_width="350dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/rectangleview"
+                android:contentDescription="Info Box" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="160dp"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="190dp"
+                android:textAlignment="center"
+                android:textSize="10dp"
+                tools:text="@tools:sample/cities" />
+
+            <!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--                android:id="@+id/profile_image"-->
+            <!--                android:layout_width="130dp"-->
+            <!--                android:layout_height="130dp"-->
+            <!--                android:layout_centerHorizontal="true"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                android:src="@drawable/person"-->
+            <!--                app:civ_border_color="#FF000000"-->
+            <!--                app:civ_border_width="0dp" />-->
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_buttons"
+        android:layout_below="@+id/top_area">
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <Button-->
+<!--                android:text="Info"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="#e9de7f" />-->
+<!--            <Space-->
+<!--                android:layout_width="2dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="#ddd278"/>-->
+<!--            <Button-->
+<!--                android:text="Records"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="#e9de7f"/>-->
+<!--            <Space-->
+<!--                android:layout_width="2dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="#ddd278"/>-->
+<!--            <Button-->
+<!--                android:text="Friends"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="#d7cf8a"/>-->
+
+<!--        </LinearLayout>-->
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/searchViewcontainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_buttons">
+
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter name" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:layout_toRightOf="@id/editTextTextPersonName"
+            android:onClick="SButtonOnClickHandler"/>
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_below="@+id/searchViewcontainer"
+        android:layout_marginTop="10dp">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayoutA"
+            android:layout_width="120dp"
+            android:layout_height="83.3dp"
+            andriod:layout_column="0"
+            andriod:layout_constraintStart_toStartOf="parent"
+            andriod:layout_constraintTop_toTopOf="parent"
+            andriod:layout_row="0">
+
+            <TextView
+                android:id="@+id/textViewA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextViewA"
+                andriod:layout_column="0"
+                andriod:layout_row="1" />
+
+            <ImageButton
+                android:id="@+id/imageButtonA"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:visibility="gone"
+                andriod:layout_column="0"
+                andriod:layout_row="0"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.gridlayout.widget.GridLayout>
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayoutB"
+            android:layout_width="120dp"
+            android:layout_height="83.3dp"
+            andriod:layout_constraintStart_toEndOf="@+id/gridLayoutA"
+            andriod:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/imageButtonB"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:visibility="gone"
+                andriod:layout_column="0"
+                andriod:layout_row="0"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextViewB"
+                andriod:layout_column="0"
+                andriod:layout_row="1" />
+        </androidx.gridlayout.widget.GridLayout>
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayoutC"
+            android:layout_width="120dp"
+            android:layout_height="83.3dp"
+            andriod:layout_constraintEnd_toEndOf="parent"
+            andriod:layout_constraintStart_toEndOf="@+id/gridLayoutB"
+            andriod:layout_constraintTop_toTopOf="@+id/gridLayoutB">
+
+            <ImageButton
+                android:id="@+id/imageButtonC"
+                android:layout_width="118dp"
+                android:layout_height="65dp"
+                android:visibility="gone"
+                andriod:layout_column="0"
+                andriod:layout_row="0"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextViewC"
+                andriod:layout_column="0"
+                andriod:layout_row="1" />
+        </androidx.gridlayout.widget.GridLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="358dp"
+            android:layout_height="166dp"
+            andriod:layout_constraintBottom_toBottomOf="parent"
+            andriod:layout_constraintEnd_toEndOf="parent"
+            andriod:layout_constraintStart_toStartOf="parent"
+            andriod:layout_constraintTop_toBottomOf="@+id/gridLayoutB">
+
+            <Space
+                android:id="@+id/space"
+                android:layout_width="359dp"
+                android:layout_height="12dp"
+                andriod:layout_constraintEnd_toEndOf="parent"
+                andriod:layout_constraintStart_toStartOf="parent"
+                andriod:layout_constraintTop_toTopOf="parent" />
+
+            <Space
+                android:id="@+id/space2"
+                android:layout_width="358dp"
+                android:layout_height="26dp"
+                andriod:layout_constraintStart_toStartOf="parent"
+                andriod:layout_constraintTop_toBottomOf="@+id/space" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="358dp"
+                android:layout_height="126dp"
+                android:orientation="horizontal"
+                andriod:layout_constraintBottom_toBottomOf="parent"
+                andriod:layout_constraintEnd_toEndOf="parent"
+                andriod:layout_constraintStart_toStartOf="parent"
+                andriod:layout_constraintTop_toBottomOf="@+id/space2"
+                andriod:layout_constraintVertical_bias="0.0">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </ScrollView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="117dp"
+                android:layout_height="26dp"
+                android:text="Name"
+                andriod:layout_constraintStart_toStartOf="parent"
+                andriod:layout_constraintTop_toBottomOf="@+id/space" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="240dp"
+                android:layout_height="27dp"
+                android:layout_weight="1"
+                android:text="Email"
+                andriod:layout_constraintEnd_toEndOf="parent"
+                andriod:layout_constraintStart_toEndOf="@+id/textView6"
+                andriod:layout_constraintTop_toBottomOf="@+id/space" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:id="@+id/bottom_buttons"
+        android:layout_below="@+id/main_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#8b6c0f"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#8b6c0f">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/home" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#8b6c0f">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/searchhospital" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#8b6c0f">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/logo_1" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

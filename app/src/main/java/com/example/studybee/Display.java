@@ -1,21 +1,13 @@
 package com.example.studybee;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.SearchManager;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.style.AlignmentSpan;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 
-import android.content.Intent;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,9 +15,6 @@ import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.net.URI;
-import java.util.*;
 
 
 public class Display extends AppCompatActivity implements OnTaskCompleted{
@@ -49,7 +38,7 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
     TextView[] textViews= new TextView[6];
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.1.108"; //use your IP address
+    public static final String HOST = "192.168.1.106"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -60,7 +49,7 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_profile);
+        setContentView(R.layout.friend_tab);
 
         //String jsonString = convertToJSON();
         //Toast.makeText(getApplicationContext(), firstname, Toast.LENGTH_LONG).show();

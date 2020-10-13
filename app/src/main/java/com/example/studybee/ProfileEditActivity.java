@@ -1,13 +1,13 @@
 package com.example.studybee;
 
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,16 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 
-public class RegisterActivity extends AppCompatActivity implements OnTaskCompleted{
-    EditText et_username;
-    EditText et_firstName;
-    EditText et_email;
-    Spinner sp_gender = null;
-    EditText et_age;
-    EditText et_faculty;
-    EditText et_password;
-    EditText et_confirmPassword;
-    Button confirm;
+public class ProfileEditActivity extends AppCompatActivity implements OnTaskCompleted {
+    EditText e_username;
+    EditText e_firstName;
+    EditText e_email;
+    Spinner e_gender = null;
+    EditText e_age;
+    EditText e_faculty;
+    EditText e_password;
+    TextView profile_name;
+    ImageButton confirm;
     String msgType;
     String username;
     String firstname;
@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
     String age;
     String faculty;
     String password;
+    String initial_username;
 
     int id;
     String status,taskOption;
@@ -46,74 +47,72 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
     public static final String DIR = "myproject";
 
     // Set request ID for all HTTP requests
-    private static final String REQ_UPLOAD = "1001";
+    private static final String REQ_UPLOAD = "1003";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_profile_edit);
 
-        et_username=(EditText) findViewById(R.id.username);
-        et_firstName=(EditText) findViewById(R.id.firstName);
-        et_email=(EditText) findViewById(R.id.email);
-        sp_gender = (Spinner) findViewById(R.id.spin_Gender);
-        et_age=(EditText) findViewById(R.id.age);
-        et_faculty=(EditText) findViewById(R.id.faculty);
-        et_password=(EditText) findViewById(R.id.password);
-        et_confirmPassword=(EditText) findViewById(R.id.confirmPassword);
-        confirm=(Button) findViewById(R.id.confirmBtn);
+        e_username=(EditText) findViewById(R.id.edit_username);
+        e_firstName=(EditText) findViewById(R.id.edit_name);
+        e_email=(EditText) findViewById(R.id.edit_email);
+        e_gender = (Spinner) findViewById(R.id.edit_gender);
+        e_age=(EditText) findViewById(R.id.edit_age);
+        e_faculty=(EditText) findViewById(R.id.edit_school);
+        e_password=(EditText) findViewById(R.id.edit_password);
+        profile_name = (TextView) findViewById(R.id.profile_name);
+        confirm=(ImageButton) findViewById(R.id.save_button);
+
+        //load the int id incase they need to change the values
+        SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+        id= sh.getInt("id",0);
+        initial_username = sh.getString("username","");
+        profile_name.setText(initial_username);
+
     }
+    public void submitClicked(View v){
 
-    public void confirmClicked(View v){
-
-        if(et_username.getText().toString().isEmpty()){
+        if(e_username.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(),"Please enter your username.",Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(et_firstName.getText().toString().isEmpty()){
+        else if(e_firstName.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(),"Please enter your first name.",Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(et_email.getText().toString()).matches()){
+        else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(e_email.getText().toString()).matches()){
             Toast.makeText(getApplicationContext(),"Please enter valid email.",Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(!isSchoolEmail(et_email.getText().toString())){
+        else if(!isSchoolEmail(e_email.getText().toString())){
             Toast.makeText(getApplicationContext(),"Please enter your school email.",Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(sp_gender.getSelectedItem().toString().isEmpty()){
+        else if(e_gender.getSelectedItem().toString().isEmpty()){
             Toast.makeText(getApplicationContext(),"Please enter your gender.",Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(et_age.getText().toString().isEmpty()){
+        else if(e_age.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(),"Please enter your age.",Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(et_confirmPassword.getText().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please enter confirm password.",Toast.LENGTH_SHORT).show();
+        else if(e_password.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Please enter your age.",Toast.LENGTH_SHORT).show();
             return;
         }
-        else if(!et_password.getText().toString().equals(et_confirmPassword.getText().toString())){
-            Toast.makeText(getApplicationContext(),"The password and confirm password are different, please check.",Toast.LENGTH_SHORT).show();
-            return;
-        }
+
         else {
             // convert edit text values to string data
             msgType = REQ_UPLOAD;
 
-            username = et_username.getText().toString();
-            firstname = et_firstName.getText().toString();
-            email = et_email.getText().toString();
-            gender = sp_gender.getSelectedItem().toString();
-            age = et_age.getText().toString();
-            if(!et_faculty.getText().toString().isEmpty()){
-                faculty = et_faculty.getText().toString();
-            }
-            else{
-                faculty=null;
-            }
-            password = et_password.getText().toString();
+            username = e_username.getText().toString();
+            firstname = e_firstName.getText().toString();
+            email = e_email.getText().toString();
+            gender = e_gender.getSelectedItem().toString();
+            age = e_age.getText().toString();
+            faculty = e_faculty.getText().toString();
+            password = e_password.getText().toString();
 
             taskOption="checkUsername";
             String jsonString = convertToJSON();
@@ -137,6 +136,8 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
             jsonText.object();
             jsonText.key("type");
             jsonText.value(msgType);
+            jsonText.key("id");
+            jsonText.value(id);
             jsonText.key("username");
             jsonText.value(username);
             jsonText.key("firstname");
@@ -164,7 +165,6 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
             JSONObject jsonObject = new JSONObject(message);
             msgType = jsonObject.getString("type");
             if (msgType.equals(REQ_UPLOAD)) {
-                id = jsonObject.getInt("id");
                 firstname = jsonObject.getString("firstname");
                 faculty = jsonObject.getString("faculty");
                 gender = jsonObject.getString("gender");
@@ -201,28 +201,29 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
                     return;
                 }
                 else {
-                    taskOption="createProfile";
+                    taskOption="updateProfile";
                     String jsonString = convertToJSON();
                     HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
-                    task.execute("http://"+HOST+"/"+DIR+"/register.php",
+                    task.execute("http://"+HOST+"/"+DIR+"/updateProfile.php",
                             jsonString);
                 }
                 break;
 
-            case "createProfile":
+            case "updateProfile":
                 retrieveFromJSON(response);
                 if (msgType.equals(REQ_UPLOAD)){
                     saveAsPreferences();
-                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                    Toast.makeText(getApplicationContext(),"Profile created seccessfully!",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(ProfileEditActivity.this, MainActivity.class));
+                    Toast.makeText(getApplicationContext(),"Profile updated successfully!",Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),"Profile creation failed please try again later!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Profile updated failed please try again later!",Toast.LENGTH_LONG).show();
                 }
                 break;
         }
     }
 
+    //save new perferences
     public void saveAsPreferences(){
         SharedPreferences prefs = getSharedPreferences("preference",MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -236,6 +237,35 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
         editor.putInt("id",id);
         editor.commit();
     }
+
+    //For bottom navigation bar
+
+//    public void homeBotClicked(View view){
+//        startActivity(new Intent(ProfileEditActivity.this, MainActivity.class));
+//
+//    }
+//    public void profileBotClicked(View view){
+//        startActivity(new Intent(ProfileEditActivity.this, ProfileActivity_2.class));
+//
+//    }
+    //    public void joinBotClicked(View view){
+    //        startActivity(new Intent(ProfileActivity_2.this, ProfileEditActivity.class));
+    //
+    //    }
+
+    //Middle navigation tab
+
+    public void infotabClicked(View view){
+//        getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragment()).commit();
+        startActivity(new Intent(ProfileEditActivity.this, MainActivity.class));
+
+    }
+    public void recordtabClicked(View view){
+        startActivity(new Intent(ProfileEditActivity.this, RecordsActivity.class));
+    }
+    //    public void friendtabClicked(View view){
+    //        startActivity(new Intent(ProfileActivity_2.this, ProfileEditActivity.class));
+    //
+    //    }
+
 }
-
-

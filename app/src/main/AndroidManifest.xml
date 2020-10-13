@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".HostActivity"></activity>
+        <activity android:name=".ProfileEditActivity"></activity>
+        <activity android:name=".ProfileActivity_2"></activity>
+        <activity android:name=".RecordsActivity"></activity>
+        <activity android:name=".RecordsActivityPast"></activity>
+        <activity android:name=".Display"></activity>
+        <activity android:name=".basicDetails"></activity>
         <activity android:name=".JoinActivity" />
         <activity android:name=".ZoomActivity2"></activity>
         <activity android:name=".MainActivity">
