@@ -23,7 +23,8 @@
         <activity android:name=".ProfileActivity_2"></activity>
         <activity android:name=".RecordsActivity"></activity>
         <activity android:name=".RecordsActivityPast"></activity>
-        <activity android:name=".Display"></activity>
+        <activity android:name=".Display"
+            android:windowSoftInputMode="adjustPan">></activity>
         <activity android:name=".basicDetails"></activity>
         <activity android:name=".JoinActivity" />
         <activity android:name=".ZoomActivity2"></activity>
