@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.profile:
                             frag = new ProfileFragment();
-//                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
                             break;
 
 

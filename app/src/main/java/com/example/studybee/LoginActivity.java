@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.1.106"; //using your own IP address
+    public static final String HOST = "172.20.14.231"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";

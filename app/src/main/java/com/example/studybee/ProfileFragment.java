@@ -28,6 +28,7 @@ public class ProfileFragment extends Fragment{
     TextView dis_faculty;
     TextView dis_username;
     TextView dis_age;
+    TextView dis_acc;
     TextView dis_email;
     Button record_Btn;
     Button info_Btn;
@@ -40,6 +41,7 @@ public class ProfileFragment extends Fragment{
     String faculty;
     String gender;
     String age;
+    String acc;
     String email;
 
     int j,k;
@@ -49,7 +51,7 @@ public class ProfileFragment extends Fragment{
     TextView[] textViews= new TextView[6];
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.1.106"; //use your IP address
+    public static final String HOST = "172.20.14.231"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -109,7 +111,7 @@ public class ProfileFragment extends Fragment{
         dis_gender=(TextView) myView.findViewById(R.id.gender);
         dis_faculty=(TextView) myView.findViewById(R.id.school);
         dis_age =(TextView) myView.findViewById(R.id.age);
-
+        dis_acc =(TextView) myView.findViewById(R.id.account);
 
 
         record_Btn=(Button) myView.findViewById(R.id.record_button);
@@ -129,6 +131,8 @@ public class ProfileFragment extends Fragment{
         dis_faculty.setText(faculty);
         age = sh.getString("age", "");
         dis_age.setText(age);
+        acc = sh.getString("isTA", "");
+        dis_acc.setText(acc);
 
 
         edit_Btn.setOnClickListener(new View.OnClickListener()

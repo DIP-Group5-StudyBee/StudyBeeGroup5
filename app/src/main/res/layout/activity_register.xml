@@ -7,6 +7,8 @@ android:layout_height="match_parent"
 android:orientation="vertical"
 android:background="@drawable/background"
 tools:context="com.example.studybee.RegisterActivity">
+    <ScrollView
+        android:layout_width="fill_parent" android:layout_height="fill_parent">
 
 <LinearLayout
     android:id="@+id/login_layout"
@@ -191,18 +193,78 @@ tools:context="com.example.studybee.RegisterActivity">
         android:textColorHint="@color/white"
         android:textSize="16sp" />
 
+
     <View
         android:layout_width="fill_parent"
         android:layout_height="1px"
         android:background="@color/white" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/ta"-->
+<!--        android:layout_width="310dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:drawableLeft="@drawable/gender"-->
+<!--        android:drawablePadding="5dp"-->
+<!--        android:gravity="left"-->
+<!--        android:padding="5dp"-->
+<!--        android:singleLine="true"-->
+<!--        android:text="Register as Teaching Assistant"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="16sp" />-->
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/ta"-->
+<!--        android:layout_width="310dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:padding="5dp"-->
+<!--        android:singleLine="true"-->
+<!--        android:text="Register as Teaching Assistant"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:onClick="taChecked"/>-->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/isTA"
+            android:drawableLeft="@drawable/firstname"
+            android:drawablePadding="5dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="Account Type"
+            android:gravity="left" />
+
+        <Spinner
+            android:id="@+id/spin_Account"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/isTA"
+            android:entries="@array/arrayAccType"
+            android:padding="5dp" />
+
+    </RelativeLayout>
+
 
     <Button
         android:id="@+id/confirmBtn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/loginbutton_selector"
         android:onClick="confirmClicked"
         android:padding="5dp"
@@ -210,5 +272,7 @@ tools:context="com.example.studybee.RegisterActivity">
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         android:textStyle="bold" />
+
 </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
