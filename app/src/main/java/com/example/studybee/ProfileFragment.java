@@ -49,7 +49,7 @@ public class ProfileFragment extends Fragment{
     TextView[] textViews= new TextView[6];
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.1.106"; //use your IP address
+    public static final String HOST = "192.168.0.105"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";

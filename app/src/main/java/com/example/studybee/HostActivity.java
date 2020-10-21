@@ -41,7 +41,7 @@ public class HostActivity extends AppCompatActivity implements OnTaskCompleted{
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "172.18.44.222"; //use your IP address
+    public static final String HOST = "192.168.0.105"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -89,7 +89,6 @@ public class HostActivity extends AppCompatActivity implements OnTaskCompleted{
         } else {
 
             msgType = REQ_UPLOAD;
-
             groupSize = size_Spinner.getSelectedItem().toString();
             studyStyle = style_Spinner.getSelectedItem().toString();
             teachingAssistant = ta_Spinner.getSelectedItem().toString();
@@ -98,7 +97,7 @@ public class HostActivity extends AppCompatActivity implements OnTaskCompleted{
                 roomName = RoomName.getText().toString();
             }
             else{
-                roomName=null;
+                roomName = null;
             }
             if(!RoomDescription.getText().toString().isEmpty()){
                 roomDescription = RoomDescription.getText().toString();
@@ -107,9 +106,9 @@ public class HostActivity extends AppCompatActivity implements OnTaskCompleted{
                 roomDescription=null;
             }
 
-            String jsonString = convertToJSON(); //create JSON object?
-            HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
-            task.execute("http://"+HOST+"/"+DIR+"/createroom.php", jsonString); //check for any duplicate username entries?
+            String jsonString = convertToJSON();
+            HttpAsyncTaskForHost task = new HttpAsyncTaskForHost(this);
+            task.execute("http://"+HOST+"/"+DIR+"/createroom.php", jsonString);
 
         }
 
@@ -171,11 +170,14 @@ public class HostActivity extends AppCompatActivity implements OnTaskCompleted{
     @Override
     public void onTaskCompleted(String response) {
 
+//        String jsonString = convertToJSON();
+//        HttpAsyncTaskForHost task = new HttpAsyncTaskForHost(this);
+//        task.execute("http://"+HOST+"/"+DIR+"/createroom.php", jsonString);
 
         retrieveFromJSON(response);
         if (msgType.equals(REQ_UPLOAD) && status.equals("OK")){
 
-            startActivity(new Intent(HostActivity.this, LobbyActivity.class));
+            startActivity(new Intent(HostActivity.this, ZoomScheduleActivity.class));
             Toast.makeText(getApplicationContext(),"Room created successfully!",Toast.LENGTH_LONG).show();
         }
         else {

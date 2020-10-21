@@ -22,14 +22,6 @@
         android:background="@color/white_greyish"
         app:menu="@layout/menu"/>
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="51dp"
-        android:layout_height="57dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        android:background="@drawable/logo"
-        android:contentDescription="logo" />
 
     <LinearLayout
         android:layout_width="match_parent"

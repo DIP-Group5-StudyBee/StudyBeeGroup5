@@ -62,6 +62,15 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
     String zoom_id;
     String zoom_pw;
     String msgType;
+    String study_style;
+    String teaching_assistant;
+    String Course;
+
+    int id;
+    String groupSize;
+    String studyStyle;
+    String teachingAssistant;
+    String course;
 
     ArrayList<MeetingEventObj> meetingEvents = new ArrayList<MeetingEventObj>();
     Button closePopupBtn, joinPopupBtn;
@@ -72,7 +81,7 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
     TableLayout tbmeetingEvent;
     private final String tag = this.getClass().getSimpleName();
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.1.106"; //using your own IP address
+    public static final String HOST = "192.168.0.105"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -87,6 +96,15 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
         tbmeetingEvent = (TableLayout) findViewById(R.id.tbmeetingEvent);
+
+        SharedPreferences meetingTable = getSharedPreferences("preference", MODE_PRIVATE);
+        groupSize = meetingTable.getString("groupSize","");
+        studyStyle = meetingTable.getString("studyStyle","");
+        teachingAssistant = meetingTable.getString("teachingAssistant","");
+        course = meetingTable.getString("course","");
+//        Toast.makeText(getApplicationContext(),groupSize,Toast.LENGTH_LONG).show();
+
+
 
         msgType = REQ_DOWNLOAD;
         // create data in JSON format
@@ -115,17 +133,21 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
             if (msgType.equals(REQ_DOWNLOAD)){
                 status = jsonObject.getString("status");
                 if(status.equals("OK")){
+//                    Toast.makeText(getApplicationContext(),"Im ok",Toast.LENGTH_LONG).show();
                     if (resultArray!=null) {
+//                        Toast.makeText(getApplicationContext(),String.valueOf(resultArray.length()),Toast.LENGTH_LONG).show();
                         for(int i=0; i<resultArray.length(); i++){
                             JSONObject resultObj = resultArray.getJSONObject(i);
-                            meeting_name = resultObj.getString("meeting_name");
                             group_size = resultObj.getString("group_size");
+//                            teaching_assistant = jsonObject.getString("ta_requirement");
+                            meeting_name = resultObj.getString("meeting_name");
                             start_time = resultObj.getString("start_time");
-                            room_description = resultObj.getString("room_description");
                             host_name = resultObj.getString("host_name");
+                            room_description = resultObj.getString("room_description");
                             zoom_id = resultObj.getString("zoom_id");
                             zoom_pw = resultObj.getString("zoom_pw");
-                            meetingEvents.add(new MeetingEventObj(meeting_name, group_size, start_time, room_description,host_name, zoom_id, zoom_pw));
+                            meetingEvents.add(new MeetingEventObj(meeting_name, group_size, start_time, room_description, host_name, zoom_id, zoom_pw));
+//                            Toast.makeText(getApplicationContext(),String.valueOf(meetingEvents.size()),Toast.LENGTH_LONG).show();
                         }
                     }
                 }
@@ -141,6 +163,14 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
             jsonText.object();
             jsonText.key("type");
             jsonText.value(msgType);
+            jsonText.key("study_style");
+            jsonText.value(studyStyle);
+            jsonText.key("group_size");
+            jsonText.value(groupSize);
+            jsonText.key("ta_requirement");
+            jsonText.value(teachingAssistant);
+            jsonText.key("course_requirement");
+            jsonText.value(course);
             jsonText.endObject();
 
         } catch (Exception e) {
@@ -166,9 +196,11 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
         params.span = 3;
         title.setPadding(0,0,0,20);
         rowTitle.addView(title, params);
+
         tbmeetingEvent.addView(rowTitle);
 
         // display rows
+//        Toast.makeText(getApplicationContext(),meetingEvents.size(),Toast.LENGTH_LONG).show();
         for (int i=0; i<meetingEvents.size(); i++) {
             final MeetingEventObj meetingEvent = meetingEvents.get(i);
 

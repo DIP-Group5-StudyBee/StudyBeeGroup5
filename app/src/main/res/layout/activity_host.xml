@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/profile_top_bg"
     tools:context=".HostActivity">
 
     <TextView
@@ -32,7 +33,7 @@
 
     <Spinner
         android:id="@+id/StyleSpinner"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/arrayStyle"
         android:padding="5dp"
@@ -57,7 +58,7 @@
 
     <Spinner
         android:id="@+id/SizeSpinner"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/arraySize"
         android:padding="5dp"
@@ -82,7 +83,7 @@
 
     <Spinner
         android:id="@+id/TASpinner"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/arrayTA"
         android:padding="5dp"
@@ -106,7 +107,7 @@
 
     <Spinner
         android:id="@+id/FACSpinner"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/arrayFAC"
         android:padding="5dp"
@@ -122,8 +123,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Room Name"
         android:inputType="textPersonName"
-        android:text="Room Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.293"
@@ -136,8 +137,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Room Description"
         android:inputType="textPersonName"
-        android:text="Room Description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.278"
@@ -157,7 +158,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.938" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
