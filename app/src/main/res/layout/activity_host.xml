@@ -30,37 +30,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.115" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/cgstyle"
-        android:layout_width="240dp"
-        android:layout_height="42dp"
-        app:chipSpacing="20dp"
+    <Spinner
+        android:id="@+id/StyleSpinner"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/arrayStyle"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.162"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/cpQuiet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Quiet"
-            app:chipIconVisible="true"
-            app:closeIconVisible="false" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/cpDiscussion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Discussion"
-            app:chipIconVisible="true"
-            app:closeIconVisible="false" />
-    </com.google.android.material.chip.ChipGroup>
+        app:layout_constraintVertical_bias="0.165" />
 
     <TextView
         android:id="@+id/GroupSize"
@@ -76,15 +57,16 @@
 
     <Spinner
         android:id="@+id/SizeSpinner"
-        android:layout_width="102dp"
-        android:layout_height="46dp"
-        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/arraySize"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
+        app:layout_constraintVertical_bias="0.283" />
 
     <TextView
         android:id="@+id/TeachingAssistant"
@@ -98,37 +80,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.365" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/cgTA"
-        android:layout_width="162dp"
-        android:layout_height="44dp"
-        app:chipSpacing="20dp"
+    <Spinner
+        android:id="@+id/TASpinner"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/arrayTA"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/cpYesTA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Yes"
-            app:chipIconVisible="true"
-            app:closeIconVisible="false" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/cpNoTA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="No"
-            app:chipIconVisible="true"
-            app:closeIconVisible="false" />
-    </com.google.android.material.chip.ChipGroup>
+        app:layout_constraintVertical_bias="0.424" />
 
     <TextView
         android:id="@+id/Course"
@@ -141,37 +104,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/cgCourse"
-        android:layout_width="176dp"
-        android:layout_height="42dp"
-        app:chipSpacing="20dp"
+    <Spinner
+        android:id="@+id/FACSpinner"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/arrayFAC"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.554"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/cpYesCourse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="Yes"
-            app:chipIconVisible="true"
-            app:closeIconVisible="false" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/cpNoCourse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:text="No"
-            app:chipIconVisible="true"
-            app:closeIconVisible="false" />
-    </com.google.android.material.chip.ChipGroup>
+        app:layout_constraintVertical_bias="0.556" />
 
     <EditText
         android:id="@+id/RoomName"
@@ -205,14 +149,15 @@
         android:id="@+id/SubmitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
         android:onClick="SubmitClicked"
+        android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.938" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
