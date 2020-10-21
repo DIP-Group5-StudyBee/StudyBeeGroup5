@@ -20,6 +20,11 @@
         <item>Female</item>
     </string-array>
 
+    <string-array name="arrayAccType">
+        <item>Student</item>
+        <item>Teaching Assistant</item>
+    </string-array>
+
     <string-array name="arrayStyle">
         <item>Quiet</item>
         <item>Discussion</item>
@@ -39,6 +44,11 @@
     <string-array name="arrayFAC">
         <item>Yes</item>
         <item>No</item>
+    </string-array>
+
+    <string-array name="arrayAccType">
+        <item>Student</item>
+        <item>Teaching Assistant</item>
     </string-array>
 
     <string name="title_activity_main2">Main2Activity</string>

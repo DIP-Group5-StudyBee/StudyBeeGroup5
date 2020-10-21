@@ -26,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
     EditText et_confirmPassword;
     Button confirm;
     String msgType;
+    Spinner sp_acc = null;
     String username;
     String firstname;
     String email;
@@ -33,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
     String age;
     String faculty;
     String password;
+    String isTA;
 
     int id;
     String status,taskOption;
@@ -62,7 +64,8 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
         et_password=(EditText) findViewById(R.id.password);
         et_confirmPassword=(EditText) findViewById(R.id.confirmPassword);
         confirm=(Button) findViewById(R.id.confirmBtn);
-    }
+        sp_acc =(Spinner) findViewById(R.id.spin_Account);
+}
 
     public void confirmClicked(View v){
 
@@ -107,6 +110,10 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
             email = et_email.getText().toString();
             gender = sp_gender.getSelectedItem().toString();
             age = et_age.getText().toString();
+
+            isTA = sp_acc.getSelectedItem().toString();
+
+
             if(!et_faculty.getText().toString().isEmpty()){
                 faculty = et_faculty.getText().toString();
             }
@@ -149,6 +156,8 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
             jsonText.value(age);
             jsonText.key("faculty");
             jsonText.value(faculty);
+            jsonText.key("isTA");
+            jsonText.value(isTA);
             jsonText.key("password");
             jsonText.value(password);
             jsonText.endObject();
@@ -171,6 +180,7 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
                 age = jsonObject.getString("age");
                 email = jsonObject.getString("email");
                 password = jsonObject.getString("password");
+                isTA = jsonObject.getString("isTA");
             }
             status = jsonObject.getString("status");
         } catch (Exception e) {
@@ -214,7 +224,7 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
                 if (msgType.equals(REQ_UPLOAD)){
                     saveAsPreferences();
                     startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                    Toast.makeText(getApplicationContext(),"Profile created seccessfully!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Profile created successfully!",Toast.LENGTH_LONG).show();
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Profile creation failed please try again later!",Toast.LENGTH_LONG).show();
@@ -233,6 +243,7 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
         editor.putString("gender",gender);
         editor.putString("age",age);
         editor.putString("email",email);
+        editor.putString("isTA",isTA);
         editor.putInt("id",id);
         editor.commit();
     }
