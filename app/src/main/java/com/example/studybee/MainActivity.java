@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createClicked(View v){
-        startActivity(new Intent(MainActivity.this, ZoomScheduleActivity.class));
+        startActivity(new Intent(MainActivity.this, HostActivity.class));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavMethod=new
