@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/profile_top_bg"
     android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context="com.example.studybee.RegisterActivity">
+
     <ScrollView
-        android:layout_width="fill_parent" android:layout_height="fill_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:id="@+id/login_layout"
@@ -24,14 +26,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/user"
+                android:drawableLeft="@drawable/zm_ic_sip_contacts_normal"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="username"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textSize="16sp" />
 
             <View
@@ -51,8 +53,8 @@
                 android:hint="First Name"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textSize="16sp" />
 
             <View
@@ -66,66 +68,72 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/email"
+                android:drawableLeft="@android:drawable/sym_action_email"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textSize="16sp" />
+
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1px"
                 android:background="@color/white" />
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/gender"
-                    android:drawableLeft="@drawable/gender"
-                    android:drawablePadding="5dp"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/gender"
+                    android:drawablePadding="5dp"
+                    android:gravity="left"
                     android:padding="5dp"
                     android:singleLine="true"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
                     android:text="Gender"
-                    android:gravity="left" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
                 <Spinner
-                    android:layout_marginTop="10dp"
+                    android:id="@+id/spin_Gender"
                     android:layout_width="70dp"
-                    android:padding="5dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_toRightOf="@+id/gender"
-                    android:id="@+id/spin_Gender"
-                    android:entries="@array/arrayGender"/>
+                    android:entries="@array/arrayGender"
+                    android:padding="5dp" />
+
                 <EditText
                     android:id="@+id/age"
-                    android:drawableLeft="@drawable/age"
-                    android:drawablePadding="8dp"
-                    android:inputType="number"
-                    android:textColorHint="@color/white"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@+id/spin_Gender"
-                    android:layout_marginLeft="20dp"
                     android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/age"
+                    android:drawablePadding="8dp"
+                    android:gravity="left"
+                    android:hint="Age"
+                    android:inputType="number"
                     android:padding="5dp"
                     android:singleLine="true"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:hint="Age"
-                    android:gravity="left" />
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp" />
 
             </RelativeLayout>
+
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1px"
@@ -137,14 +145,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/mh"
+                android:drawableLeft="@drawable/zm_icon_home"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="Faculty"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textSize="16sp" />
 
             <View
@@ -158,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/password"
+                android:drawableLeft="@android:drawable/ic_lock_idle_lock"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="Password"
@@ -166,8 +174,8 @@
                 android:maxLines="1"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textSize="16sp" />
 
             <View
@@ -181,7 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/confirm_password"
+                android:drawableLeft="@android:drawable/ic_lock_idle_lock"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="Confirm Password"
@@ -189,8 +197,8 @@
                 android:maxLines="1"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:textSize="16sp" />
 
 
@@ -232,18 +240,18 @@
 
                 <TextView
                     android:id="@+id/isTA"
-                    android:drawableLeft="@drawable/firstname"
-                    android:drawablePadding="5dp"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/firstname"
+                    android:drawablePadding="5dp"
+                    android:gravity="left"
                     android:padding="5dp"
                     android:singleLine="true"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
                     android:text="Account Type"
-                    android:gravity="left" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/spin_Account"
@@ -269,7 +277,7 @@
                 android:onClick="confirmClicked"
                 android:padding="5dp"
                 android:text="Register"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/white_greyish"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

@@ -112,6 +112,8 @@ public class RegisterActivity extends AppCompatActivity implements OnTaskComplet
             age = et_age.getText().toString();
 
             isTA = sp_acc.getSelectedItem().toString();
+//            Toast.makeText(getApplicationContext(),isTA,Toast.LENGTH_SHORT).show();
+
 
 
             if(!et_faculty.getText().toString().isEmpty()){
