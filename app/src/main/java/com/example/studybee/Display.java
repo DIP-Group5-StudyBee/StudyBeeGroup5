@@ -43,7 +43,7 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
     TextView[] textViews= new TextView[6];
 
     // Set host address of the WAMP Server
-    public static final String HOST = "10.27.208.223"; //use your IP address
+    public static final String HOST = "192.168.0.105"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";

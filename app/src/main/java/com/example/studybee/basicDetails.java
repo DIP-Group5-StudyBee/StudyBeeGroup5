@@ -24,7 +24,7 @@ public class basicDetails extends AppCompatActivity implements OnTaskCompleted{
     int id1;
 
     // Set host address of the WAMP Server
-    public static final String HOST = "10.27.208.223"; //use your IP address
+    public static final String HOST = "192.168.0.105"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
