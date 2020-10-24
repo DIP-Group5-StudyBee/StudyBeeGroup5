@@ -28,7 +28,7 @@
         <activity android:name=".basicDetails" />
         <activity android:name=".JoinActivity" />
         <activity android:name=".ZoomActivity2" />
-        <activity android:name=".Display" android:windowSoftInputMode="adjustPan">></activity>
+        <activity android:name=".Display" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".MainActivity">
 
             <intent-filter>
