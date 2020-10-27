@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,13 @@ import java.util.List;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    String isTA;
+    String msgType;
+    String groupSize;
+    String studyStyle;
+    String teachingAssistant;
+    String course;
 
     RecyclerView upcomingmRecycler;
     UpcomingMeetingAdapter upcomingMeetingAdapter;
@@ -75,7 +83,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void joinClicked(View v){
-        startActivity(new Intent(MainActivity.this, JoinActivity.class));
+        SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+        isTA = sh.getString("identity","");
+        if (isTA.equals("TA")) {
+            saveAsPreferences();
+            //Toast.makeText(getApplicationContext(),"Hello lobbyact", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, LobbyActivity.class));
+        } else {
+            //Toast.makeText(getApplicationContext(),"Hello FAIL", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, JoinActivity.class));
+        }
+
     }
 
     public void createClicked(View v){
@@ -123,6 +141,18 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, sharedPreferences.getString("username", ""));
         Log.d(TAG, sharedPreferences.getString("password", ""));
+    }
+
+    public void saveAsPreferences(){
+        //HOW TO ADD WILDCARD TO SELECTION???!!!!
+        SharedPreferences prefs = getSharedPreferences("preference",MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("msgType",msgType);
+        editor.putString("groupSize",groupSize);
+        editor.putString("studyStyle",studyStyle);
+        editor.putString("teachingAssistant",teachingAssistant);
+        editor.putString("course",course);
+        editor.commit();
     }
 
 }

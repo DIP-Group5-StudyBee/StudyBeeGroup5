@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
     String age;
     String password;
     String email;
+    String identity;
 
     int id;
     String status;
@@ -33,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.105"; //using your own IP address
+    public static final String HOST = "192.168.2.101"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -114,6 +115,7 @@ public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
                     age = jsonObject.getString("age");
                     email = jsonObject.getString("email");
                     password = jsonObject.getString("password");
+                    identity=jsonObject.getString("identity");
                     id=jsonObject.getInt("id");
                 }
             }
@@ -149,6 +151,7 @@ public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
         editor.putString("age",age);
         editor.putString("pw",password);
         editor.putString("email",email);
+        editor.putString("identity",identity);
         editor.putInt("id",id);
         editor.commit();
     }
