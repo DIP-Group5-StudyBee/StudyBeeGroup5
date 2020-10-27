@@ -1,5 +1,9 @@
 package com.example.studybee;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,14 +12,25 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.studybee.adapter.UpcomingMeetingAdapter;
+import com.example.studybee.model.UpcomingMeeting;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    RecyclerView upcomingmRecycler;
+    UpcomingMeetingAdapter upcomingMeetingAdapter;
+
     private static final String TAG = "";
     private BottomNavigationView bottomNavigationView;
 
@@ -33,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavMethod);
         getSupportFragmentManager().beginTransaction().replace(R.id.container,new HomeFragment()).commit();
 
+        //set up dummy data for model class for upcoming meetings
+        List<UpcomingMeeting> upcomingMeetingList = new ArrayList<>();
+
+        upcomingMeetingList.add(new UpcomingMeeting("LSY", "Java Programming", "Join us to code for fun!"));
+        upcomingMeetingList.add(new UpcomingMeeting("KSC", "Engine Comm", "Help with presentation pls"));
+        upcomingMeetingList.add(new UpcomingMeeting("ABC", "Alphabets", "Let's learn together"));
+
+        setUpcomingmRecycler(upcomingMeetingList);
+
         SharedPreferences loginprefs = getSharedPreferences("preference", MODE_PRIVATE);
 
         if (!loginprefs.contains("username") || loginprefs.getString("username", "").isEmpty()) {
@@ -40,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
+    }
+
+    private void setUpcomingmRecycler(List<UpcomingMeeting> upcomingMeetingList){
+        upcomingmRecycler = findViewById(R.id.upcomingmeeting_recycler);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        upcomingmRecycler.setLayoutManager(layoutManager);
+        upcomingMeetingAdapter = new UpcomingMeetingAdapter(this, upcomingMeetingList);
+        upcomingmRecycler.setAdapter(upcomingMeetingAdapter);
     }
 
     public void joinClicked(View v){
