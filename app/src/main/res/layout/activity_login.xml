@@ -15,6 +15,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/logo"
         android:contentDescription="Logo"
+        android:transitionName="transitionLogo"
         />
 
     <TextView
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="@string/welcome_back"
         android:textSize="44sp"
+        android:transitionName="transitionAppName"
         android:fontFamily="@font/averiasans"
         android:textColor="#000"/>
     
