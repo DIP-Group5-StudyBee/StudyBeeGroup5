@@ -73,4 +73,6 @@
     <string name="title_past">Past Meetings</string>
     <string name="find_your_study_buddies">Find your study buddies</string>
     <string name="study_bee">Study Bee</string>
+    <string name="please_sign_in_to_continue">Please sign in to continue</string>
+    <string name="welcome_back">Welcome Back!</string>
 </resources>

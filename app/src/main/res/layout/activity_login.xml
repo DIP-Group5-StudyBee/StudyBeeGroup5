@@ -1,28 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/profile_top_bg"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:background="@color/white_greyish"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp">
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/logo" />
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/logo"
+        android:contentDescription="Logo"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_back"
+        android:textSize="44sp"
+        android:fontFamily="@font/averiasans"
+        android:textColor="#000"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/please_sign_in_to_continue"
+        android:textSize="24sp"
+        android:fontFamily="@font/averiasans"
+        android:textStyle="italic"
+        android:textColor="#000" />
 
     <LinearLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
-        android:layout_height="464dp"
-        android:layout_below="@+id/logo"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingHorizontal="20dp">
+
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:id="@+id/username"-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:hint="Username"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:textSize="16sp"-->
+<!--                    -->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    tools:ignore="HardcodedText">-->
+
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"/>-->
+
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
         <EditText
             android:id="@+id/username"
@@ -30,10 +67,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
-            android:drawableLeft="@drawable/user"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:hint="username"
+            android:hint="Username"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:singleLine="true"
@@ -51,10 +87,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:drawableLeft="@drawable/password"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:hint="password"
+            android:hint="Password"
             android:inputType="textPassword"
             android:padding="10dp"
             android:singleLine="true"
@@ -97,4 +132,4 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
