@@ -81,7 +81,7 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
     TableLayout tbmeetingEvent;
     private final String tag = this.getClass().getSimpleName();
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.105"; //using your own IP address
+    public static final String HOST = "192.168.2.101"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -251,6 +251,30 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
                     joinPopupBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            /*
+                            //IDK how to update
+                            msgType = REQ_DOWNLOAD;
+                            // create data in JSON format
+                            JSONStringer jsonText = new JSONStringer();
+                            try {
+                                jsonText.object();
+                                jsonText.key("ta_availability");
+                                jsonText.value("Yes");
+                                jsonText.key("room_description");
+                                jsonText.value(room_description);
+                                jsonText.endObject();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            };
+
+                            String jsonString = jsonText.toString();
+                            //HttpAsyncTaskForJoin task = new HttpAsyncTaskForJoin(LobbyActivity.this);
+                            new HttpAsyncTaskForOnClick(this).execute("http://"+HOST+"/"+DIR+"/updateTA.php",jsonString);
+
+                            Toast.makeText(getApplicationContext(),"Toasty.",Toast.LENGTH_SHORT).show();
+                            */
+                            
+
                             SharedPreferences prefs = getSharedPreferences("preference",MODE_PRIVATE);
                             SharedPreferences.Editor editor = prefs.edit();
                             editor.putString("zoom_pw",meetingEvent.zoom_pw);

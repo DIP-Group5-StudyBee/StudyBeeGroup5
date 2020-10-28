@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     public void joinClicked(View v){
         SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
         isTA = sh.getString("identity","");
-        if (isTA.equals("TA")) {
+        if (isTA.equals("Teaching Assistant")) {
             saveAsPreferences();
             //Toast.makeText(getApplicationContext(),"Hello lobbyact", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainActivity.this, LobbyActivity.class));
@@ -147,11 +147,11 @@ public class MainActivity extends AppCompatActivity {
         //HOW TO ADD WILDCARD TO SELECTION???!!!!
         SharedPreferences prefs = getSharedPreferences("preference",MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("msgType",msgType);
-        editor.putString("groupSize",groupSize);
-        editor.putString("studyStyle",studyStyle);
-        editor.putString("teachingAssistant",teachingAssistant);
-        editor.putString("course",course);
+        editor.putString("msgType","%");
+        editor.putString("groupSize","%");
+        editor.putString("studyStyle","%");
+        editor.putString("teachingAssistant","Yes");
+        editor.putString("course","%");
         editor.commit();
     }
 
