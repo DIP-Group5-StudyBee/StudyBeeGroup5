@@ -17,7 +17,6 @@ public class HttpAsyncTaskForOnClick extends AsyncTask<String, Void, String> {
 
     private final static String TAG = "HttpAsynTask";
     private View.OnClickListener listener;
-    private View view;
 
     public HttpAsyncTaskForOnClick(View.OnClickListener listener) {
         this.listener=listener;
@@ -82,8 +81,8 @@ public class HttpAsyncTaskForOnClick extends AsyncTask<String, Void, String> {
     // onPostExecute displays the results of the AsyncTask.
     @Override
     protected void onPostExecute(String response) {
-        Log.d(TAG, response);
-        //listener.onClick(view);
+        //Log.d(TAG, response);
+        //listener.wait();
     }
 
 }

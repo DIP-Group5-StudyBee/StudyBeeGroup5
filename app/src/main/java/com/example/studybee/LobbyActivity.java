@@ -53,7 +53,7 @@ import us.zoom.sdk.ZoomSDKInitParams;
 import us.zoom.sdk.ZoomSDKInitializeListener;
 import us.zoom.sdk.StartMeetingOptions;
 
-public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
+public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted {
     String meeting_name;
     String group_size;
     String start_time;
@@ -65,12 +65,16 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
     String study_style;
     String teaching_assistant;
     String Course;
+    String isTA;
+    String meeting_id;
+    String user_id;
 
     int id;
     String groupSize;
     String studyStyle;
     String teachingAssistant;
     String course;
+    int flag = 0;
 
     ArrayList<MeetingEventObj> meetingEvents = new ArrayList<MeetingEventObj>();
     Button closePopupBtn, joinPopupBtn;
@@ -81,7 +85,7 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
     TableLayout tbmeetingEvent;
     private final String tag = this.getClass().getSimpleName();
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.2.101"; //using your own IP address
+    public static final String HOST = "192.168.86.24"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -98,19 +102,18 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
         tbmeetingEvent = (TableLayout) findViewById(R.id.tbmeetingEvent);
 
         SharedPreferences meetingTable = getSharedPreferences("preference", MODE_PRIVATE);
-        groupSize = meetingTable.getString("groupSize","");
-        studyStyle = meetingTable.getString("studyStyle","");
-        teachingAssistant = meetingTable.getString("teachingAssistant","");
-        course = meetingTable.getString("course","");
+        groupSize = meetingTable.getString("groupSize", "");
+        studyStyle = meetingTable.getString("studyStyle", "");
+        teachingAssistant = meetingTable.getString("teachingAssistant", "");
+        course = meetingTable.getString("course", "");
 //        Toast.makeText(getApplicationContext(),groupSize,Toast.LENGTH_LONG).show();
-
 
 
         msgType = REQ_DOWNLOAD;
         // create data in JSON format
         String jsonString = convertToJSON();
         HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
-        task.execute("http://"+HOST+"/"+DIR+"/retrieveMeeting.php",jsonString);
+        task.execute("http://" + HOST + "/" + DIR + "/retrieveMeeting.php", jsonString);
     }
 
 
@@ -123,20 +126,19 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
     }
 
 
-
     public void retrieveFromJSON(String message) {
         try {
             JSONObject jsonObject = new JSONObject(message);
             JSONArray resultArray = jsonObject.getJSONArray("results");
             meetingEvents.clear();
             msgType = jsonObject.getString("type");
-            if (msgType.equals(REQ_DOWNLOAD)){
+            if (msgType.equals(REQ_DOWNLOAD)) {
                 status = jsonObject.getString("status");
-                if(status.equals("OK")){
+                if (status.equals("OK")) {
 //                    Toast.makeText(getApplicationContext(),"Im ok",Toast.LENGTH_LONG).show();
-                    if (resultArray!=null) {
+                    if (resultArray != null) {
 //                        Toast.makeText(getApplicationContext(),String.valueOf(resultArray.length()),Toast.LENGTH_LONG).show();
-                        for(int i=0; i<resultArray.length(); i++){
+                        for (int i = 0; i < resultArray.length(); i++) {
                             JSONObject resultObj = resultArray.getJSONObject(i);
                             group_size = resultObj.getString("group_size");
 //                            teaching_assistant = jsonObject.getString("ta_requirement");
@@ -146,7 +148,8 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
                             room_description = resultObj.getString("room_description");
                             zoom_id = resultObj.getString("zoom_id");
                             zoom_pw = resultObj.getString("zoom_pw");
-                            meetingEvents.add(new MeetingEventObj(meeting_name, group_size, start_time, room_description, host_name, zoom_id, zoom_pw));
+                            meeting_id = resultObj.getString("meeting_id");
+                            meetingEvents.add(new MeetingEventObj(meeting_name, group_size, start_time, room_description, host_name, zoom_id, zoom_pw,meeting_id));
 //                            Toast.makeText(getApplicationContext(),String.valueOf(meetingEvents.size()),Toast.LENGTH_LONG).show();
                         }
                     }
@@ -194,32 +197,32 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
         title.setTypeface(Typeface.SERIF, Typeface.BOLD);
         TableRow.LayoutParams params = new TableRow.LayoutParams();
         params.span = 3;
-        title.setPadding(0,0,0,20);
+        title.setPadding(0, 0, 0, 20);
         rowTitle.addView(title, params);
 
         tbmeetingEvent.addView(rowTitle);
 
         // display rows
 //        Toast.makeText(getApplicationContext(),meetingEvents.size(),Toast.LENGTH_LONG).show();
-        for (int i=0; i<meetingEvents.size(); i++) {
+        for (int i = 0; i < meetingEvents.size(); i++) {
             final MeetingEventObj meetingEvent = meetingEvents.get(i);
 
             TableRow.LayoutParams imageParams;
-            imageParams = new TableRow.LayoutParams(120,120);
+            imageParams = new TableRow.LayoutParams(120, 120);
             imageParams.gravity = Gravity.LEFT;
             imageParams.column = 0;
 
             ImageView image = new ImageView((getApplicationContext()));
             image.setImageResource(R.drawable.done);
-            image.setPadding(5,10,5,10);
+            image.setPadding(5, 10, 5, 10);
 
             TextView nameView = new TextView(getApplicationContext());
-            nameView.setText(meetingEvent.meeting_name + "\n" + meetingEvent.host_name+"\n" + meetingEvent.start_time);
+            nameView.setText(meetingEvent.meeting_name + "\n" + meetingEvent.host_name + "\n" + meetingEvent.start_time);
             nameView.setTextSize(16);
             nameView.setLines(3);
             nameView.setTextColor(Color.BLACK); // WHITE, if background is black
             TableRow.LayoutParams nameViewParams;
-            nameViewParams = new TableRow.LayoutParams(600,250);
+            nameViewParams = new TableRow.LayoutParams(600, 250);
             nameViewParams.gravity = Gravity.LEFT;
             nameViewParams.column = 1;
 
@@ -228,15 +231,15 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
             btnShow.setText("VIEW");
             btnShow.setPadding(1, 10, 50, 10);
             TableRow.LayoutParams btnShowParams;
-            btnShowParams = new TableRow.LayoutParams(230,130);
-            btnShowParams.setMargins(5,10,5,10);
+            btnShowParams = new TableRow.LayoutParams(230, 130);
+            btnShowParams.setMargins(5, 10, 5, 10);
 
             btnShow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //instantiate the popup.xml layout file
                     LayoutInflater layoutInflater = (LayoutInflater) LobbyActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    View customView = layoutInflater.inflate(R.layout.popup,null);
+                    View customView = layoutInflater.inflate(R.layout.popup, null);
 
                     joinPopupBtn = (Button) customView.findViewById(R.id.joinPopupBtn);
                     closePopupBtn = (Button) customView.findViewById(R.id.closePopupBtn);
@@ -251,34 +254,69 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
                     joinPopupBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            /*
-                            //IDK how to update
-                            msgType = REQ_DOWNLOAD;
-                            // create data in JSON format
-                            JSONStringer jsonText = new JSONStringer();
-                            try {
-                                jsonText.object();
-                                jsonText.key("ta_availability");
-                                jsonText.value("Yes");
-                                jsonText.key("room_description");
-                                jsonText.value(room_description);
-                                jsonText.endObject();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            };
 
-                            String jsonString = jsonText.toString();
-                            //HttpAsyncTaskForJoin task = new HttpAsyncTaskForJoin(LobbyActivity.this);
-                            new HttpAsyncTaskForOnClick(this).execute("http://"+HOST+"/"+DIR+"/updateTA.php",jsonString);
 
-                            Toast.makeText(getApplicationContext(),"Toasty.",Toast.LENGTH_SHORT).show();
-                            */
-                            
+                            //Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_SHORT).show();
+                            SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+                            isTA = sh.getString("identity","");
 
-                            SharedPreferences prefs = getSharedPreferences("preference",MODE_PRIVATE);
+                            //ADD CRITERIA TO CHECK IF TA
+                            if (isTA.equals("Teaching Assistant")) {
+                                msgType = REQ_DOWNLOAD;
+                                // create data in JSON format
+                                JSONStringer jsonText = new JSONStringer();
+                                try {
+                                    jsonText.object();
+                                    jsonText.key("type");
+                                    jsonText.value(msgType);
+                                    jsonText.key("ta_availability");
+                                    jsonText.value("Yes");
+                                    jsonText.key("room_description");
+                                    jsonText.value(meetingEvent.room_description);
+                                    jsonText.endObject();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+
+                                //here
+                                String jsonString = jsonText.toString();
+                                new HttpAsyncTaskForOnClick(this).execute("http://" + HOST + "/" + DIR + "/updateTA.php", jsonString);
+
+                                //Toast.makeText(getApplicationContext(), "Toasty.", Toast.LENGTH_SHORT).show();
+
+                                //Other Query below
+
+                                // create data in JSON format
+                                JSONStringer jsonTextI = new JSONStringer();
+                                user_id = String.valueOf(sh.getInt("id",0));
+                                try {
+                                    jsonTextI.object();
+                                    jsonTextI.key("type");
+                                    jsonTextI.value(msgType);
+                                    jsonTextI.key("user_id");
+                                    jsonTextI.value(user_id);
+                                    jsonTextI.key("meeting_id");
+                                    jsonTextI.value(meetingEvent.meeting_id);
+                                    jsonTextI.key("meeting_name");
+                                    jsonTextI.value(meetingEvent.meeting_name);
+                                    jsonTextI.key("meeting_time");
+                                    jsonTextI.value(meetingEvent.start_time);
+                                    jsonTextI.endObject();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+
+                                //here
+                                String jsonStringI = jsonTextI.toString();
+                                new HttpAsyncTaskForOnClick(this).execute("http://" + HOST + "/" + DIR + "/insertMeetingrecord.php", jsonStringI);
+                            }
+
+                            SharedPreferences prefs = getSharedPreferences("preference", MODE_PRIVATE);
                             SharedPreferences.Editor editor = prefs.edit();
-                            editor.putString("zoom_pw",meetingEvent.zoom_pw);
-                            editor.putString("zoom_id",meetingEvent.zoom_id);
+                            editor.putString("zoom_pw", meetingEvent.zoom_pw);
+                            editor.putString("zoom_id", meetingEvent.zoom_id);
                             editor.commit();
 
                             startActivity(new Intent(LobbyActivity.this, ZoomActivity2.class));
@@ -286,6 +324,8 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
 
                         }
                     });
+
+
                     //close the popup window on button click
                     closePopupBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -298,22 +338,24 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted{
 
             TableRow row = new TableRow(this);
             row.setGravity(Gravity.CENTER_HORIZONTAL);
-            TableLayout.LayoutParams tableRowParams=
+            TableLayout.LayoutParams tableRowParams =
                     new TableLayout.LayoutParams
-                            (TableLayout.LayoutParams.FILL_PARENT,TableLayout.LayoutParams.WRAP_CONTENT);
+                            (TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT);
 
             tableRowParams.setMargins(50, 0, 50, 0);
 
             row.setLayoutParams(tableRowParams);
 
-            row.addView(image,imageParams);
-            row.addView(nameView,nameViewParams);
-            row.addView(btnShow,btnShowParams);
+            row.addView(image, imageParams);
+            row.addView(nameView, nameViewParams);
+            row.addView(btnShow, btnShowParams);
 
             tbmeetingEvent.addView(row);
         }
 
+
     }// refreshTable
+
 
 //    public void createScheduleMeeting(View view){
 //        startActivity(new Intent(LobbyActivity.this, ZoomScheduleActivity.class));
