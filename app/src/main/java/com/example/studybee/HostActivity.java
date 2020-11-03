@@ -33,6 +33,7 @@ public class HostActivity extends AppCompatActivity implements OnTaskCompleted{
     String studyStyle;
     String teachingAssistant;
     String course;
+    String isTA;
 
     int id;
     String status;
@@ -41,7 +42,7 @@ public class HostActivity extends AppCompatActivity implements OnTaskCompleted{
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.105"; //use your IP address
+    public static final String HOST = "192.168.0.101"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -135,6 +136,15 @@ public class HostActivity extends AppCompatActivity implements OnTaskCompleted{
             jsonText.value(teachingAssistant);
             jsonText.key("course_requirement");
             jsonText.value(course);
+            SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+            isTA = sh.getString("identity","");
+            if (isTA.equals("Teaching Assistant")) {
+                jsonText.key("ta_availability");
+                jsonText.value("Yes");
+            } else {
+                jsonText.key("ta_availability");
+                jsonText.value("No");
+            }
             jsonText.endObject();
 
 
