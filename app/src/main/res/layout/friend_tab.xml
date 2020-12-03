@@ -267,6 +267,7 @@
                 android:id="@+id/nameList1"
                 android:layout_width="117dp"
                 android:layout_height="27dp"
+                android:text="Ah Wang"
                 andriod:layout_constraintStart_toStartOf="parent"
                 andriod:layout_constraintTop_toBottomOf="@+id/nameTitle" />
 
@@ -275,6 +276,7 @@
                 android:layout_width="240dp"
                 android:layout_height="27dp"
                 android:layout_weight="1"
+                android:text="Woof@e.ntu.edu.sg"
                 andriod:layout_constraintEnd_toEndOf="parent"
                 andriod:layout_constraintTop_toBottomOf="@+id/emailTitle" />
 
@@ -282,6 +284,7 @@
                 android:id="@+id/nameList2"
                 android:layout_width="117dp"
                 android:layout_height="27dp"
+                android:text="Ah Meow"
                 andriod:layout_constraintStart_toStartOf="parent"
                 andriod:layout_constraintTop_toBottomOf="@+id/nameList1" />
 
@@ -290,6 +293,7 @@
                 android:layout_width="240dp"
                 android:layout_height="27dp"
                 android:layout_weight="1"
+                android:text="Meow@e.ntu.edu.sg"
                 andriod:layout_constraintEnd_toEndOf="parent"
                 andriod:layout_constraintTop_toBottomOf="@+id/emailList1" />
 

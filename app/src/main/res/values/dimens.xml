@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="top_bg_height">@dimen/_80sdp</dimen>
+    <dimen name="create_card_img_dimen">@dimen/_64sdp</dimen>
+    <dimen name="create_txt">@dimen/_18ssp</dimen>
+    <dimen name="create_description_txt">@dimen/_12ssp</dimen>
+    <dimen name="upcoming_item_padding">@dimen/_14sdp</dimen>
+    <dimen name="upcoming_item_img_dimen">@dimen/_42sdp</dimen>
+    <dimen name="upcoming_txt_margin_top">@dimen/_14sdp</dimen>
+    <dimen name="upcoming_meeting_text">@dimen/_24ssp</dimen>
+    <dimen name="recycler_view_top_margin">@dimen/_13sdp</dimen>
+</resources>

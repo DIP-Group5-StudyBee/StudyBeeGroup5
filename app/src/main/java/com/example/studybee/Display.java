@@ -31,19 +31,14 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
     ImageButton NButton1;
     ImageButton NButton2;
 
-    String friendfirstname;
-    String friendemail;
-    String myuser = "lsy";
     TextView[] showViews= new TextView[6];
 
     int j,k;
-    private final String TAG = this.getClass().getSimpleName();
-    int check =0;
 
     TextView[] textViews= new TextView[6];
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.105"; //use your IP address
+    public static final String HOST = "192.168.86.178"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -55,12 +50,6 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friend_tab);
-
-        //String jsonString = convertToJSON();
-        //Toast.makeText(getApplicationContext(), firstname, Toast.LENGTH_LONG).show();
-        //access database network
-        //HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
-        //task.execute("http://" + HOST + "/" + DIR + "/checkName.php", jsonString);
 
         et_firstName = (EditText) findViewById(R.id.editTextTextPersonName);
         SButton = findViewById(R.id.button);
@@ -111,25 +100,17 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
             }
         });
 
-
-
-
-        //Intent intent = new Intent(this, Friends.class);
-        // Retrieve the message entered and put into the Intent
     }
 
     public void SButtonOnClickHandler(View v){
         if(et_firstName.getText().toString().isEmpty()||et_firstName.getText().toString()== "Enter name")
             Toast.makeText(getApplicationContext(), "Please enter a name.", Toast.LENGTH_LONG).show();
         else {
-            //Intent intent = new Intent(this, Friends.class);
             // Retrieve the message entered and put into the Intent
             msgType = REQ_DOWNLOAD;
             firstname = et_firstName.getText().toString();
             String jsonString = convertToJSON();
-            //Toast.makeText(getApplicationContext(), firstname, Toast.LENGTH_LONG).show();
             //access database network
-            check++;
             HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
             task.execute("http://" + HOST + "/" + DIR + "/checkName.php", jsonString);
 
@@ -137,6 +118,7 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
 
     }
     public void RefreshButtonOnClickHandler(View v) {
+        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
         showViews[0] = (TextView) findViewById(R.id.nameList1);
         showViews[1] = (TextView) findViewById(R.id.emailList1);
         showViews[2] = (TextView) findViewById(R.id.nameList2);
@@ -145,62 +127,10 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
         showViews[5] = (TextView) findViewById(R.id.nameList3);
 
         showViews[0].setText("tommy");
-        showViews[1].setText("ss@e.ntu.edu.sg");
+        showViews[1].setText("tom@e.ntu.edu.sg");
         showViews[2].setText("Santa");
         showViews[3].setText("San@e.ntu.edu.sg");
-        //showViews[4].setText("jack");
-        //showViews[5].setText("sss@e.ntu.edu.sg");
     }
-       /* msgType = REQ_DOWNLOAD;
-        firstname = et_firstName.getText().toString();
-        String jsonString = convertToJSON1();
-        //Toast.makeText(getApplicationContext(), firstname, Toast.LENGTH_LONG).show();
-        //access database network
-        HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
-        task.execute("http://" + HOST + "/" + DIR + "/findfriend1.php", jsonString);
-    }
-    private String convertToJSON1() {
-        JSONStringer jsonText = new JSONStringer();
-        try {
-
-            jsonText.object();
-            jsonText.key("type");
-            jsonText.value(msgType);
-            //jsonText.key("id");
-            //jsonText.value(id);
-            jsonText.key("username");
-            jsonText.value(myuser);
-            jsonText.key("firstname");
-            jsonText.value(firstname);
-            jsonText.key("faculty");
-            jsonText.value(faculty);
-            jsonText.key("email");
-            jsonText.value(email);
-            jsonText.endObject();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return jsonText.toString();
-    }
-    //1
-    public void retrieveFromJSON1(String message) {
-        try {
-            JSONObject jsonObject = new JSONObject(message);
-            msgType = jsonObject.getString("type");
-            if (msgType.equals(REQ_DOWNLOAD)) {
-                status = jsonObject.getString("status");
-                if (status.equals("OK")) {
-                    // id = jsonObject.getString("id");
-                    friendfirstname = jsonObject.getString("firstname");
-                    friendemail = jsonObject.getString("email");
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 
     private String convertToJSON() {
         JSONStringer jsonText = new JSONStringer();
@@ -249,17 +179,14 @@ public void retrieveFromJSON(String message) {
     @Override
     public void onTaskCompleted(String response) {
 
-        //if(check >= 1) {
             //get data from database
             retrieveFromJSON(response);
 
             if ((msgType.equals(REQ_DOWNLOAD)) && status.equals("OK")) {
                 //display data
-                //Toast.makeText(getApplicationContext(), "No match found!2", Toast.LENGTH_SHORT).show();
                 int comma = 1;
                 comma += countCommas();
                 String fusername[] = username.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\"", "").replaceAll("\"", "").split(",");
-                //Toast.makeText(getApplicationContext(), fusername[0], Toast.LENGTH_LONG).show();
                 textViews[0] = (TextView) findViewById(R.id.textViewA);
                 textViews[1] = (TextView) findViewById(R.id.textViewB);
                 textViews[2] = (TextView) findViewById(R.id.textViewC);
@@ -312,38 +239,11 @@ public void retrieveFromJSON(String message) {
                     textViews[k].setText(fusername[k]);
                 }
 
-
-
-           /* TextView txtDisplay = (TextView) findViewById(R.id.textView2);//set display text
-        txtDisplay.setText(fusername[0]);//display text
-            TextView txtDisplay1 = (TextView) findViewById(R.id.textView3);//set display text
-            txtDisplay1.setText(fusername[1]);//display text
-            TextView txtDisplay2 = (TextView) findViewById(R.id.textView4);//set display text
-            txtDisplay2.setText(fusername[2]);//display text*/
-
             } else {
                 Toast.makeText(getApplicationContext(), username, Toast.LENGTH_SHORT).show();
                 return;
             }
         }
-        /*else {
-            retrieveFromJSON1(response);
-            String fname[] = friendfirstname.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\"", "").replaceAll("\"", "").split(",");
-            String fmail[] = friendemail.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\"", "").replaceAll("\"", "").split(",");
-            showViews[0] = (TextView) findViewById(R.id.nameList1);
-            showViews[1] = (TextView) findViewById(R.id.emailList1);
-            showViews[2] = (TextView) findViewById(R.id.nameList2);
-            showViews[3] = (TextView) findViewById(R.id.emailList2);
-            showViews[4] = (TextView) findViewById(R.id.nameList3);
-            showViews[5] = (TextView) findViewById(R.id.nameList3);
-
-            showViews[0].setText(fname[0]);
-            showViews[1].setText(fmail[0]);
-            showViews[2].setText(fname[1]);
-            showViews[3].setText(fmail[1]);
-            showViews[4].setText(fname[2]);
-            showViews[5].setText(fmail[2]);
-        }*/
         public int countCommas(){
             int commas =0;
             for(j =0; j<username.length();j++)

@@ -19,12 +19,12 @@ public class basicDetails extends AppCompatActivity implements OnTaskCompleted{
     String msgType;
     String username, sfacu, sname,smail;
     String status;
-    String myuser = "lsy";// hard coded need to retrieve information from user profile
+    String myuser = "lsy";
     Button btnfriend;
     int id1;
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.105"; //use your IP address
+    public static final String HOST = "192.168.86.178"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -54,7 +54,6 @@ public class basicDetails extends AppCompatActivity implements OnTaskCompleted{
         }
     public void SButtonOnClickHandler(View v){
         String jsonString = convertToJSON();
-        //Toast.makeText(getApplicationContext(), "Successfully Added.", Toast.LENGTH_LONG).show();
         //access database network
         HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
         task.execute("http://" + HOST + "/" + DIR + "/addFriend.php", jsonString);
@@ -100,12 +99,7 @@ public class basicDetails extends AppCompatActivity implements OnTaskCompleted{
     public void onTaskCompleted(String response) {
         retrieveFromJSON(response);
         btnfriend = findViewById(R.id.button13);
-        //if ((msgType.equals(REQ_DOWNLOAD))  status.equals("OK")) {
         btnfriend.setVisibility(View.INVISIBLE);
         Toast.makeText(getApplicationContext(), "Successfully Added.", Toast.LENGTH_LONG).show();
-        // }
-        //else {
-        // Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT).show();
         return;
-        //}
     }}
