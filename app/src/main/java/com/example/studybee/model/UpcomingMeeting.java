@@ -2,37 +2,27 @@ package com.example.studybee.model;
 
 public class UpcomingMeeting {
 
-    String host_name;
-    String room_name;
-    String room_description;
+    String title;
+    String topic;
+    String time;
 
-    public UpcomingMeeting(String host_name, String room_name, String room_description) {
-        this.host_name = host_name;
-        this.room_name = room_name;
-        this.room_description = room_description;
+    public UpcomingMeeting(String title, String topic, String time) {
+        this.title = title;
+        this.topic = topic;
+        this.time = time;
     }
 
-    public String getHost_name() {
-        return host_name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setHost_name(String host_name) {
-        this.host_name = host_name;
+
+    public String getTopic() {
+        return topic;
     }
 
-    public String getRoom_name() {
-        return room_name;
-    }
 
-    public void setRoom_name(String room_name) {
-        this.room_name = room_name;
-    }
-
-    public String getRoom_description() {
-        return room_description;
-    }
-
-    public void setRoom_description(String room_description) {
-        this.room_description = room_description;
+    public String getTime() {
+        return time;
     }
 }

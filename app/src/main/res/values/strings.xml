@@ -75,4 +75,6 @@
     <string name="study_bee">Study Bee</string>
     <string name="please_sign_in_to_continue">Please sign in to continue</string>
     <string name="welcome_back">Welcome Back!</string>
+    <string name="host_your_study_group_meeting">Host your study group\nmeeting</string>
+    <string name="select_study_group_meeting_nfrom_the_lobby">Select study group meeting\nfrom the lobby</string>
 </resources>

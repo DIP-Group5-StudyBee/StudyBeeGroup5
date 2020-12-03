@@ -1,83 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/profile_top_bg"
+    android:id="@+id/motion_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    app:layoutDescription="@xml/fragment_home_scene"
+    tools:context=".HomeFragment"
+    android:background="@color/white">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@id/container" >
-
-    </FrameLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bottomNav"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white_greyish"
-        app:menu="@layout/menu"/>
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="71dp"
-        android:layout_height="61dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        android:background="@drawable/logo"
-        android:contentDescription="logo" />
 
     <LinearLayout
+        android:id="@+id/center_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_above="@id/upcoming_container"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/upcoming_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_background_img">
 
-        <Button
-            android:id="@+id/joinButton"
-            android:layout_width="125dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:background="@color/white_greyish"
-            android:contentDescription="join"
-            android:gravity="center"
-            android:onClick="joinClicked"
-            android:padding="3dp"
-            android:text="Join"
-            android:textColor="@color/white_greyish"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
+        <androidx.cardview.widget.CardView
             android:id="@+id/createButton"
-            android:layout_width="128dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp"
-            android:background="@color/white_greyish"
-            android:contentDescription="create"
-            android:onClick="createClicked"
-            android:padding="3dp"
-            android:text="Create"
-            android:textColor="@color/white_greyish"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_margin="@dimen/recycler_view_top_margin"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="4dp">
 
-        <Button
-            android:id="@+id/LogoutBtn"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/_8sdp">
+
+                <ImageView
+                    android:id="@+id/icon_img_create"
+                    android:layout_width="@dimen/create_card_img_dimen"
+                    android:layout_height="@dimen/create_card_img_dimen"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/iconscreate" />
+
+                <TextView
+                    android:id="@+id/create_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/icon_img_create"
+                    android:fontFamily="@font/averiasanslibre_bold"
+                    android:text="@string/zm_btn_create"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/create_txt"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/create_description_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/create_txt"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/icon_img_create"
+                    android:fontFamily="@font/averiasanslibre_regular"
+                    android:text="@string/host_your_study_group_meeting"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/create_description_txt" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/joinButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="logOutClick"
-            android:text="Logout" />
+            android:layout_margin="@dimen/recycler_view_top_margin"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8sdp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/icon_img_join"
+                    android:layout_width="@dimen/create_card_img_dimen"
+                    android:layout_height="@dimen/create_card_img_dimen"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/iconsjoin" />
+
+                <TextView
+                    android:id="@+id/join_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/icon_img_join"
+                    android:fontFamily="@font/averiasanslibre_bold"
+                    android:text="@string/zm_bo_btn_join_bo"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/create_txt"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/join_description_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/join_txt"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/icon_img_join"
+                    android:fontFamily="@font/averiasanslibre_regular"
+                    android:text="@string/select_study_group_meeting_nfrom_the_lobby"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/create_description_txt" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/upcoming_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/upcoming_meetings_container_background"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averiasanslibre_italic"
+            android:text="@string/title_upcoming"
+            android:textColor="@color/black"
+            android:textSize="@dimen/upcoming_meeting_text"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upcoming_meetings_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/recycler_view_top_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/new_upcoming_meeting_item"
+            android:orientation="horizontal"
+            android:clipToPadding="false"
+            android:paddingStart="0dp"
+            android:paddingEnd="48dp" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/top_background_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_bg_height"
+        android:background="@drawable/topbg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/host_meeting_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:alpha="0"
+        android:fontFamily="@font/averiasanslibre_regular"
+        android:gravity="center"
+        android:text="Host Meeting"
+        android:textColor="@color/black"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/host_constrained_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            layout="@layout/activity_host"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

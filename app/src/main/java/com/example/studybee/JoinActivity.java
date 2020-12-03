@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -36,7 +37,7 @@ public class JoinActivity extends AppCompatActivity{
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.105"; //use your IP address
+    public static final String HOST = "172.20.14.231"; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
@@ -53,7 +54,7 @@ public class JoinActivity extends AppCompatActivity{
         style_Spinner= (Spinner) findViewById(R.id.StyleSpinner);
         ta_Spinner= (Spinner) findViewById(R.id.TASpinner);
         fac_Spinner= (Spinner) findViewById(R.id.FACSpinner);
-
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item,list);
         SubmitBtn=(Button) findViewById(R.id.SubmitBtn);
     }
 

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studybee.R;
@@ -29,7 +28,8 @@ public class UpcomingMeetingAdapter extends RecyclerView.Adapter<UpcomingMeeting
     @Override
     public UpcomingMeetingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.upcoming_meeting_row_item, parent, false);
+        //inflating new upcoming meeting card item
+        View view = LayoutInflater.from(context).inflate(R.layout.new_upcoming_meeting_item, parent, false);
         return new UpcomingMeetingViewHolder(view);
 
     }
@@ -37,9 +37,9 @@ public class UpcomingMeetingAdapter extends RecyclerView.Adapter<UpcomingMeeting
     @Override
     public void onBindViewHolder(@NonNull UpcomingMeetingViewHolder holder, int position) {
 
-        holder.host_name.setText(upcomingMeetingList.get(position).getHost_name());
-        holder.room_name.setText(upcomingMeetingList.get(position).getRoom_name());
-        holder.room_description.setText(upcomingMeetingList.get(position).getRoom_description());
+        holder.title.setText(upcomingMeetingList.get(position).getTitle());
+        holder.topic.setText(upcomingMeetingList.get(position).getTopic());
+        holder.time.setText(upcomingMeetingList.get(position).getTime());
 
     }
 
@@ -48,15 +48,17 @@ public class UpcomingMeetingAdapter extends RecyclerView.Adapter<UpcomingMeeting
         return upcomingMeetingList.size();
     }
 
-    public static final class UpcomingMeetingViewHolder extends RecyclerView.ViewHolder{
+    public static final class UpcomingMeetingViewHolder extends RecyclerView.ViewHolder {
 
-        TextView host_name, room_name, room_description;
+        TextView title, topic, time;
 
         public UpcomingMeetingViewHolder(@NonNull View itemView) {
             super(itemView);
-            host_name = itemView.findViewById(R.id.host_name);
-            room_name = itemView.findViewById(R.id.room_name);
-            room_description = itemView.findViewById(R.id.room_description);
+
+            //initializing the widgets by id in the new upcoming meeting card item
+            title = itemView.findViewById(R.id.title);
+            topic = itemView.findViewById(R.id.topic_value);
+            time = itemView.findViewById(R.id.time_txt);
 
 
         }
