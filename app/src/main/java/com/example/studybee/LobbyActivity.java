@@ -85,7 +85,7 @@ public class LobbyActivity extends AppCompatActivity implements OnTaskCompleted 
     TableLayout tbmeetingEvent;
     private final String tag = this.getClass().getSimpleName();
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.86.24"; //using your own IP address
+    public static final String HOST = "192.168.86.178"; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
