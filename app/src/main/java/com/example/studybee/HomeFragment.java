@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
                     startActivity(new Intent(getContext(), LobbyActivity.class));
                 } else {
                     //Toast.makeText(getApplicationContext(),"Hello FAIL", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getContext(), JoinActivity.class));
+                    startActivity(new Intent(getContext(), HostActivity.class));
                 }
             }
         });

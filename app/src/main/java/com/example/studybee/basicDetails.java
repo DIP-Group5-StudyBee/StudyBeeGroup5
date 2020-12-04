@@ -11,7 +11,9 @@ import android.widget.Toast;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 
-public class basicDetails extends AppCompatActivity implements OnTaskCompleted{
+import static com.example.studybee.initsdk.AuthConstants.ip;
+
+public class basicDetails extends AppCompatActivity implements AuthConstants, OnTaskCompleted{
 
     TextView tname;
     TextView tfaculty;
@@ -24,7 +26,7 @@ public class basicDetails extends AppCompatActivity implements OnTaskCompleted{
     int id1;
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.86.178"; //use your IP address
+    public static final String HOST = ip; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
