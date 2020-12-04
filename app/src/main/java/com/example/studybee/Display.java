@@ -17,8 +17,10 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.studybee.initsdk.AuthConstants.ip;
 
-public class Display extends AppCompatActivity implements OnTaskCompleted{
+
+public class Display extends AppCompatActivity implements AuthConstants, OnTaskCompleted{
     String username;
     String firstname;
     String status;
@@ -38,7 +40,7 @@ public class Display extends AppCompatActivity implements OnTaskCompleted{
     TextView[] textViews= new TextView[6];
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.86.178"; //use your IP address
+    public static final String HOST = ip; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";

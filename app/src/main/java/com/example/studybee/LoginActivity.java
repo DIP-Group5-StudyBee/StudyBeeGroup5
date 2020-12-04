@@ -13,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 
-public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
+import static com.example.studybee.initsdk.AuthConstants.ip;
+
+public class LoginActivity extends AppCompatActivity implements AuthConstants, OnTaskCompleted{
     EditText et_username;
     EditText et_password;
     Button login_Btn;
@@ -34,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements OnTaskCompleted{
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.86.178"; //using your own IP address
+    public static final String HOST = ip; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";

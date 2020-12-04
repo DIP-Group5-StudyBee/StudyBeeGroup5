@@ -1,12 +1,16 @@
-package com.example.studybee;
-
+package com.example.studybee.otherfeatures.scheduleforloginuser;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,10 +20,24 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.studybee.HostActivity;
+import com.example.studybee.HttpAsyncTaskForLogin;
+import com.example.studybee.LoginActivity;
+import com.example.studybee.MainActivity;
+import com.example.studybee.OnTaskCompleted;
+import com.example.studybee.ProfileEditActivity;
+import com.example.studybee.R;
+import com.example.studybee.ui.InitAuthSDKActivity;
+
+import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,9 +55,11 @@ import us.zoom.sdk.PreMeetingError;
 import us.zoom.sdk.PreMeetingService;
 import us.zoom.sdk.PreMeetingServiceListener;
 import us.zoom.sdk.ZoomSDK;
-import com.example.studybee.R;
 
-public class ZoomScheduleActivity extends Activity implements PreMeetingServiceListener, OnClickListener, AdapterView.OnItemSelectedListener {
+import static com.example.studybee.initsdk.AuthConstants.ip;
+
+
+public class ScheduleMeetingExampleActivity extends Activity implements PreMeetingServiceListener, OnClickListener, AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, OnTaskCompleted {
 
     private Button mBtnSchedule;
 
@@ -109,11 +129,24 @@ public class ZoomScheduleActivity extends Activity implements PreMeetingServiceL
 
     private View layoutCountry;
 
+    String msgType,zoom_id,zoom_pw,start_time,status;
+    // Set host address of the WAMP Server
+    public static final String HOST = ip; //using your own IP address
+
+    // Set virtual directory of the host website
+    public static final String DIR = "myproject";
+
+    // Set request ID for all HTTP requests
+    private static final String REQ_DOWNLOAD = "1002";
+
+    int day, month, year, hour, minute,localmeetingid;
+    int myday, myMonth, myYear, myHour, myMinute;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_schedulemeeting);
+        setContentView(R.layout.schedule_meeting);
 
         mBtnSchedule = (Button) findViewById(R.id.btnSchedule);
         mBtnSchedule.setOnClickListener(this);
@@ -152,7 +185,7 @@ public class ZoomScheduleActivity extends Activity implements PreMeetingServiceL
         mChkLanguageInterpretation = findViewById(R.id.chkLanguageInterpretation);
 
         mEditAlternativeHost = findViewById(R.id.edidAlternativeHost);
-
+      
 
         mOptionPublicMeeting = findViewById(R.id.optionPublicMeeting);
         mChkPublicMeeting = findViewById(R.id.chkPublicMeeting);
@@ -184,16 +217,74 @@ public class ZoomScheduleActivity extends Activity implements PreMeetingServiceL
             }
         }
 
+        Button button = findViewById(R.id.btnPick);
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ScheduleMeetingExampleActivity.this, ScheduleMeetingExampleActivity.this,year, month,day);
+                datePickerDialog.show();
+            }
+        });
+
         initDateAndTime();
         intUI();
         setCheckBoxListener();
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        myYear = year;
+        myday = dayOfMonth;
+        myMonth = month;
+        Calendar c = Calendar.getInstance();
+        hour = c.get(Calendar.HOUR);
+        minute = c.get(Calendar.MINUTE);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(ScheduleMeetingExampleActivity.this, ScheduleMeetingExampleActivity.this, hour, minute, DateFormat.is24HourFormat(this));
+        timePickerDialog.show();
+    }
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        mTimeZoneId = TimeZone.getDefault().getID();
+        mTxtTimeZoneName.setText(ZmTimeZoneUtils.getFullName(mTimeZoneId));
+
+        myHour = hourOfDay;
+        myMinute = minute;
+
+        Date timeFrom = new Date(myYear-1900,myMonth,myday,myHour,myMinute);
+        Date timeTo = new Date(myYear-1900,myMonth,myday,myHour+2,myMinute);
+
+        mDateFrom = Calendar.getInstance();
+        mDateFrom.setTime(timeFrom);
+
+        mDateTo = Calendar.getInstance();
+        mDateTo.setTime(timeTo);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateStr = sdf.format(mDateFrom.getTime());
+        mTxtDate.setText(dateStr);
+
+        if (mDateFrom.get(Calendar.MINUTE) < 10) {
+            mTxtTimeFrom.setText(mDateFrom.get(Calendar.HOUR_OF_DAY) + ":0" + mDateFrom.get(Calendar.MINUTE));
+        } else {
+            mTxtTimeFrom.setText(mDateFrom.get(Calendar.HOUR_OF_DAY) + ":" + mDateFrom.get(Calendar.MINUTE));
+        }
+        if (mDateFrom.get(Calendar.MINUTE) < 10) {
+            mTxtTimeTo.setText(mDateTo.get(Calendar.HOUR_OF_DAY) + ":0" + mDateTo.get(Calendar.MINUTE));
+        } else {
+            mTxtTimeTo.setText(mDateTo.get(Calendar.HOUR_OF_DAY) + ":" + mDateTo.get(Calendar.MINUTE));
+        }
     }
 
     private void initDateAndTime() {
         mTimeZoneId = TimeZone.getDefault().getID();
         mTxtTimeZoneName.setText(ZmTimeZoneUtils.getFullName(mTimeZoneId));
 
-        Date timeFrom = new Date(System.currentTimeMillis() + 3600 * 1000);
+//        Date timeFrom = new Date(myYear,myMonth,myday,myHour,myMinute);
+        Date timeFrom = new Date(System.currentTimeMillis());
         Date timeTo = new Date(System.currentTimeMillis() + 7200 * 1000);
 
         mDateFrom = Calendar.getInstance();
@@ -327,7 +418,7 @@ public class ZoomScheduleActivity extends Activity implements PreMeetingServiceL
         }
         refreshSelectCountry();
 
-        if (mPreMeetingService!=null && mPreMeetingService.isDisabledPMI()) {
+        if (mPreMeetingService.isDisabledPMI()) {
             findViewById(R.id.optionUsePMI).setVisibility(View.GONE);
         } else {
             findViewById(R.id.optionUsePMI).setVisibility(View.VISIBLE);
@@ -647,12 +738,83 @@ public class ZoomScheduleActivity extends Activity implements PreMeetingServiceL
     public void onScheduleMeeting(int result, long meetingNumber) {
         if (result == PreMeetingError.PreMeetingError_Success) {
             Toast.makeText(this, "Schedule successfully. Meeting's unique id is " + meetingNumber, Toast.LENGTH_LONG).show();
+
+            //update meeting
+            SharedPreferences pref = getSharedPreferences("preference", MODE_PRIVATE);
+            localmeetingid = pref.getInt("localmeetingid",0);
+            msgType = REQ_DOWNLOAD;
+            zoom_pw = mEdtPassword.getText().toString().trim();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String dateStr = sdf.format(mDateFrom.getTime());
+            String timeStr = mTxtTimeFrom.getText().toString().trim();
+            start_time = dateStr+" " +timeStr;
+
+            // create data in JSON format
+            String jsonString = convertToJSON(meetingNumber);
+
+            // call AsynTask to perform network operation on separate thread
+            HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
+            task.execute("http://"+HOST+"/"+DIR+"/updatemeeting.php",
+                    jsonString);
+
+            startActivity(new Intent(ScheduleMeetingExampleActivity.this, MainActivity.class));
             finish();
         } else {
             Toast.makeText(this, "Schedule failed result code =" + result, Toast.LENGTH_LONG).show();
             mBtnSchedule.setEnabled(true);
         }
+    }
 
+    public String convertToJSON(long meetingNumber) {
+        JSONStringer jsonText = new JSONStringer();
+        try {
+            jsonText.object();
+            jsonText.key("type");
+            jsonText.value(msgType);
+            jsonText.key("localmeetingid");
+            jsonText.value(localmeetingid);
+            jsonText.key("zoom_id");
+            jsonText.value(meetingNumber);
+            jsonText.key("zoom_pw");
+            jsonText.value(zoom_pw);
+            jsonText.key("start_time");
+            jsonText.value(start_time);
+            jsonText.endObject();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return jsonText.toString();
+    }
+
+    public void retrieveFromJSON(String message) {
+        try {
+            JSONObject jsonObject = new JSONObject(message);
+            msgType = jsonObject.getString("type");
+            if (msgType.equals(REQ_DOWNLOAD)) {
+                status = jsonObject.getString("status");
+                if (status.equals("OK")) {
+                    localmeetingid = jsonObject.getInt("id");
+                    zoom_id = jsonObject.getString("zoom_id");
+                    zoom_pw = jsonObject.getString("zoom_pw");
+                    start_time = jsonObject.getString("start_time");
+                    Toast.makeText(getApplicationContext(),"Room updated successfully!",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getApplicationContext(),"Room update fail",Toast.LENGTH_LONG).show();
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onTaskCompleted(String response) {
+        retrieveFromJSON(response);
+        if (msgType.equals(REQ_DOWNLOAD) && status.equals("OK")){
+
+        }
     }
 
     @Override
@@ -706,6 +868,7 @@ public class ZoomScheduleActivity extends Activity implements PreMeetingServiceL
         return null;
     }
 
+
     class ScheduleForHostAdapter extends BaseAdapter {
         private List<Alternativehost> mList;
         private Context mContext;
@@ -743,5 +906,3 @@ public class ZoomScheduleActivity extends Activity implements PreMeetingServiceL
         }
     }
 }
-
-

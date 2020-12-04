@@ -15,12 +15,14 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import static com.example.studybee.initsdk.AuthConstants.ip;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment{
+public class ProfileFragment extends Fragment implements AuthConstants{
 
     View myView;
     TextView dis_firstname;
@@ -49,7 +51,7 @@ public class ProfileFragment extends Fragment{
     TextView[] textViews= new TextView[6];
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.105"; //use your IP address
+    public static final String HOST = ip; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";

@@ -16,9 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 
+import static com.example.studybee.initsdk.AuthConstants.ip;
+
 
 //onTaskCompleted is an interface with onTaskCompleted method that takes in a response string and gives a void result
-public class JoinActivity extends AppCompatActivity{
+public class JoinActivity extends AppCompatActivity implements AuthConstants{
 
     Spinner size_Spinner;
     Spinner style_Spinner;
@@ -37,7 +39,7 @@ public class JoinActivity extends AppCompatActivity{
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "172.20.14.231"; //use your IP address
+    public static final String HOST = ip; //use your IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";

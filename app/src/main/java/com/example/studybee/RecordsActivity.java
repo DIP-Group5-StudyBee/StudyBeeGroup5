@@ -14,8 +14,10 @@ import org.json.JSONStringer;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import static com.example.studybee.initsdk.AuthConstants.ip;
 
-public class RecordsActivity extends AppCompatActivity implements OnTaskCompleted {
+
+public class RecordsActivity extends AppCompatActivity implements AuthConstants, OnTaskCompleted {
     String status;
     String msgType;
 
@@ -40,7 +42,7 @@ public class RecordsActivity extends AppCompatActivity implements OnTaskComplete
     private final String TAG = this.getClass().getSimpleName();
 
     // Set host address of the WAMP Server
-    public static final String HOST = "192.168.0.105"; //using your own IP address
+    public static final String HOST = ip; //using your own IP address
 
     // Set virtual directory of the host website
     public static final String DIR = "myproject";
