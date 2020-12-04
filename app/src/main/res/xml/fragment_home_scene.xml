@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="30"
+                motion:motionTarget="@+id/host_constrained_layout" />
+
+            <KeyAttribute
+                android:alpha="0.1"
+                motion:framePosition="10"
+                motion:motionTarget="@+id/center_linear_layout" />
+
+            <KeyAttribute
+                android:alpha="0.1"
+                motion:framePosition="10"
+                motion:motionTarget="@+id/upcoming_container" />
+
+            <KeyAttribute
+                android:alpha="1"
+                motion:framePosition="40"
+                motion:motionTarget="@+id/host_meeting_text" />
+
+        </KeyFrameSet>
+        <OnSwipe motion:dragDirection="dragDown" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/top_background_img"
+            android:layout_width="500dp"
+            android:layout_height="1100dp"
+            android:alpha="0.2"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/host_meeting_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/upcoming_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+        <Constraint
+            android:id="@+id/center_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="600dp"
+            motion:layout_constraintBottom_toTopOf="@+id/upcoming_container"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/top_background_img" />
+
+        <Constraint
+            android:id="@+id/host_constrained_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+</MotionScene>
