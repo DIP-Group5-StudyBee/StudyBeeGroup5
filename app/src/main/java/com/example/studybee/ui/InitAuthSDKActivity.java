@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -67,8 +68,19 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
 
         setContentView(R.layout.init_auth_sdk);
 
+
+
         mBtnEmailLogin = (Button) findViewById(R.id.btnEmailLogin);
         mBtnEmailLogin.setOnClickListener(this);
+            final LoadingDialog loadingDialog = new LoadingDialog(InitAuthSDKActivity.this);
+            loadingDialog.startLoadingDialog();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    loadingDialog.dismissDialog();
+                    showEmailLoginActivity();
+                }
+            }, 3000);
 
 //        mBtnSSOLogin = (Button) findViewById(R.id.btnSSOLogin);
 //        mBtnSSOLogin.setOnClickListener(this);
@@ -105,6 +117,8 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
 //            mBtnWithoutLogin.setVisibility(View.GONE);
 //            layoutJoin.setVisibility(View.GONE);
         }
+
+
     }
 
     InMeetingNotificationHandle handle=new InMeetingNotificationHandle() {

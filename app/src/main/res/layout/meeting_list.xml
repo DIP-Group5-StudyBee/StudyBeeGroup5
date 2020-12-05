@@ -3,12 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    <com.zipow.videobox.view.ScheduledMeetingsListView
-        android:id="@+id/meetingsListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    
+
     <LinearLayout
         android:id="@+id/panelNoItemMsg"
         android:layout_width="wrap_content"
@@ -17,7 +12,7 @@
         android:paddingRight="10dp"
         android:layout_gravity="center"
         android:orientation="vertical" >
-        
+
         <TextView
             style="@style/ZMTextView.Large.OnLight"
             android:layout_width="wrap_content"
@@ -34,7 +29,12 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="@string/zm_msg_no_upcoming_meetings_sub_note" />
-        
+
+        <com.zipow.videobox.view.ScheduledMeetingsListView
+            android:id="@+id/meetingsListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 
 </FrameLayout>

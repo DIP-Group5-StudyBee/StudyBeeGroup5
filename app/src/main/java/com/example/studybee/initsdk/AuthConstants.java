@@ -9,7 +9,7 @@ public interface AuthConstants {
 	// TODO Change it to your APP Secret
 	public final static String APP_SECRET = "xx4x1arYuV0V6Ag4NaySGY1R9nLkGzQOy5Th";
 
-	public final static String ip = "192.168.1.104";
+	public final static String ip = "172.20.14.231";
 	/**
 	 * We recommend that, you can generate jwttoken on your own server instead of hardcore in the code.
 	 * We hardcore it here, just to run the demo.

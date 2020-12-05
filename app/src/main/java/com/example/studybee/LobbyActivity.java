@@ -398,7 +398,7 @@ import org.json.JSONStringer;
 import java.util.ArrayList;
 
 
-import com.example.studybee.ui.InitAuthSDKActivityJoin;
+import com.example.studybee.ui.InitAuthSDKActivity;
 
 import static com.example.studybee.initsdk.AuthConstants.ip;
 
@@ -606,7 +606,7 @@ public class LobbyActivity extends AppCompatActivity implements AuthConstants, O
                             editor.putString("zoom_pw",meetingEvent.zoom_pw);
                             editor.putString("zoom_id",meetingEvent.zoom_id);
                             editor.commit();
-                            startActivity(new Intent(LobbyActivity.this, InitAuthSDKActivityJoin.class));
+                            startActivity(new Intent(LobbyActivity.this, InitAuthSDKActivity.class));
 
 
                         }
