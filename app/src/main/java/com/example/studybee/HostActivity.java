@@ -360,7 +360,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
                     roomName = jsonObject.getString("meeting_name");
                     roomDescription = jsonObject.getString("room_description");
                     startActivity(new Intent(HostActivity.this, InitAuthSDKActivity.class));
-                    Toast.makeText(getApplicationContext(),"Room created successfully!",Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),"Room created successfully!",Toast.LENGTH_LONG).show();
                 }else {
                     Toast.makeText(getApplicationContext(),"Room creation failed please try again later!",Toast.LENGTH_LONG).show();
                 }

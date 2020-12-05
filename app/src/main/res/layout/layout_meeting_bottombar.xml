@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/audioStatusImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="39dp"
+            android:layout_height="35dp"
             android:duplicateParentState="true"
             android:focusable="false"
             android:src="@drawable/icon_meeting_audio" />
@@ -45,8 +45,8 @@
 
         <ImageView
             android:id="@+id/videotatusImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="36dp"
+            android:layout_height="35dp"
             android:duplicateParentState="true"
             android:focusable="false"
             android:src="@drawable/icon_meeting_video" />
@@ -74,8 +74,8 @@
 
         <ImageView
             android:id="@+id/shareStatusImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="42dp"
+            android:layout_height="37dp"
             android:duplicateParentState="true"
             android:focusable="false"
             android:src="@drawable/icon_share_resume" />

@@ -348,7 +348,7 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         if (mMeetingService.getMeetingStatus() == MeetingStatus.MEETING_STATUS_INMEETING) {
             mConnectingText.setVisibility(View.GONE);
             meetingOptionBar.updateMeetingNumber(mInMeetingService.getCurrentMeetingNumber() + "");
-            meetingOptionBar.updateMeetingPassword( mInMeetingService.getMeetingPassword());
+            //meetingOptionBar.updateMeetingPassword( mInMeetingService.getMeetingPassword());
             meetingOptionBar.refreshToolbar();
         } else {
             if (mMeetingService.getMeetingStatus() == MeetingStatus.MEETING_STATUS_CONNECTING) {

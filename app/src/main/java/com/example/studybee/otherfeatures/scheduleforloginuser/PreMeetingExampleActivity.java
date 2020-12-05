@@ -102,7 +102,6 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 		Log.d(TAG,"onUpdateMeeting result:"+result+" meetingUniqueId:"+meetingUniqueId);
     }
 
-
 	@Override
 	public void onDeleteMeeting(int result) {
 		// No op
@@ -129,7 +128,6 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 			if(preMeetingService != null)
 				preMeetingService.removeListener(this);
 		}
-		
 		super.onDestroy();
 	}
 	

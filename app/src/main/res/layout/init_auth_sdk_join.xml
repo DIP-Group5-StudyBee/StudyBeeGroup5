@@ -7,23 +7,30 @@
     android:padding="10dp">
 
     <TextView
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Waiting"
         android:textSize="20sp"
         android:textStyle="bold" />
 
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="150dp"
+        android:onClick="onClickJoin"
+        android:text="Join Meeting" />
+
+    <Button
         android:id="@+id/btnSettings"
-        android:onClick="onClickSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:minWidth="150dp"
-        android:visibility="invisible"
-        android:text="Settings" />
+        android:onClick="onClickSettings"
+        android:text="Breakout Room Setting"
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/btn_return"
@@ -44,13 +51,6 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingHorizontal="40dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClickJoin"
-            android:minWidth="150dp"
-            android:text="Join Meeting" />
 
 
     </LinearLayout>
