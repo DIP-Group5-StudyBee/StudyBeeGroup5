@@ -212,6 +212,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studybee.ui.InitAuthSDKActivity;
+import com.google.android.material.chip.Chip;
+
 
 import org.json.JSONObject;
 import org.json.JSONStringer;
@@ -223,10 +225,11 @@ import static com.example.studybee.initsdk.AuthConstants.ip;
 public class HostActivity extends AppCompatActivity implements AuthConstants, OnTaskCompleted{
     EditText RoomName;
     EditText RoomDescription;
-    Spinner size_Spinner;
-    Spinner style_Spinner;
-    Spinner ta_Spinner;
-    Spinner fac_Spinner;
+    Chip chipQuiet, chipDiscussion;
+    Chip chipLessThanFive, chipLessThanEight, chipAboveEight;
+    Chip chipYesTA, chipNoTA;
+    Chip chipYesCourse, chipNoCourse;
+
     Button SubmitBtn;
 
     String msgType;
@@ -239,6 +242,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
 
     int id;
     String status;
+    String host_name;
 
     //returns the name of the class as written in source file
     private final String TAG = this.getClass().getSimpleName();
@@ -257,13 +261,22 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host);
 
+       //get username to be updated into meetingevent table
+        SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+        host_name = sh.getString("username","");
+
 
         RoomName=(EditText) findViewById(R.id.RoomName);
         RoomDescription=(EditText) findViewById(R.id.RoomDescription);
-        size_Spinner= (Spinner) findViewById(R.id.SizeSpinner);
-        style_Spinner= (Spinner) findViewById(R.id.StyleSpinner);
-        ta_Spinner= (Spinner) findViewById(R.id.TASpinner);
-        fac_Spinner= (Spinner) findViewById(R.id.FACSpinner);
+        chipQuiet=(Chip) findViewById(R.id.cpQuiet);
+        chipDiscussion=(Chip) findViewById(R.id.cpDiscussion);
+        chipLessThanFive=(Chip) findViewById(R.id.cpLessThanFive);
+        chipLessThanEight=(Chip) findViewById(R.id.cpLessThanEight);
+        chipAboveEight=(Chip) findViewById(R.id.cpAboveEight);
+        chipYesTA=(Chip) findViewById(R.id.cpYesTA);
+        chipNoTA=(Chip) findViewById(R.id.cpNoTA);
+        chipYesCourse=(Chip) findViewById(R.id.cpYesCourse);
+        chipNoCourse=(Chip) findViewById(R.id.cpNoCourse);
 
         SubmitBtn=(Button) findViewById(R.id.SubmitBtn);
     }
@@ -277,25 +290,39 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
         } else if(RoomDescription.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(),"Please enter a room description.",Toast.LENGTH_SHORT).show();
             return;
-        } else if(size_Spinner.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please select a group size.",Toast.LENGTH_SHORT).show();
-            return;
-        } else if(style_Spinner.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please select a study style.",Toast.LENGTH_SHORT).show();
-            return;
-        } else if(ta_Spinner.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please select if you want TA or not.",Toast.LENGTH_SHORT).show();
-            return;
-        } else if(fac_Spinner.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please select if you want people from same faculty or not.",Toast.LENGTH_SHORT).show();
-            return;
         } else {
 
             msgType = REQ_UPLOAD;
-            groupSize = size_Spinner.getSelectedItem().toString();
-            studyStyle = style_Spinner.getSelectedItem().toString();
-            teachingAssistant = ta_Spinner.getSelectedItem().toString();
-            course = fac_Spinner.getSelectedItem().toString();
+
+            if(chipQuiet.isChecked()) {
+                studyStyle = chipQuiet.getText().toString();
+            }
+            if(chipDiscussion.isChecked()) {
+                studyStyle = chipDiscussion.getText().toString();
+            }
+            if(chipLessThanFive.isChecked()) {
+                groupSize = chipLessThanFive.getText().toString();
+            }
+            if(chipLessThanEight.isChecked()) {
+                groupSize = chipLessThanEight.getText().toString();
+            }
+            if(chipAboveEight.isChecked()) {
+                groupSize = chipAboveEight.getText().toString();
+            }
+            if (chipYesTA.isChecked()) {
+                teachingAssistant = chipYesTA.getText().toString();
+            }
+            if (chipNoTA.isChecked()) {
+                teachingAssistant = chipNoTA.getText().toString();
+            }
+            if (chipYesCourse.isChecked()) {
+                course = chipYesCourse.getText().toString();
+            }
+            if (chipNoCourse.isChecked()) {
+                course = chipNoCourse.getText().toString();
+            }
+
+
             if(!RoomName.getText().toString().isEmpty()){
                 roomName = RoomName.getText().toString();
             }
@@ -322,6 +349,8 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
         JSONStringer jsonText = new JSONStringer();
         try {
             jsonText.object();
+            jsonText.key("host_name");
+            jsonText.value(host_name);
             jsonText.key("type");
             jsonText.value(msgType);
             jsonText.key("meeting_name");
@@ -353,6 +382,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
                 status = jsonObject.getString("status");
                 if (status.equals("OK")) {
                     id = jsonObject.getInt("id");
+                    //host_name = jsonObject.getString("host_name");
                     studyStyle = jsonObject.getString("study_style");
                     groupSize = jsonObject.getString("group_size");
                     teachingAssistant = jsonObject.getString("ta_requirement");
