@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.chip.Chip;
+
 import org.json.JSONObject;
 import org.json.JSONStringer;
 
@@ -22,10 +24,10 @@ import static com.example.studybee.initsdk.AuthConstants.ip;
 //onTaskCompleted is an interface with onTaskCompleted method that takes in a response string and gives a void result
 public class JoinActivity extends AppCompatActivity implements AuthConstants{
 
-    Spinner size_Spinner;
-    Spinner style_Spinner;
-    Spinner ta_Spinner;
-    Spinner fac_Spinner;
+    Chip chipQuiet, chipDiscussion;
+    Chip chipLessThanFive, chipLessThanEight, chipAboveEight;
+    Chip chipYesTA, chipNoTA;
+    Chip chipYesCourse, chipNoCourse;
     Button SubmitBtn;
 
     String msgType;
@@ -33,6 +35,9 @@ public class JoinActivity extends AppCompatActivity implements AuthConstants{
     String studyStyle;
     String teachingAssistant;
     String course;
+
+    String host_name;
+
 
 
     //returns the name of the class as written in source file
@@ -52,10 +57,21 @@ public class JoinActivity extends AppCompatActivity implements AuthConstants{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
 
-        size_Spinner= (Spinner) findViewById(R.id.SizeSpinner);
-        style_Spinner= (Spinner) findViewById(R.id.StyleSpinner);
-        ta_Spinner= (Spinner) findViewById(R.id.TASpinner);
-        fac_Spinner= (Spinner) findViewById(R.id.FACSpinner);
+        //get username to be updated into meetingevent table
+        SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+        host_name = sh.getString("username","");
+
+
+        chipQuiet=(Chip) findViewById(R.id.cpQuiet);
+        chipDiscussion=(Chip) findViewById(R.id.cpDiscussion);
+        chipLessThanFive=(Chip) findViewById(R.id.cpLessThanFive);
+        chipLessThanEight=(Chip) findViewById(R.id.cpLessThanEight);
+        chipAboveEight=(Chip) findViewById(R.id.cpAboveEight);
+        chipYesTA=(Chip) findViewById(R.id.cpYesTA);
+        chipNoTA=(Chip) findViewById(R.id.cpNoTA);
+        chipYesCourse=(Chip) findViewById(R.id.cpYesCourse);
+        chipNoCourse=(Chip) findViewById(R.id.cpNoCourse);
+
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item,list);
         SubmitBtn=(Button) findViewById(R.id.SubmitBtn);
     }
@@ -63,28 +79,41 @@ public class JoinActivity extends AppCompatActivity implements AuthConstants{
 
     public void SubmitClicked(View v){
 
-        if(size_Spinner.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please select a group size.",Toast.LENGTH_SHORT).show();
-            return;
-        } else if(style_Spinner.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please select a study style.",Toast.LENGTH_SHORT).show();
-            return;
-        } else if(ta_Spinner.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please select if you want TA or not.",Toast.LENGTH_SHORT).show();
-            return;
-        } else if(fac_Spinner.getSelectedItem().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(),"Please select if you want people from same faculty or not.",Toast.LENGTH_SHORT).show();
-            return;
-        } else {
+        msgType = REQ_UPLOAD;
 
-            msgType = REQ_UPLOAD;
-            groupSize = size_Spinner.getSelectedItem().toString();
-            studyStyle = style_Spinner.getSelectedItem().toString();
-            teachingAssistant = ta_Spinner.getSelectedItem().toString();
-            course = fac_Spinner.getSelectedItem().toString();
-            saveAsPreferences();
-            startActivity(new Intent(JoinActivity.this, LobbyActivity.class));
+        if(chipQuiet.isChecked()) {
+            studyStyle = chipQuiet.getText().toString();
         }
+        if(chipDiscussion.isChecked()) {
+            studyStyle = chipDiscussion.getText().toString();
+        }
+        if(chipLessThanFive.isChecked()) {
+            groupSize = chipLessThanFive.getText().toString();
+        }
+        if(chipLessThanEight.isChecked()) {
+            groupSize = chipLessThanEight.getText().toString();
+        }
+        if(chipAboveEight.isChecked()) {
+            groupSize = chipAboveEight.getText().toString();
+        }
+        if (chipYesTA.isChecked()) {
+            teachingAssistant = chipYesTA.getText().toString();
+        }
+        if (chipNoTA.isChecked()) {
+            teachingAssistant = chipNoTA.getText().toString();
+        }
+        if (chipYesCourse.isChecked()) {
+            course = chipYesCourse.getText().toString();
+        }
+        if (chipNoCourse.isChecked()) {
+            course = chipNoCourse.getText().toString();
+        }
+
+
+
+        saveAsPreferences();
+        startActivity(new Intent(JoinActivity.this, LobbyActivity.class));
+
 
     }
 
