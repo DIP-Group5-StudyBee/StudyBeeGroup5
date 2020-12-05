@@ -18,11 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:theme="@style/AppBaseTheme">
-
-
-        </activity>
-        <!-- <activity android:name=".JoinZoomMeeting"></activity> -->
+        <activity android:name=".LoadingDialog"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppBaseTheme" /> <!-- <activity android:name=".JoinZoomMeeting"></activity> -->
         <!-- <activity android:name=".JoinZoomActivity" /> -->
         <activity android:name=".HostActivity" />
         <activity android:name=".ProfileEditActivity" />
@@ -44,148 +43,159 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppBaseTheme"/>
+            android:theme="@style/AppBaseTheme" />
         <activity
             android:name=".RegisterActivity"
             android:label="@string/title_activity_register" />
         <activity
             android:name=".LobbyActivity"
             android:label="Join Meeting" />
-
-        <activity android:name=".ui.InitAuthSDKActivity"
-            android:label="Zoom test"
+        <activity
+            android:name=".ui.InitAuthSDKActivity"
             android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
-            android:screenOrientation="portrait"
             android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
-        </activity>
-        <activity android:name=".ui.InitAuthSDKActivityJoin"
             android:label="Zoom test"
-            android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
             android:screenOrientation="portrait"
+            android:theme="@style/ZMTheme.MainWindow" />
+        <activity
+            android:name=".ui.InitAuthSDKActivityJoin"
+            android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
             android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
-        </activity>
-
-        <activity android:name=".ui.APIUserStartJoinMeetingActivity"
+            android:label="Zoom test"
+            android:screenOrientation="portrait"
+            android:theme="@style/ZMTheme.MainWindow" />
+        <activity
+            android:name=".ui.APIUserStartJoinMeetingActivity"
+            android:icon="@drawable/ic_launcher"
             android:label="Zoom Test"
-            android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
+            android:theme="@style/ZMTheme.MainWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.LoginUserStartJoinMeetingActivity"
+        <activity
+            android:name=".ui.LoginUserStartJoinMeetingActivity"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/this_app_name"
-            android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
+            android:theme="@style/ZMTheme.MainWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.EmailUserLoginActivity"
+        <activity
+            android:name=".ui.EmailUserLoginActivity"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/this_app_name"
-            android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
+            android:theme="@style/ZMTheme.MainWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.SSOUserLoginActivity"
+        <activity
+            android:name=".ui.SSOUserLoginActivity"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/this_app_name"
-            android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
+            android:theme="@style/ZMTheme.MainWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".otherfeatures.scheduleforloginuser.PreMeetingExampleActivity"
+        <activity
+            android:name=".otherfeatures.scheduleforloginuser.PreMeetingExampleActivity"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/this_app_name"
-            android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
+            android:theme="@style/ZMTheme.MainWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".otherfeatures.scheduleforloginuser.ScheduleMeetingExampleActivity"
+        <activity
+            android:name=".otherfeatures.scheduleforloginuser.ScheduleMeetingExampleActivity"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/this_app_name"
-            android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
+            android:theme="@style/ZMTheme.MainWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".otherfeatures.MyInviteActivity"
+        <activity
+            android:name=".otherfeatures.MyInviteActivity"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/invite_acitivity_name"
-            android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
+            android:theme="@style/ZMTheme.MainWindow">
             <intent-filter>
                 <action android:name="us.zoom.sdkexample.intent.action.MeetingInvite" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".otherfeatures.MyWaitJoinActivity"
+        <activity
+            android:name=".otherfeatures.MyWaitJoinActivity"
             android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
-            <!--            <intent-filter>
+            android:theme="@style/ZMTheme.MainWindow">
+
+            <!--
+                            <intent-filter>
                             <action android:name="us.zoom.sdkexample.intent.action.JoinBeforeHost" />
                             <category android:name="android.intent.category.DEFAULT" />
-                        </intent-filter>-->
+                        </intent-filter>
+            -->
         </activity>
-
-        <activity android:name=".otherfeatures.MyCallMeByPhoneActivity"
+        <activity
+            android:name=".otherfeatures.MyCallMeByPhoneActivity"
             android:icon="@drawable/ic_launcher"
-            android:theme="@style/ZMTheme.MainWindow" >
-            <!--            <intent-filter>
+            android:theme="@style/ZMTheme.MainWindow">
+
+            <!--
+                            <intent-filter>
                             <action android:name="us.zoom.sdkexample.intent.action.CallMyPhone" />
                             <category android:name="android.intent.category.DEFAULT" />
-                        </intent-filter>-->
+                        </intent-filter>
+            -->
         </activity>
-
         <activity
             android:name=".inmeetingfunction.customizedmeetingui.MyMeetingActivity"
             android:configChanges="screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/ZMTheme.SubWindow" />
         <activity
             android:name=".ui.MeetingSettingActivity"
             android:configChanges="screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/ZMTheme.SubWindow" />
         <activity
             android:name=".inmeetingfunction.customizedmeetingui.RawDataMeetingActivity"
             android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/ZMTheme.SubWindow" />
         <activity android:name=".ui.QAActivity" />
-        <activity android:name=".ui.BreakoutRoomsAdminActivity"
+        <activity
+            android:name=".ui.BreakoutRoomsAdminActivity"
             android:configChanges="screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ui.BoEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ZMTheme.SubWindow" />
+        <activity
+            android:name=".ui.BoEditActivity"
             android:configChanges="screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/ZMTheme.SubWindow" />
         <activity
             android:name=".inmeetingfunction.zoommeetingui.CustomZoomUIActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="false"
-            android:theme="@style/ZMTheme.SubWindow"/>
-
+            android:theme="@style/ZMTheme.SubWindow" />
     </application>
 
 </manifest>

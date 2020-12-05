@@ -79,6 +79,13 @@
     <string name="select_study_group_meeting_nfrom_the_lobby">Select study group meeting\nfrom the lobby</string>
 
 
+    <!--    string name related to onboarding  page -->
+    <string name="slider_one">Join existing study group</string>
+    <string name="slider_two">Host your meetings</string>
+    <string name="slider_three">Meet new study buddies</string>
+    <string name="get_started">Get Started</string>
+
+    <!--    string name related to Zoom  page -->
     <string name="invite_acitivity_name">Meeting Invite Example</string>
 
     <string name="zm_rc_using_fingers_for_remote_control">Remotely control a desktop using gestures</string>
@@ -103,6 +110,7 @@
     <string name="settings_hide_screen_share_toolbar_annotation">Hide annotation button in screen share</string>
     <string name="settings_hide_screen_share_toolbar_stopshare">Hide stopshare button in screen share</string>
     <string name="this_app_name">StudyBee</string>
+    <string name="select_country">SELECT COUNTRY</string>
 
 
 </resources>

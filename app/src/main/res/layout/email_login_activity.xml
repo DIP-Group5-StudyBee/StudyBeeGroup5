@@ -4,42 +4,101 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
-    
 
-    <EditText
-        android:id="@+id/userName"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="User Name"
-        android:imeOptions="actionNext|flagNoExtractUi"
-        android:focusable="true"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="30dp" >
-    </EditText>
-    
-    <EditText
-        android:id="@+id/password"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:imeOptions="actionNext|flagNoExtractUi"
-        android:focusable="true">
-     </EditText>
-     
+	<ImageView
+		android:id="@+id/zoomLogo"
+		android:layout_width="120dp"
+		android:layout_height="120dp"
+		android:layout_marginTop="20dp"
+		android:background="@drawable/zoom_icon480"
+		android:contentDescription="ZoomIcon" />
 
-     <Button
-         android:id="@+id/btnLogin"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginTop="20dp"
-         android:minWidth="100dp"
-         android:text="Login" />
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:fontFamily="@font/averiasanslibre_light"
+		android:text="Please login to you Zoom Account"
+		android:textColor="#000"
+		android:textSize="20sp" />
+	<LinearLayout
+		android:id="@+id/login_layout"
+		android:layout_width="match_parent"
+		android:layout_height="300dp"
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="20dp"
+		android:orientation="vertical"
+		android:paddingHorizontal="20dp">
+
+
+		<EditText
+			android:id="@+id/userName"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:background="@android:color/transparent"
+			android:drawablePadding="8dp"
+			android:gravity="center_vertical"
+			android:hint="Username"
+			android:inputType="textEmailAddress"
+			android:padding="10dp"
+			android:singleLine="true"
+			android:textColor="@color/zm_ui_kit_color_blue_2D61BA"
+			android:textColorHint="@color/zm_ui_kit_color_blue_0E71EB_disable"
+			android:imeOptions="actionNext|flagNoExtractUi"
+			android:focusable="true"
+			android:textSize="16sp"
+			android:fontFamily="@font/averiasanslibre_light"/>
+
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1px"
+			android:background="@color/colorPrimaryLight" />
+
+		<EditText
+			android:id="@+id/password"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:background="@android:color/transparent"
+			android:drawablePadding="8dp"
+			android:gravity="center_vertical"
+			android:hint="Password"
+			android:inputType="textPassword"
+			android:padding="10dp"
+			android:singleLine="true"
+			android:textColor="@color/zm_ui_kit_color_blue_2D61BA"
+			android:textColorHint="@color/zm_ui_kit_color_blue_0E71EB_disable"
+			android:textSize="16sp"
+			android:imeOptions="actionNext|flagNoExtractUi"
+			android:focusable="true"
+			android:fontFamily="@font/averiasanslibre_light"/>
+
+		<View
+			android:layout_width="fill_parent"
+			android:layout_height="1px"
+			android:background="@color/colorPrimaryLight" />
+
+		<Button
+			android:id="@+id/btnLogin"
+			android:layout_width="fill_parent"
+			android:layout_height="50dp"
+			android:layout_marginTop="60dp"
+			android:background="@drawable/zm_button_material_bg"
+			android:contentDescription="login"
+			android:onClick="loginClicked"
+			android:padding="3dp"
+			android:text="Login"
+			android:textColor="@color/white_greyish"
+			android:textSize="16sp"
+			android:textStyle="bold"
+			android:fontFamily="@font/averiasanslibre_bold"/>
+
+
+	</LinearLayout>
+
+
+
+
+
 
     <LinearLayout
         android:id="@+id/progressPanel"
@@ -60,7 +119,7 @@
 			android:paddingLeft="5dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Logining... "/>
+			android:text="Logging in... "/>
 
 	</LinearLayout>
         

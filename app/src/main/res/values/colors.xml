@@ -17,4 +17,7 @@
     <color name="profile_nav">#ddd278</color>
     <color name="button_nav">#e9de7f</color>
     <color name="button_selected">#d7cf8a</color>
+    
+    <color name="filter_page_scroll_bg">#fff3c1</color>
+    <color name="filter_page_bg">#ffc922</color>
 </resources>

@@ -24,8 +24,7 @@
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:thumb="@drawable/switch_custom_thumb_selector"
-        android:track="@drawable/switch_custom_track_selector"
-        android:checked="true"/>
+        android:track="@drawable/switch_custom_track_selector" />
 
     <ScrollView
         android:layout_width="match_parent"
