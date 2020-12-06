@@ -2,14 +2,15 @@
 <resources>
     <color name="colorPrimary">#FEC202</color>
     <color name="colorPrimaryDark">#D59F00</color>
-    <color name="colorPrimaryLight">#F8BBD0</color>
-    <color name="colorAccent">#FF9800</color>
+    <color name="colorPrimaryLight">#FFECAF</color>
+    <color name="colorGradient">#E4E8CF82</color>
+    <color name="colorAccent">#F69B14</color>
     <color name="background_color">#009688</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="button_selectorcolor">#9E9E9E</color>
     <color name="white_greyish">#EEEEEE</color>
-    <color name="bottom_nav_bg">#93680c</color>
+    <color name="bottom_nav_bg">#E1E4A112</color>
     <color name="profile_top_bg">#fff4c1</color>
     <color name="profile_navbar">#decf83</color>
     <color name="tint">#ddd278</color>
@@ -17,7 +18,7 @@
     <color name="profile_nav">#ddd278</color>
     <color name="button_nav">#e9de7f</color>
     <color name="button_selected">#d7cf8a</color>
-    
+
     <color name="filter_page_scroll_bg">#fff3c1</color>
     <color name="filter_page_bg">#ffc922</color>
 </resources>

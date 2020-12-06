@@ -11,7 +11,7 @@
         android:layout_width="400dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:contentDescription="login"
         android:padding="3dp"
         android:text="SCHEDULE MEETING"

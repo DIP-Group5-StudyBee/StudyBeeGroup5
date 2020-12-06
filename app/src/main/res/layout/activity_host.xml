@@ -19,7 +19,7 @@
         android:layout_height="120dp"
         android:layout_marginLeft="25dp"
         android:paddingTop="40dp"
-        android:paddingBottom="45dp"/>
+        android:paddingBottom="44dp"/>
 
 
     <ScrollView
@@ -184,17 +184,17 @@
 
             <Button
                 android:id="@+id/SubmitBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
                 android:onClick="SubmitClicked"
                 android:text="Submit"
-                android:background="@color/filter_page_bg"
+                android:background="@drawable/roundedbutton"
                 android:fontFamily="@font/averiasanslibre_regular"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_centerHorizontal="true"/>
 
 

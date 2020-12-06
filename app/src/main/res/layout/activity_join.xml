@@ -14,17 +14,17 @@
         android:text="Join A Room"
         android:fontFamily="@font/averiasanslibre_bold"
         android:textColor="@android:color/white"
-        android:textSize="35sp"
+        android:textSize="28sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:paddingTop="50dp"
-        android:paddingBottom="60dp"/>
+        android:paddingTop="40dp"
+        android:paddingBottom="44dp"/>
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_550sdp"
         android:layout_below="@id/ChooseRoom"
         android:background="@drawable/scrollview_background">
 
@@ -130,17 +130,17 @@
 
             <Button
                 android:id="@+id/SubmitBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
                 android:layout_marginBottom="30dp"
                 android:onClick="SubmitClicked"
                 android:text="Submit"
-                android:background="@color/filter_page_bg"
+                android:background="@drawable/roundedbutton"
                 android:fontFamily="@font/averiasanslibre_regular"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_centerHorizontal="true"/>
 
 

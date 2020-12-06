@@ -82,13 +82,13 @@
 			android:layout_width="fill_parent"
 			android:layout_height="50dp"
 			android:layout_marginTop="60dp"
-			android:background="@color/colorPrimary"
+			android:background="@drawable/roundedbutton"
 			android:contentDescription="login"
 			android:onClick="loginClicked"
 			android:padding="3dp"
 			android:text="Login"
 			android:textColor="@color/white_greyish"
-			android:textSize="16sp"
+			android:textSize="24sp"
 			android:textStyle="bold"
 			android:fontFamily="@font/averiasanslibre_bold"/>
 

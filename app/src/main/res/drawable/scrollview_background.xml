@@ -3,7 +3,11 @@
     android:shape="rectangle">
 
     <corners android:topLeftRadius="20dp" android:topRightRadius="20dp"/>
-    <solid android:color="@color/filter_page_scroll_bg" />
+    <gradient
+        android:startColor="@color/colorPrimaryLight"
+        android:endColor="@color/colorGradient"
+        android:angle="270" />
+
     <size android:height="80dp"/>
 
 </shape>

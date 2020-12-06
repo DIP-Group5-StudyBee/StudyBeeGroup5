@@ -13,16 +13,17 @@
         android:id="@+id/btnSchedule"
         android:layout_width="400dp"
         android:layout_height="50dp"
+        android:layout_gravity="center"
         android:layout_marginTop="24dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/roundedbutton"
         android:contentDescription="login"
+        android:fontFamily="@font/averiasanslibre_bold"
         android:padding="3dp"
         android:text="SCHEDULE MEETING"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/averiasanslibre_bold"
         android:textColor="@color/black"
-        android:layout_gravity="center"/>
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
@@ -55,7 +56,16 @@
                     android:singleLine="true"
                     android:fontFamily="@font/averiasanslibre_bold">
 
-                    <requestFocus />
+                </EditText>
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:hint="MEETING PASSWORD"
+                    android:layout_height="@dimen/_40sdp"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:fontFamily="@font/averiasanslibre_bold">
+                <requestFocus />
                 </EditText>
             </LinearLayout>
 
@@ -544,12 +554,7 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <EditText
-                                android:id="@+id/edtPassword"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Meeting password"
-                                android:maxLength="10" />
+
                         </LinearLayout>
 
                         <LinearLayout
