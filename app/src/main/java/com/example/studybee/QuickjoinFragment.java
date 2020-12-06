@@ -24,6 +24,7 @@ import java.awt.font.NumericShaper;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import static android.content.Context.MODE_PRIVATE;
 import static com.example.studybee.initsdk.AuthConstants.ip;
 
 /**
@@ -48,9 +49,10 @@ public class QuickjoinFragment extends Fragment implements OnTaskCompleted, Auth
     String zoom_id;
     String zoom_pw;
     String time;
+    String isTA;
     View rootView;
 
-    int id;
+    int user_id;
 
     public static final String HOST = ip; //use your IP address
 
@@ -110,9 +112,8 @@ public class QuickjoinFragment extends Fragment implements OnTaskCompleted, Auth
         return rootView;
     }
 
-    public void QuickJoinClicked(){
-
-
+    public void QuickJoinClicked()
+    {
         msgType = REQ_UPLOAD;
         TimeZone tz = TimeZone.getTimeZone("GMT+8");
         Calendar c = Calendar.getInstance(tz);
@@ -122,6 +123,10 @@ public class QuickjoinFragment extends Fragment implements OnTaskCompleted, Auth
                 String.format("%02d" , c.get(Calendar.HOUR_OF_DAY))+":"+
                 String.format("%02d" , c.get(Calendar.MINUTE) + 10)+":"+
                 String.format("%02d" , c.get(Calendar.SECOND));
+
+        SharedPreferences prefs = this.getActivity().getSharedPreferences("preference", Context.MODE_PRIVATE);
+        isTA = prefs.getString("identity","");
+        user_id = prefs.getInt("id",0);
 
         String jsonString = convertToJSON();
         HttpAsyncTaskForHost task = new HttpAsyncTaskForHost(this);
@@ -136,6 +141,10 @@ public class QuickjoinFragment extends Fragment implements OnTaskCompleted, Auth
             jsonText.value(msgType);
             jsonText.key("start_time");
             jsonText.value(time);
+            jsonText.key("isTA");
+            jsonText.value(isTA);
+            jsonText.key("user_id");
+            jsonText.value(user_id);
             jsonText.endObject();
 
         } catch (Exception e) {
@@ -150,7 +159,7 @@ public class QuickjoinFragment extends Fragment implements OnTaskCompleted, Auth
         retrieveFromJSON(response);
 
         if (msgType.equals(REQ_UPLOAD) && status.equals("OK")){
-            SharedPreferences prefs = this.getActivity().getSharedPreferences("preference", Context.MODE_PRIVATE);
+            SharedPreferences prefs = this.getActivity().getSharedPreferences("preference", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("zoom_pw",zoom_pw);
             editor.putString("zoom_id",zoom_id);

@@ -232,6 +232,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
 
     Button SubmitBtn;
 
+    String hostName;
     String msgType;
     String roomName;
     String roomDescription;
@@ -317,6 +318,9 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
                 roomDescription=null;
             }
 
+            SharedPreferences Prefs = getSharedPreferences("preference",MODE_PRIVATE);
+            hostName = Prefs.getString("username","");
+
             String jsonString = convertToJSON();
             HttpAsyncTaskForHost task = new HttpAsyncTaskForHost(this);
             task.execute("http://"+HOST+"/"+DIR+"/createroom.php", jsonString);
@@ -346,6 +350,8 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
             jsonText.value(teachingAssistant);
             jsonText.key("course_requirement");
             jsonText.value(course);
+            jsonText.key("host_name");
+            jsonText.value(hostName);
             jsonText.endObject();
 
 
@@ -370,6 +376,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
                     course = jsonObject.getString("course_requirement");
                     roomName = jsonObject.getString("meeting_name");
                     roomDescription = jsonObject.getString("room_description");
+                    hostName = jsonObject.getString("host_name");
                     startActivity(new Intent(HostActivity.this, InitAuthSDKActivity.class));
                     Toast.makeText(getApplicationContext(),"Room created successfully!",Toast.LENGTH_LONG).show();
                 }else {

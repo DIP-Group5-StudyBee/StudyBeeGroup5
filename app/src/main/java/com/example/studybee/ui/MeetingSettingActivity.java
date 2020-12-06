@@ -37,8 +37,7 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
 
         Switch btnCustomUI = ((Switch) findViewById(R.id.btn_custom_ui));
 
-        boolean isCustomUI = true;
-//                ZoomSDK.getInstance().getMeetingSettingsHelper().isCustomizedMeetingUIEnabled();
+        boolean isCustomUI = ZoomSDK.getInstance().getMeetingSettingsHelper().isCustomizedMeetingUIEnabled();
 
         btnCustomUI.setChecked(isCustomUI);
 

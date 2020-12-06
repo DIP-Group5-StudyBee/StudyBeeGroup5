@@ -28,30 +28,6 @@
         android:layout_marginTop="8dp"/>
 
 
-    <Button
-        android:id="@+id/btnSettings"
-        android:onClick="onClickSettings"
-        android:layout_width="wrap_content"
-        android:visibility="invisible"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:minWidth="150dp"
-        android:text="Settings"
-        android:background="@color/colorPrimary"
-        android:fontFamily="@font/averiasanslibre_regular"/>
-
-    <Button
-        android:id="@+id/btn_return"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:minWidth="150dp"
-        android:onClick="onClickReturnMeeting"
-        android:visibility="invisible"
-        android:text="Return Meeting"
-        android:background="@color/colorPrimary"
-        android:fontFamily="@font/averiasanslibre_regular"/>
-
     <LinearLayout
         android:id="@+id/layout_join"
         android:layout_width="match_parent"
@@ -60,20 +36,47 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingHorizontal="40dp">
-        
+
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
-            android:minWidth="150dp"
-            android:text="Join Meeting"
             android:background="@drawable/roundedbutton"
+            android:fontFamily="@font/averiasanslibre_regular"
+            android:minWidth="150dp"
+            android:onClick="onClickJoin"
+            android:text="Join Meeting"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundedbutton"
+            android:fontFamily="@font/averiasanslibre_regular"
+            android:minWidth="150dp"
+            android:onClick="onClickSettings"
+            android:text="Breakout Room Settings"
             android:textColor="@color/white"
             android:textSize="@dimen/_15sdp"
-            android:fontFamily="@font/averiasanslibre_regular"/>
+            android:visibility="invisible" />
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/averiasanslibre_regular"
+        android:minWidth="150dp"
+        android:onClick="onClickReturnMeeting"
+        android:text="Return Meeting"
+        android:visibility="invisible" />
 
     <LinearLayout
         android:id="@+id/progressPanel"

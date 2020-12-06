@@ -54,15 +54,13 @@ public class LobbyActivity extends AppCompatActivity implements AuthConstants, O
     int meeting_id;
     String isTA;
     String user_id;
-    String study_style;
-    String teaching_assistant;
-    String Course;
 
     int id;
     String groupSize;
     String studyStyle;
     String teachingAssistant;
     String course;
+    String identity;
 
     ArrayList<MeetingEventObj> meetingEvents = new ArrayList<MeetingEventObj>();
     Button closePopupBtn, joinPopupBtn;
@@ -95,6 +93,8 @@ public class LobbyActivity extends AppCompatActivity implements AuthConstants, O
         teachingAssistant = meetingTable.getString("teachingAssistant","");
         course = meetingTable.getString("course","");
 //        Toast.makeText(getApplicationContext(),groupSize,Toast.LENGTH_LONG).show();
+//        identity = meetingTable.getString("identity","");
+
         msgType = REQ_DOWNLOAD;
         // create data in JSON format
 
@@ -162,6 +162,8 @@ public class LobbyActivity extends AppCompatActivity implements AuthConstants, O
             jsonText.value(teachingAssistant);
             jsonText.key("course_requirement");
             jsonText.value(course);
+//            jsonText.key("identity");
+//            jsonText.value(identity);
             jsonText.endObject();
 
         } catch (Exception e) {
@@ -255,8 +257,10 @@ public class LobbyActivity extends AppCompatActivity implements AuthConstants, O
                                     jsonText.value(msgType);
                                     jsonText.key("ta_availability");
                                     jsonText.value("Yes");
-                                    jsonText.key("room_description");
-                                    jsonText.value(meetingEvent.room_description);
+                                    jsonText.key("meeting_id");
+                                    jsonText.value(meetingEvent.meeting_id);
+                                    //jsonText.key("room_description");
+                                    //jsonText.value(meetingEvent.room_description);
                                     jsonText.endObject();
                                 } catch (Exception e) {
                                     e.printStackTrace();
