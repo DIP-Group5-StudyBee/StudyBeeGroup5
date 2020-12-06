@@ -212,6 +212,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.studybee.ui.InitAuthSDKActivity;
+import com.google.android.material.chip.Chip;
+
 
 import org.json.JSONObject;
 import org.json.JSONStringer;
@@ -227,6 +229,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
     Spinner style_Spinner;
     Spinner ta_Spinner;
     Spinner fac_Spinner;
+
     Button SubmitBtn;
 
     String msgType;
@@ -239,6 +242,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
 
     int id;
     String status;
+    String host_name;
 
     //returns the name of the class as written in source file
     private final String TAG = this.getClass().getSimpleName();
@@ -256,6 +260,10 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host);
+
+       //get username to be updated into meetingevent table
+        SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+        host_name = sh.getString("username","");
 
 
         RoomName=(EditText) findViewById(R.id.RoomName);
@@ -322,6 +330,8 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
         JSONStringer jsonText = new JSONStringer();
         try {
             jsonText.object();
+            jsonText.key("host_name");
+            jsonText.value(host_name);
             jsonText.key("type");
             jsonText.value(msgType);
             jsonText.key("meeting_name");
@@ -353,6 +363,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
                 status = jsonObject.getString("status");
                 if (status.equals("OK")) {
                     id = jsonObject.getInt("id");
+                    //host_name = jsonObject.getString("host_name");
                     studyStyle = jsonObject.getString("study_style");
                     groupSize = jsonObject.getString("group_size");
                     teachingAssistant = jsonObject.getString("ta_requirement");
@@ -360,7 +371,7 @@ public class HostActivity extends AppCompatActivity implements AuthConstants, On
                     roomName = jsonObject.getString("meeting_name");
                     roomDescription = jsonObject.getString("room_description");
                     startActivity(new Intent(HostActivity.this, InitAuthSDKActivity.class));
-                    //Toast.makeText(getApplicationContext(),"Room created successfully!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Room created successfully!",Toast.LENGTH_LONG).show();
                 }else {
                     Toast.makeText(getApplicationContext(),"Room creation failed please try again later!",Toast.LENGTH_LONG).show();
                 }
