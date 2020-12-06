@@ -6,36 +6,51 @@
     android:orientation="vertical"
     android:padding="10dp">
 
+    <ImageView
+        android:id="@+id/zoomLogo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/zoom_icon480"
+        android:contentDescription="ZoomICon" />
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="6dp"
         android:gravity="center"
         android:text=""
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:layout_marginTop="8dp"/>
 
 
     <Button
         android:id="@+id/btnSettings"
         android:onClick="onClickSettings"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:minWidth="150dp"
-        android:visibility="invisible"
-        android:text="Settings" />
+        android:text="Settings"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/averiasanslibre_regular"/>
 
     <Button
         android:id="@+id/btn_return"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
         android:minWidth="150dp"
         android:onClick="onClickReturnMeeting"
         android:visibility="invisible"
-        android:text="Return Meeting" />
+        android:text="Return Meeting"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/averiasanslibre_regular"/>
 
     <LinearLayout
         android:id="@+id/layout_join"
@@ -52,6 +67,14 @@
             android:onClick="onClickJoin"
             android:minWidth="150dp"
             android:text="Join Meeting" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:minWidth="150dp"
+            android:text="Join Meeting"
+            android:background="@color/colorPrimary"
+            android:fontFamily="@font/averiasanslibre_regular"/>
 
 
     </LinearLayout>
@@ -76,6 +99,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="5dp"
-            android:text="Logining... " />
+            android:text="Logging in... " />
     </LinearLayout>
 </LinearLayout>

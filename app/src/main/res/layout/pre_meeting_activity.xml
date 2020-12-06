@@ -15,7 +15,7 @@
         android:contentDescription="login"
         android:padding="3dp"
         android:text="SCHEDULE MEETING"
-        android:textColor="@color/white_greyish"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         android:fontFamily="@font/averiasanslibre_bold"/>

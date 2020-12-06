@@ -29,18 +29,18 @@
         android:layout_marginTop="20dp"
         android:minWidth="150dp"
         android:text="Login to zoom"
-        android:background="@drawable/zm_button_material_bg"/>
+        android:background="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/btnSettings"
         android:onClick="onClickSettings"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:minWidth="150dp"
         android:visibility="gone"
         android:text="Settings"
-        android:background="@drawable/zm_button_material_bg"/>
+        android:background="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/btn_return"
