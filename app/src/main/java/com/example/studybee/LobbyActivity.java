@@ -38,6 +38,7 @@ import java.util.ArrayList;
 
 
 import com.example.studybee.ui.InitAuthSDKActivity;
+import com.example.studybee.ui.InitAuthSDKActivityJoin;
 
 import static com.example.studybee.initsdk.AuthConstants.ip;
 
@@ -302,9 +303,7 @@ public class LobbyActivity extends AppCompatActivity implements AuthConstants, O
                             editor.putString("zoom_id",meetingEvent.zoom_id);
                             editor.putString("room_description",meetingEvent.room_description);
                             editor.commit();
-                            startActivity(new Intent(LobbyActivity.this, InitAuthSDKActivity.class));
-
-
+                            startActivity(new Intent(LobbyActivity.this, InitAuthSDKActivityJoin.class));
                         }
                     });
                     //close the popup window on button click
