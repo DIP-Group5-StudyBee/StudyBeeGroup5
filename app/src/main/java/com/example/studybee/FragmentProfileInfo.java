@@ -28,7 +28,7 @@ public class FragmentProfileInfo extends Fragment {
     Button record_Btn;
     Button info_Btn;
     Button fri_Btn;
-    ImageButton edit_Btn;
+    Button edit_Btn;
 
 
     String username;
@@ -76,7 +76,7 @@ public class FragmentProfileInfo extends Fragment {
             dis_faculty.setText(faculty);
             age = sh.getString("age", "");
             dis_age.setText(age);
-            edit_Btn =(ImageButton) myView.findViewById(R.id.edit_button);
+            edit_Btn = (Button) myView.findViewById(R.id.edit_button);
 
             edit_Btn.setOnClickListener(new View.OnClickListener() {
                 @Override

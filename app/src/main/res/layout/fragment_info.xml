@@ -8,7 +8,7 @@
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="326dp"
-        android:background="@color/profile_top_bg"
+        android:background="@drawable/scrollview_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.541"
@@ -16,17 +16,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.635">
 
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundedbutton"
+            android:contentDescription="edit"
+            android:fontFamily="@font/averiasanslibre_bold"
+            android:onClick="loginClicked"
+            android:padding="3dp"
+            android:text="EDIT PROFILE"
+            android:textColor="@color/white_greyish"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/full_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/full_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:fontFamily="sans-serif"
             android:text="@string/label_default"
-            android:fontFamily="@font/averiasanslibre_regular"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@id/label_name"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@+id/edit_button"
+            android:paddingTop="@dimen/_15sdp"/>
 
         <TextView
             android:id="@+id/gender"
@@ -34,10 +55,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="23dp"
             android:text="@string/label_default"
-            android:fontFamily="@font/averiasanslibre_regular"
+            android:fontFamily="sans-serif"
+            android:textSize="@dimen/_16sdp"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/label_gender"
             app:layout_constraintTop_toBottomOf="@+id/school" />
 
         <TextView
@@ -49,24 +71,27 @@
             android:layout_marginTop="24dp"
             android:text="@string/label_school"
             android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_age" />
+            app:layout_constraintTop_toBottomOf="@+id/label_age"
+            android:fontFamily="sans-serif-black"/>
 
         <TextView
             android:id="@+id/label_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="43dp"
-            android:layout_marginLeft="43dp"
-            android:layout_marginTop="50dp"
             android:text="@string/label_name"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/full_name"
+            android:fontFamily="sans-serif-black"
+            android:textSize="@dimen/_16sdp"
+            android:paddingTop="@dimen/_15sdp"/>
 
         <TextView
             android:id="@+id/label_age"
@@ -76,22 +101,25 @@
             android:layout_marginLeft="43dp"
             android:layout_marginTop="23dp"
             android:text="@string/label_age"
+            android:textSize="@dimen/_16sdp"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_name" />
+            app:layout_constraintTop_toBottomOf="@+id/label_name"
+            android:fontFamily="sans-serif-black"/>
 
         <TextView
             android:id="@+id/school"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif"
             android:text="@string/label_default"
-            android:fontFamily="@font/averiasanslibre_regular"
             android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/label_age"
             app:layout_constraintTop_toBottomOf="@+id/age" />
 
         <TextView
@@ -100,13 +128,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="43dp"
             android:layout_marginLeft="43dp"
+            android:textSize="@dimen/_16sdp"
             android:layout_marginTop="23dp"
             android:text="@string/label_gender"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_school" />
+            app:layout_constraintTop_toBottomOf="@+id/label_school"
+            android:fontFamily="sans-serif-black"/>
 
         <TextView
             android:id="@+id/age"
@@ -114,27 +144,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="23dp"
             android:text="@string/label_default"
-            android:fontFamily="@font/averiasanslibre_regular"
+            android:fontFamily="sans-serif"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/label_age"
+            android:textSize="@dimen/_16sdp"
             app:layout_constraintTop_toBottomOf="@+id/full_name" />
 
-        <ImageButton
-            android:id="@+id/edit_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/profile_top_bg"
 
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/edit_tool" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

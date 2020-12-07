@@ -4,36 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RecordFragment">
+
     <LinearLayout
         android:layout_width="413dp"
         android:layout_height="match_parent"
         android:background="@color/profile_top_bg"
         android:orientation="vertical">
 
+        <!--        <Button-->
+        <!--            android:id="@+id/Past_meeting_button"-->
+        <!--            android:layout_width="129dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:onClick="recordPasttabClicked"-->
+        <!--            android:text="Past meetings" />-->
+
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="31dp" />
 
-<!--        <Button-->
-<!--            android:id="@+id/Past_meeting_button"-->
-<!--            android:layout_width="129dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="recordPasttabClicked"-->
-<!--            android:text="Past meetings" />-->
-
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Past Meetings"
+            android:fontFamily="@font/averiasanslibre_italic"
+            android:paddingLeft="@dimen/_12sdp"
+            android:text="@string/title_upcoming"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="@dimen/upcoming_meeting_text"
             android:textStyle="bold" />
-
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
-            android:layout_height="196dp">
+            android:layout_height="150dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -46,162 +48,158 @@
                     android:layout_height="163dp"
                     android:orientation="horizontal">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/records"
-                        android:contentDescription="u_meeting1">
 
-                        <LinearLayout
+                    <RelativeLayout
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginLeft="@dimen/_20ssp"
+                        android:background="@color/white"
+                        android:padding="@dimen/upcoming_item_padding">
+
+                        <ImageView
+                            android:id="@+id/meeting_img"
+                            android:layout_width="@dimen/upcoming_item_img_dimen"
+                            android:layout_height="@dimen/upcoming_item_img_dimen"
+                            android:layout_alignParentEnd="true"
+
+                            android:src="@drawable/iconsmeeting" />
+
+                        <TextView
+                            android:id="@+id/meeting1"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/meeting_img"
+                            android:fontFamily="@font/averiasanslibre_regular"
+                            android:text="Title"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_20ssp" />
 
-                            <Space
-                                android:layout_width="match_parent"
-                                android:layout_height="31dp" />
+                        <ImageView
+                            android:id="@+id/time_img"
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_marginTop="80dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_toStartOf="@id/startTime1"
+                            android:src="@drawable/timer" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/startTime1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="80dp"
+                            android:fontFamily="@font/averiasanslibre_regular"
+                            android:text="12hrs"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
 
-<!--                                <Space-->
-<!--                                    android:layout_width="28dp"-->
-<!--                                    android:layout_height="20dp"-->
-<!--                                    android:layout_weight="1" />-->
+                    </RelativeLayout>
 
-                                <TextView
-                                    android:id="@+id/meeting1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/averiasanslibre_bold"
-                                    android:textAlignment="center"
-                                    android:text="@string/label_default" />
+                    <RelativeLayout
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginLeft="@dimen/_20ssp"
+                        android:background="@color/white"
+                        android:padding="@dimen/upcoming_item_padding">
 
-                            </LinearLayout>
+                        <ImageView
+                            android:id="@+id/meeting_img2"
+                            android:layout_width="@dimen/upcoming_item_img_dimen"
+                            android:layout_height="@dimen/upcoming_item_img_dimen"
+                            android:layout_alignParentEnd="true"
 
-                            <TextView
-                                android:id="@+id/startTime1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/averiasanslibre_regular"
-                                android:textAlignment="center"
-                                android:text="TextView" />
+                            android:src="@drawable/iconsmeeting" />
 
-                        </LinearLayout>
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/records"
-                        android:contentDescription="u_meeting2">
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/meeting2"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/meeting_img2"
+                            android:fontFamily="@font/averiasanslibre_regular"
+                            android:text="Title"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_20ssp" />
 
-                            <Space
-                                android:layout_width="match_parent"
-                                android:layout_height="31dp" />
+                        <ImageView
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_marginTop="80dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_toStartOf="@id/startTime2"
+                            android:src="@drawable/timer" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/startTime2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="80dp"
+                            android:fontFamily="@font/averiasanslibre_regular"
+                            android:text="12hrs"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
 
-<!--                                <Space-->
-<!--                                    android:layout_width="1dp"-->
-<!--                                    android:layout_height="20dp"-->
-<!--                                    android:layout_weight="1" />-->
+                    </RelativeLayout>
 
-                                <TextView
-                                    android:id="@+id/meeting2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/averiasanslibre_bold"
-                                    android:textAlignment="center"
-                                    android:text="@string/label_default" />
+                    <RelativeLayout
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_marginLeft="@dimen/_20ssp"
+                        android:background="@color/white"
+                        android:padding="@dimen/upcoming_item_padding">
 
-                            </LinearLayout>
+                        <ImageView
+                            android:id="@+id/meeting_img3"
+                            android:layout_width="@dimen/upcoming_item_img_dimen"
+                            android:layout_height="@dimen/upcoming_item_img_dimen"
+                            android:layout_alignParentEnd="true"
 
-                            <TextView
-                                android:id="@+id/startTime2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:fontFamily="@font/averiasanslibre_regular"
-                                android:textAlignment="center"
-                                android:text="TextView" />
+                            android:src="@drawable/iconsmeeting" />
 
-                        </LinearLayout>
-                    </FrameLayout>
+                        <TextView
+                            android:id="@+id/meeting3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/meeting_img3"
+                            android:fontFamily="@font/averiasanslibre_regular"
+                            android:text="Title"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_20ssp" />
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/records"
-                        android:contentDescription="u_meeting3">
+                        <ImageView
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_marginTop="80dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_toStartOf="@id/startTime3"
+                            android:src="@drawable/timer" />
 
-                        <LinearLayout
-                            android:layout_width="340dp"
-                            android:layout_height="163dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/startTime3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="80dp"
+                            android:fontFamily="@font/averiasanslibre_regular"
+                            android:text="12hrs"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp" />
 
-                            <Space
-                                android:layout_width="match_parent"
-                                android:layout_height="31dp" />
-
-                            <LinearLayout
-                                android:layout_width="117dp"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-<!--                                <Space-->
-<!--                                    android:layout_width="wrap_content"-->
-<!--                                    android:layout_height="20dp"-->
-<!--                                    android:layout_weight="1" />-->
-
-                                <TextView
-                                    android:id="@+id/meeting3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:textColor="@color/black"
-                                    android:fontFamily="@font/averiasanslibre_bold"
-                                    android:textAlignment="center"
-                                    android:text="@string/label_default" />
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/startTime3"
-                                android:layout_width="117dp"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/averiasanslibre_regular"
-                                android:text="TextView"
-                                android:textAlignment="center"
-                                android:textColor="@color/black" />
-
-                        </LinearLayout>
-                    </FrameLayout>
+                    </RelativeLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
+
         </HorizontalScrollView>
+
 
     </LinearLayout>
 
