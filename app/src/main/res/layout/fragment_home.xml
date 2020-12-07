@@ -55,7 +55,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_toEndOf="@id/icon_img_create"
                     android:fontFamily="@font/averiasanslibre_bold"
-                    android:text="@string/zm_btn_create"
+                    android:text="CREATE"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_20ssp"
                     android:textStyle="bold" />
