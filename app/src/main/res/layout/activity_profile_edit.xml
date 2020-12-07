@@ -7,28 +7,23 @@
     android:background="@color/filter_page_bg"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_bg"
+    <TextView
+        android:id="@+id/ProfileEdit"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/averiasanslibre_bold"
+        android:paddingTop="40dp"
+        android:paddingBottom="45dp"
+        android:text="Edit your account"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026" />
 
-        <TextView
-            android:id="@+id/ProfileEdit"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/averiasanslibre_bold"
-            android:paddingTop="40dp"
-            android:paddingBottom="45dp"
-            android:text="Edit your account"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.026" />
-
-        <ImageView
+    <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentRight="true"
@@ -42,47 +37,78 @@
 
         </ImageView>
 
-        <TextView
-            android:id="@+id/profile_name"
-            android:layout_width="338dp"
-            android:layout_height="106dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="98dp"
-            android:background="@drawable/rectangleview"
-            android:fontFamily="sans-serif-black"
-            android:gravity="center"
-            android:text="Name"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ProfileEdit"
-            app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
-            android:id="@+id/profile_image"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/profile_pic"
-            android:paddingTop="@dimen/_40sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/profile_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.546" />
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="338dp"
+        android:layout_height="106dp"
+        android:layout_below="@+id/ProfileEdit"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="98dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/rectangleview"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Name"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileEdit"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_below="@+id/ProfileEdit"
+        android:layout_alignBottom="@+id/ProfileEdit"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-13dp"
+        android:layout_marginEnd="126dp"
+        android:layout_marginBottom="-117dp"
+        android:background="@drawable/profile_pic"
+        android:paddingTop="@dimen/_40sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.546" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_name"
+        android:layout_marginTop="2dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/scrollview"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="85dp"-->
+        <!--            android:layout_marginBottom="200dp"-->
+        <!--            android:background="@color/profile_top_bg"-->
+        <!--            android:orientation="vertical"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="1.0"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/profile_name"-->
+        <!--            app:layout_constraintVertical_bias="0.0">-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/scrollview"
-            android:layout_width="414dp"
-            android:layout_height="503dp"
-            android:layout_marginTop="85dp"
-            android:layout_marginBottom="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/profile_top_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,11 +117,12 @@
             app:layout_constraintTop_toTopOf="@+id/profile_name"
             app:layout_constraintVertical_bias="0.0">
 
+
             <EditText
                 android:id="@+id/edit_name"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="124dp"
+                android:layout_marginTop="88dp"
                 android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/firstname"
                 android:drawablePadding="8dp"
@@ -115,7 +142,7 @@
                 android:id="@+id/edit_age"
                 android:layout_width="140dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_toRightOf="@+id/spin_Gender"
                 android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/age"
@@ -137,6 +164,7 @@
                 android:id="@+id/edit_school"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/zm_icon_home"
                 android:drawablePadding="8dp"
@@ -155,7 +183,7 @@
 
             <EditText
                 android:id="@+id/edit_password"
-                android:layout_width="fill_parent"
+                android:layout_width="414dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/room_name_layout"
@@ -172,15 +200,16 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.133"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_email"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
                 android:id="@+id/edit_email"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="168dp"
+                android:layout_width="408dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="92dp"
                 android:background="@drawable/room_name_layout"
                 android:drawableLeft="@android:drawable/sym_action_email"
                 android:drawablePadding="8dp"
@@ -193,9 +222,8 @@
                 android:textColorHint="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit_name" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_age" />
 
             <EditText
                 android:id="@+id/edit_username"
@@ -214,8 +242,10 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/edit_name"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.239" />
 
             <TextView
                 android:id="@+id/label_gender"
@@ -256,77 +286,16 @@
                 android:id="@+id/save_button"
                 android:layout_width="91dp"
                 android:layout_height="40dp"
-                android:backgroundTint="@color/profile_top_bg"
+                android:backgroundTint="@color/colorPrimary"
                 android:onClick="submitClicked"
                 android:text="@string/save_info"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit_password"
-                app:layout_constraintVertical_bias="0.112" />
+                app:layout_constraintTop_toBottomOf="@id/edit_password"
+                app:layout_constraintVertical_bias="5.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--        android:id="@+id/bottomnav"-->
-    <!--        android:layout_width="368dp"-->
-    <!--        android:layout_height="72dp"-->
-    <!--        android:layout_marginTop="1dp"-->
-    <!--        android:background="@color/bottom_nav_bg"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/top_bg">-->
-
-    <!--        <ImageButton-->
-    <!--            android:id="@+id/join"-->
-    <!--            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"-->
-    <!--            android:layout_width="63dp"-->
-    <!--            android:layout_height="63dp"-->
-    <!--            android:background="@drawable/join_icon"-->
-    <!--            android:scaleType="fitCenter"-->
-    <!--            android:src="@drawable/join_icon"-->
-    <!--            android:tint="#FFC107"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toStartOf="@+id/lobby"-->
-    <!--            app:layout_constraintHorizontal_bias="0.438"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent"-->
-    <!--            app:layout_constraintVertical_bias="0.555" />-->
-
-    <!--        <ImageButton-->
-    <!--            android:id="@+id/profile"-->
-    <!--            android:layout_width="63dp"-->
-    <!--            android:layout_height="63dp"-->
-    <!--            android:background="@drawable/user"-->
-    <!--            android:onClick="profileBotClicked"-->
-    <!--            android:scaleType="fitCenter"-->
-    <!--            android:src="@drawable/user"-->
-    <!--            android:tint="#FFC107"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintHorizontal_bias="0.566"-->
-    <!--            app:layout_constraintStart_toEndOf="@+id/lobby"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--        <ImageButton-->
-    <!--            android:id="@+id/lobby"-->
-    <!--            android:layout_width="63dp"-->
-    <!--            android:layout_height="63dp"-->
-    <!--            android:background="@drawable/home"-->
-    <!--            android:onClick="homeBotClicked"-->
-    <!--            android:scaleType="fitCenter"-->
-    <!--            android:src="@drawable/home"-->
-    <!--            android:tint="#FFC107"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintHorizontal_bias="0.501"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
