@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -26,7 +27,7 @@ public class ProfileEditActivity extends AppCompatActivity implements AuthConsta
     EditText e_faculty;
     EditText e_password;
     TextView profile_name;
-    ImageButton confirm;
+    Button confirm;
     String msgType;
     String username;
     String firstname;
@@ -64,7 +65,7 @@ public class ProfileEditActivity extends AppCompatActivity implements AuthConsta
         e_faculty=(EditText) findViewById(R.id.edit_school);
         e_password=(EditText) findViewById(R.id.edit_password);
         profile_name = (TextView) findViewById(R.id.profile_name);
-        confirm=(ImageButton) findViewById(R.id.save_button);
+        confirm=(Button) findViewById(R.id.save_button);
 
         //load the int id incase they need to change the values
         SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
@@ -257,14 +258,14 @@ public class ProfileEditActivity extends AppCompatActivity implements AuthConsta
 
     //Middle navigation tab
 
-    public void infotabClicked(View view){
-//        getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragment()).commit();
-        startActivity(new Intent(ProfileEditActivity.this, MainActivity.class));
-
-    }
-    public void recordtabClicked(View view){
-        startActivity(new Intent(ProfileEditActivity.this, RecordsActivity.class));
-    }
+//    public void infotabClicked(View view){
+////        getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragment()).commit();
+//        startActivity(new Intent(ProfileEditActivity.this, MainActivity.class));
+//
+//    }
+//    public void recordtabClicked(View view){
+//        startActivity(new Intent(ProfileEditActivity.this, RecordsActivity.class));
+//    }
     //    public void friendtabClicked(View view){
     //        startActivity(new Intent(ProfileActivity_2.this, ProfileEditActivity.class));
     //

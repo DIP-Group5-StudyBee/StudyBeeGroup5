@@ -1,5 +1,7 @@
 package com.example.studybee;
 
+import androidx.fragment.app.Fragment;
+
 import us.zoom.sdk.ZoomSDKInitParams;
 
 public interface AuthConstants {
@@ -23,6 +25,7 @@ public interface AuthConstants {
 	 *     "tokenExp": long // token expire time
 	 * }
 	 */
-//	public final static String SDK_JWTTOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBLZXkiOiIzRExJNVRVRWU0SzZnWHdHMTdsSVVMek93akt2NDY5bFNwNkoiLCJpYXQiOjE2MDA3MzI4MDAsImV4cCI6MTYwMDkwNTYwMCwidG9rZW5FeHAiOjE3MjgwMH0.GVJBIq_X9WEEMfiXE6sC7H6w1sTEt3RwQM3_-8mAdI8";
+	//	public final static String SDK_JWTTOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBLZXkiOiIzRExJNVRVRWU0SzZnWHdHMTdsSVVMek93akt2NDY5bFNwNkoiLCJpYXQiOjE2MDA3MzI4MDAsImV4cCI6MTYwMDkwNTYwMCwidG9rZW5FeHAiOjE3MjgwMH0.GVJBIq_X9WEEMfiXE6sC7H6w1sTEt3RwQM3_-8mAdI8";
 }
+
 //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..04oUH1UQZjMOcF7QuBHEbThO_8g0WNzdjJHM-gdUpkI

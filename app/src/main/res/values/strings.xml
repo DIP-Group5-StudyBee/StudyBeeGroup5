@@ -112,5 +112,9 @@
     <string name="this_app_name">StudyBee</string>
     <string name="select_country">SELECT COUNTRY</string>
 
-
+    // for profile
+    <string name="profileinfo">INFO</string>
+    <string name="profilerecords">RECORDS</string>
+    <string name="profilefriends">FRIENDS</string>
+    <string name="save_info">SAVE</string>
 </resources>

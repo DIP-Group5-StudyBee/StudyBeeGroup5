@@ -6,122 +6,56 @@
     android:layout_height="match_parent"
     android:background="@color/bottom_nav_bg"
     android:orientation="vertical">
-    // top bg
-
-    // top bg
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/profile_top_bg">
+        android:background="@drawable/profile_bg">
 
-
-        // navbar
-
-
-        // add name container
-
-
-        // info section
-
-        <Spinner
-            android:id="@+id/profile_placeholder"
-            android:layout_width="239dp"
-            android:layout_height="103dp"
-            android:layout_marginEnd="60dp"
-            android:background="#f3f2ee"
-            android:fontFamily="sans-serif-black"
-            android:textColor="#FF9800"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/navbar"
-            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="88dp"
-            android:layout_marginRight="88dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-black"
             android:text="Name"
             android:textAllCaps="true"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/profile_placeholder"
-            app:layout_constraintTop_toTopOf="@+id/profile_placeholder" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/profile_image"
-            android:layout_width="89dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
+            android:layout_width="413dp"
+            android:layout_height="109dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.102"
             tools:layout_conversion_absoluteHeight="128dp"
             tools:layout_conversion_absoluteWidth="88dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/navbar"-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="65dp"-->
-<!--            android:layout_marginTop="148dp"-->
-<!--            android:background="@color/profile_navbar"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
-
-<!--            <Button-->
-<!--                android:id="@+id/info_button"-->
-<!--                android:layout_width="103dp"-->
-<!--                android:layout_height="64dp"-->
-<!--                android:background="@color/tint"-->
-<!--                android:onClick="infotabClicked"-->
-<!--                android:text="INFO"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/record_button"-->
-<!--                app:layout_constraintHorizontal_bias="0.0"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/record_button"-->
-<!--                android:layout_width="103dp"-->
-<!--                android:layout_height="62dp"-->
-<!--                android:layout_marginEnd="24dp"-->
-<!--                android:layout_marginRight="24dp"-->
-<!--                android:background="@color/tint"-->
-<!--                android:onClick="recordtabClicked"-->
-<!--                android:text="RECORDS"-->
-<!--                app:layout_constraintEnd_toStartOf="@+id/friend_button"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/friend_button"-->
-<!--                android:layout_width="106dp"-->
-<!--                android:layout_height="62dp"-->
-<!--                android:layout_marginTop="1dp"-->
-<!--                android:background="@color/tint"-->
-<!--                android:text="FRIENDS"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+            tools:srcCompat="@drawable/defprofilepicture" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/scrollview"
-            android:layout_width="363dp"
+            android:layout_width="match_parent"
             android:layout_height="288dp"
-            android:layout_marginTop="124dp"
+            android:layout_marginTop="13dp"
             android:background="@color/profile_top_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/profile_name"
+            app:layout_constraintVertical_bias="0.054">
 
             <TextView
                 android:id="@+id/label_school"
@@ -217,19 +151,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/label_gender2" />
 
-            <ImageButton
-                android:id="@+id/save_button"
-                android:layout_width="52dp"
-                android:layout_height="56dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/profile_top_bg"
-                android:onClick="submitClicked"
-                android:scaleType="fitCenter"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/save_icon" />
-
             <EditText
                 android:id="@+id/edit_name"
                 android:layout_width="150dp"
@@ -321,6 +242,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="91dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="27dp"
+            android:backgroundTint="@color/profile_top_bg"
+            android:onClick="submitClicked"
+            android:text="@string/save_info"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollview"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

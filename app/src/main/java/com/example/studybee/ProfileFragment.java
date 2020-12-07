@@ -8,21 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.SearchView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import static com.example.studybee.initsdk.AuthConstants.ip;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ProfileFragment extends Fragment implements AuthConstants{
+public class ProfileFragment extends Fragment implements AuthConstants {
 
     View myView;
     TextView dis_firstname;
@@ -72,75 +68,75 @@ public class ProfileFragment extends Fragment implements AuthConstants{
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
-
-    }
+//    /**
+//     * Use this factory method to create a new instance of
+//     * this fragment using the provided parameters.
+//     *
+//     * @param param1 Parameter 1.
+//     * @param param2 Parameter 2.
+//     * @return A new instance of fragment ProfileFragment.
+//     */
+//    TODO: Rename and change types and number of parameters
+//    public static ProfileFragment newInstance(String param1, String param2) {
+//        ProfileFragment fragment = new ProfileFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
+//
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        if (getArguments() != null) {
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
+//        }
+//
+//
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         myView = inflater.inflate(R.layout.fragment_profile, container, false);
-        dis_firstname=(TextView) myView.findViewById(R.id.full_name);
+        init();
+//        dis_firstname=(TextView) myView.findViewById(R.id.full_name);
         dis_username=(TextView) myView.findViewById(R.id.profile_name);
-        dis_gender=(TextView) myView.findViewById(R.id.gender);
-        dis_faculty=(TextView) myView.findViewById(R.id.school);
-        dis_age =(TextView) myView.findViewById(R.id.age);
-
-
+//        dis_gender=(TextView) myView.findViewById(R.id.gender);
+//        dis_faculty=(TextView) myView.findViewById(R.id.school);
+//        dis_age =(TextView) myView.findViewById(R.id.age);
 
         record_Btn=(Button) myView.findViewById(R.id.record_button);
         info_Btn=(Button) myView.findViewById(R.id.info_button);
-        edit_Btn =(ImageButton) myView.findViewById(R.id.edit_button);
+        //edit_Btn =(ImageButton) myView.findViewById(R.id.edit_button);
         fri_Btn = (Button)myView.findViewById(R.id.friend_button);
 
-        //on create display the information from the database using the retrieval from PHP
+//        //on create display the information from the database using the retrieval from PHP
         SharedPreferences sh = this.getActivity().getSharedPreferences("preference", Context.MODE_PRIVATE);
         username = sh.getString("username", "");
         dis_username.setText(username);
-        firstname = sh.getString("firstname", "");
-        dis_firstname.setText(firstname);
-        gender = sh.getString("gender", "");
-        dis_gender.setText(gender);
-        faculty = sh.getString("faculty", "");
-        dis_faculty.setText(faculty);
-        age = sh.getString("age", "");
-        dis_age.setText(age);
+//        firstname = sh.getString("firstname", "");
+//        dis_firstname.setText(firstname);
+//        gender = sh.getString("gender", "");
+//        dis_gender.setText(gender);
+//        faculty = sh.getString("faculty", "");
+//        dis_faculty.setText(faculty);
+//        age = sh.getString("age", "");
+//        dis_age.setText(age);
 
 
-        edit_Btn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                editClicked();
-            }
-        });
+//        edit_Btn.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                editClicked();
+//            }
+//        });
         info_Btn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -169,23 +165,45 @@ public class ProfileFragment extends Fragment implements AuthConstants{
         return myView;
     }
 
-    public void editClicked(){
-        startActivity(new Intent(getActivity(), ProfileEditActivity.class));
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//        init();
+//    }
+
+    private void init(){
+        FragmentProfileInfo fragment = new FragmentProfileInfo();
+        doFragmentTransaction(fragment, getString(R.string.profileinfo), false);
     }
 
-    public void infotabClicked(){
-        startActivity(new Intent(getActivity(), ProfileActivity_2.class));
+    private void doFragmentTransaction(Fragment fragment, String tag, boolean addToBackStack) {
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.childcontainer, fragment, tag);
+
+        if(addToBackStack){
+            transaction.addToBackStack(tag);
+        }
+        transaction.commit();
     }
+
+//    public void editClicked(){
 //
+//        startActivity(new Intent(getActivity(), ProfileEditActivity.class));
+//    }
+
+    public void infotabClicked(){
+        FragmentProfileInfo fragment = new FragmentProfileInfo();
+        doFragmentTransaction(fragment, getString(R.string.profilerecords), false);
+        //startActivity(new Intent(getActivity(), ProfileActivity_2.class));
+    }
+
     public void recordtabClicked(){
-        startActivity(new Intent(getActivity(), RecordsActivity.class));
+        RecordFragment fragment = new RecordFragment();
+        doFragmentTransaction(fragment, getString(R.string.profilerecords), false);
+//        startActivity(new Intent(getActivity(), RecordsActivity.class));
     }
     public void friendtabClicked(){
         startActivity(new Intent(getActivity(), Display.class));
     }
-//    @Override
-//    public void onTaskCompleted(String response) {
-//
-//
-//    }
+
 }

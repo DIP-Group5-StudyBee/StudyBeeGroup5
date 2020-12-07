@@ -1,5 +1,6 @@
 package com.example.studybee;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class ProfileActivity_2 extends AppCompatActivity {
     TextView dis_firstname;
@@ -67,6 +70,7 @@ public class ProfileActivity_2 extends AppCompatActivity {
             }
         });
     }
+
     //For all the buttons
     public void editClicked(){
         startActivity(new Intent(ProfileActivity_2.this, ProfileEditActivity.class));
