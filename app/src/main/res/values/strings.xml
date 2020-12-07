@@ -104,5 +104,9 @@
     <string name="settings_hide_screen_share_toolbar_stopshare">Hide stopshare button in screen share</string>
     <string name="this_app_name">StudyBee</string>
 
-
+    // for profile
+    <string name="profileinfo">INFO</string>
+    <string name="profilerecords">RECORDS</string>
+    <string name="profilefriends">FRIENDS</string>
+    <string name="save_info">SAVE</string>
 </resources>

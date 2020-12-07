@@ -214,6 +214,7 @@
                                         android:id="@+id/meeting1"
                                         android:layout_width="64dp"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/averiasanslibre_bolditalic"
                                         android:text="@string/label_default" />
 
                                 </LinearLayout>

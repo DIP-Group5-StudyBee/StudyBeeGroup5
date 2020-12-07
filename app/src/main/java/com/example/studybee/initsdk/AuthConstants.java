@@ -9,7 +9,7 @@ public interface AuthConstants {
 	// TODO Change it to your APP Secret
 	public final static String APP_SECRET = "xx4x1arYuV0V6Ag4NaySGY1R9nLkGzQOy5Th";
 
-	public final static String ip = "192.168.1.104";
+	public final static String ip = "192.168.1.126";
 	/**
 	 * We recommend that, you can generate jwttoken on your own server instead of hardcore in the code.
 	 * We hardcore it here, just to run the demo.
@@ -23,6 +23,8 @@ public interface AuthConstants {
 	 *     "tokenExp": long // token expire time
 	 * }
 	 */
-//	public final static String SDK_JWTTOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBLZXkiOiIzRExJNVRVRWU0SzZnWHdHMTdsSVVMek93akt2NDY5bFNwNkoiLCJpYXQiOjE2MDA3MzI4MDAsImV4cCI6MTYwMDkwNTYwMCwidG9rZW5FeHAiOjE3MjgwMH0.GVJBIq_X9WEEMfiXE6sC7H6w1sTEt3RwQM3_-8mAdI8";
+	//	public final static String SDK_JWTTOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBLZXkiOiIzRExJNVRVRWU0SzZnWHdHMTdsSVVMek93akt2NDY5bFNwNkoiLCJpYXQiOjE2MDA3MzI4MDAsImV4cCI6MTYwMDkwNTYwMCwidG9rZW5FeHAiOjE3MjgwMH0.GVJBIq_X9WEEMfiXE6sC7H6w1sTEt3RwQM3_-8mAdI8";
+
 }
+
 //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..04oUH1UQZjMOcF7QuBHEbThO_8g0WNzdjJHM-gdUpkI
