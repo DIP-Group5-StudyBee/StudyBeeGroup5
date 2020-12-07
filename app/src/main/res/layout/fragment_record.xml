@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/averiasanslibre_italic"
             android:paddingLeft="@dimen/_12sdp"
-            android:text="Past Meeting"
+            android:text="Past Meetings"
             android:textColor="@color/black"
             android:textSize="@dimen/upcoming_meeting_text"
             android:textStyle="bold" />

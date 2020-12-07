@@ -23,29 +23,38 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center">
 
+
             <ImageView
                 android:id="@+id/rectimage"
                 android:layout_width="350dp"
                 android:layout_height="120dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="80dp"
                 android:background="@drawable/rectangleview"
                 android:contentDescription="Info Box" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_132sdp"
+                android:layout_height="@dimen/_132sdp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="160dp"
-                android:textAlignment="center"
-                android:textSize="20dp"
-                tools:text="@tools:sample/full_names" />
+                android:background="@drawable/big_friend"
+                android:paddingTop="@dimen/_80sdp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="190dp"
+                android:layout_marginTop="140dp"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:text="gjx" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="170dp"
                 android:textAlignment="center"
                 android:textSize="10dp"
                 tools:text="@tools:sample/cities" />
@@ -65,84 +74,116 @@
     </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="358dp"
-        android:layout_height="345dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_area"
+        android:background="@drawable/scrollview_background">
 
-        <TextView
-            android:id="@+id/textView45"
-            android:layout_width="359dp"
-            android:layout_height="47dp"
-            android:text="Full Name: "
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView47"
-            android:layout_width="361dp"
-            android:layout_height="54dp"
-            android:text="Faculty:"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.066"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView45" />
-
-        <TextView
-            android:id="@+id/textView49"
-            android:layout_width="360dp"
-            android:layout_height="64dp"
-            android:text="Email:"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView47" />
-
-        <TextView
-            android:id="@+id/spareTextView"
-            android:layout_width="362dp"
-            android:layout_height="67dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView49" />
-
-        <Button
-            android:id="@+id/button13"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Friend"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="358dp"
+            android:layout_height="345dp"
+            android:layout_gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spareTextView"
-            android:onClick="SButtonOnClickHandler" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="286dp"
-            android:layout_height="26dp"
-            android:text="TextView13"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="359dp"
+                android:layout_height="47dp"
+                android:fontFamily="@font/averiasanslibre_bold"
+                android:text="Full Name: "
+                android:textSize="@dimen/_16sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="290dp"
-            android:layout_height="24dp"
-            android:text="TextView14"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView45" />
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="361dp"
+                android:layout_height="54dp"
+                android:fontFamily="@font/averiasanslibre_bold"
+                android:text="Faculty:"
+                android:textSize="@dimen/_16sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="285dp"
-            android:layout_height="26dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView47" />
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="360dp"
+                android:layout_height="64dp"
+                android:text="Email:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView47"
+                android:fontFamily="@font/averiasanslibre_bold"
+                android:textSize="@dimen/_16sdp"/>
+
+            <TextView
+                android:id="@+id/spareTextView"
+                android:layout_width="362dp"
+                android:layout_height="67dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+            <Button
+                android:id="@+id/button13"
+                android:background="@drawable/roundedbutton"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:onClick="SButtonOnClickHandler"
+                android:text="Add Friend"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spareTextView" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="286dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="4dp"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:text="TextView13"
+                android:textSize="@dimen/_16sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:paddingLeft="@dimen/_24sdp"/>
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="290dp"
+                android:layout_height="24dp"
+                android:text="TextView14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView45"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textSize="@dimen/_16sdp"
+                android:paddingLeft="@dimen/_24sdp"/>
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="285dp"
+                android:layout_height="26dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView47"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textSize="@dimen/_16sdp"
+                android:paddingLeft="@dimen/_24sdp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

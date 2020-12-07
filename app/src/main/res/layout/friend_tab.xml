@@ -27,46 +27,33 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/upcoming_item_padding"
             android:layout_gravity="center"
             android:background="@color/profile_top_bg">
 
 
-            <ImageView
-                android:id="@+id/rectimage"
-                android:layout_width="350dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="100dp"
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="@dimen/_260sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="LSYDSB"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_60sdp"
                 android:background="@drawable/rectangleview"
-                android:contentDescription="Info Box" />
+                android:textColor="@color/black"/>
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="160dp"
-                android:textAlignment="center"
-                android:textSize="20dp"
-                tools:text="@tools:sample/full_names" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="190dp"
-                android:textAlignment="center"
-                android:textSize="10dp"
-                tools:text="@tools:sample/cities" />
-
-            <!--            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
-            <!--                android:id="@+id/profile_image"-->
-            <!--                android:layout_width="130dp"-->
-            <!--                android:layout_height="130dp"-->
-            <!--                android:layout_centerHorizontal="true"-->
-            <!--                android:layout_marginTop="20dp"-->
-            <!--                android:src="@drawable/person"-->
-            <!--                app:civ_border_color="#FF000000"-->
-            <!--                app:civ_border_width="0dp" />-->
+                android:paddingTop="@dimen/_40sdp"
+                android:background="@drawable/profile_pic" />
 
         </RelativeLayout>
 
@@ -114,6 +101,7 @@
 
     </RelativeLayout>
 
+
     <RelativeLayout
         android:id="@+id/searchViewcontainer"
         android:layout_width="fill_parent"
@@ -125,29 +113,36 @@
             android:id="@+id/editTextTextPersonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/_16sdp"
             android:ems="10"
-            android:hint="Enter name"
-            android:inputType="textPersonName" />
-        <Button
+            android:hint="Search Friend"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textColorHint="@color/colorPrimary"
+            android:imeOptions="actionNext|flagNoExtractUi"/>
+        <ImageButton
             android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:text="Search"
             android:layout_toRightOf="@id/editTextTextPersonName"
-            android:onClick="SButtonOnClickHandler"/>
+            android:onClick="SButtonOnClickHandler"
+            android:background="@drawable/loupe"/>
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="33dp"
-            android:layout_height="41dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="5dp"
-            android:layout_toEndOf="@+id/button"
-            andriod:srcCompat="@drawable/refresh"
-            android:onClick="RefreshButtonOnClickHandler"/>
+<!--        <ImageButton-->
+<!--            android:id="@+id/imageButton2"-->
+<!--            android:layout_width="@dimen/_20sdp"-->
+<!--            android:layout_height="@dimen/_20sdp"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="@dimen/_4sdp"-->
+<!--            android:layout_marginEnd="0dp"-->
+
+<!--            android:background="@drawable/refresh"-->
+<!--            android:onClick="RefreshButtonOnClickHandler"-->
+<!--            android:text="Refresh" />-->
+
 
     </RelativeLayout>
 
@@ -158,10 +153,12 @@
         android:layout_below="@+id/searchViewcontainer"
         android:layout_marginTop="10dp">
 
+
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/gridLayoutA"
-            android:layout_width="120dp"
-            android:layout_height="83.3dp"
+            android:layout_width="130dp"
+            android:layout_height="140dp"
+            android:paddingLeft="@dimen/_12sdp"
             andriod:layout_column="0"
             andriod:layout_constraintStart_toStartOf="parent"
             andriod:layout_constraintTop_toTopOf="parent"
@@ -171,31 +168,35 @@
                 android:id="@+id/textViewA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:gravity="center"
                 android:text=""
+                android:textSize="@dimen/_16sdp"
                 andriod:layout_column="0"
                 andriod:layout_row="1" />
 
             <ImageButton
                 android:id="@+id/imageButtonA"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/rectangleview"
                 android:visibility="gone"
                 andriod:layout_column="0"
-                andriod:layout_row="0"
-                tools:srcCompat="@tools:sample/avatars" />
+                andriod:layout_row="0" />
         </androidx.gridlayout.widget.GridLayout>
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/gridLayoutB"
-            android:layout_width="120dp"
-            android:layout_height="83.3dp"
+            android:paddingLeft="@dimen/_12sdp"
+            android:layout_width="130dp"
+            android:layout_height="140dp"
             andriod:layout_constraintStart_toEndOf="@+id/gridLayoutA"
             andriod:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
                 android:id="@+id/imageButtonB"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="@dimen/_80sdp"
                 android:visibility="gone"
                 andriod:layout_column="0"
                 andriod:layout_row="0"
@@ -207,21 +208,26 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 andriod:layout_column="0"
-                andriod:layout_row="1" />
+                andriod:layout_row="1"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:gravity="center"
+                android:textSize="@dimen/_16sdp"/>
         </androidx.gridlayout.widget.GridLayout>
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/gridLayoutC"
-            android:layout_width="120dp"
-            android:layout_height="83.3dp"
+            android:paddingLeft="@dimen/_12sdp"
+            android:layout_width="130dp"
+            android:layout_height="140dp"
             andriod:layout_constraintEnd_toEndOf="parent"
+            andriod:layout_constraintHorizontal_bias="0.0"
             andriod:layout_constraintStart_toEndOf="@+id/gridLayoutB"
             andriod:layout_constraintTop_toTopOf="@+id/gridLayoutB">
 
             <ImageButton
                 android:id="@+id/imageButtonC"
-                android:layout_width="118dp"
-                android:layout_height="65dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
                 android:visibility="gone"
                 andriod:layout_column="0"
                 andriod:layout_row="0"
@@ -233,114 +239,105 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 andriod:layout_column="0"
-                andriod:layout_row="1" />
+                andriod:layout_row="1"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:gravity="center"
+                android:textSize="@dimen/_16sdp"/>
         </androidx.gridlayout.widget.GridLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="358dp"
+            android:layout_width="match_parent"
             android:layout_height="166dp"
             andriod:layout_constraintBottom_toBottomOf="parent"
             andriod:layout_constraintEnd_toEndOf="parent"
             andriod:layout_constraintStart_toStartOf="parent"
             andriod:layout_constraintTop_toBottomOf="@+id/gridLayoutB">
 
-            <TextView
-                android:id="@+id/nameTitle"
-                android:layout_width="117dp"
-                android:layout_height="27dp"
-                android:text="Name"
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridLayoutD"
+                android:layout_width="130dp"
+                android:layout_height="140dp"
+                android:paddingLeft="@dimen/_12sdp"
+                andriod:layout_column="0"
                 andriod:layout_constraintStart_toStartOf="parent"
-                andriod:layout_constraintTop_toTopOf="parent" />
+                andriod:layout_constraintTop_toTopOf="parent"
+                andriod:layout_row="0">
 
-            <TextView
-                android:id="@+id/emailTitle"
-                android:layout_width="240dp"
-                android:layout_height="27dp"
-                android:layout_weight="1"
-                android:text="Email"
+                <TextView
+                    android:id="@+id/textViewD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/averiasanslibre_regular"
+                    android:gravity="center"
+                    android:text="David"
+                    android:textSize="@dimen/_12sdp"
+                    andriod:layout_column="0"
+                    andriod:layout_row="1" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:background="@drawable/big_boy"
+                    andriod:layout_column="0"
+                    andriod:layout_row="0" />
+            </androidx.gridlayout.widget.GridLayout>
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridLayoutE"
+                android:paddingLeft="@dimen/_12sdp"
+                android:layout_width="130dp"
+                android:layout_height="140dp"
+                andriod:layout_constraintStart_toEndOf="@+id/gridLayoutD"
+                andriod:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:background="@drawable/big_girl"
+                    andriod:layout_column="0"
+
+                    andriod:layout_row="0" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mia"
+                    andriod:layout_column="0"
+                    andriod:layout_row="1"
+                    android:fontFamily="@font/averiasanslibre_regular"
+                    android:gravity="center"
+                    android:textSize="@dimen/_12sdp"/>
+            </androidx.gridlayout.widget.GridLayout>
+
+            <androidx.gridlayout.widget.GridLayout
+                android:paddingLeft="@dimen/_12sdp"
+                android:layout_width="130dp"
+                android:layout_height="140dp"
                 andriod:layout_constraintEnd_toEndOf="parent"
-                andriod:layout_constraintStart_toEndOf="@+id/nameTitle"
-                andriod:layout_constraintTop_toTopOf="@+id/nameTitle" />
+                andriod:layout_constraintHorizontal_bias="0.0"
+                andriod:layout_constraintStart_toEndOf="@+id/gridLayoutE"
+                andriod:layout_constraintTop_toTopOf="@+id/gridLayoutE">
 
-            <TextView
-                android:id="@+id/nameList1"
-                android:layout_width="117dp"
-                android:layout_height="27dp"
-                android:text="Ah Wang"
-                andriod:layout_constraintStart_toStartOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/nameTitle" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
 
-            <TextView
-                android:id="@+id/emailList1"
-                android:layout_width="240dp"
-                android:layout_height="27dp"
-                android:layout_weight="1"
-                android:text="Woof@e.ntu.edu.sg"
-                andriod:layout_constraintEnd_toEndOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/emailTitle" />
+                    andriod:layout_column="0"
+                    andriod:layout_row="0"
+                    android:background="@drawable/big_girl" />
 
-            <TextView
-                android:id="@+id/nameList2"
-                android:layout_width="117dp"
-                android:layout_height="27dp"
-                android:text="Ah Meow"
-                andriod:layout_constraintStart_toStartOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/nameList1" />
+                <TextView
 
-            <TextView
-                android:id="@+id/emailList2"
-                android:layout_width="240dp"
-                android:layout_height="27dp"
-                android:layout_weight="1"
-                android:text="Meow@e.ntu.edu.sg"
-                andriod:layout_constraintEnd_toEndOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/emailList1" />
-
-            <TextView
-                android:id="@+id/emailList3"
-                android:layout_width="240dp"
-                android:layout_height="27dp"
-                android:layout_weight="1"
-                andriod:layout_constraintEnd_toEndOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/emailList2" />
-
-            <TextView
-                android:id="@+id/nameList3"
-                android:layout_width="117dp"
-                android:layout_height="27dp"
-                andriod:layout_constraintStart_toStartOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/nameList2" />
-
-            <TextView
-                android:id="@+id/nameList4"
-                android:layout_width="117dp"
-                android:layout_height="27dp"
-                andriod:layout_constraintStart_toStartOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/nameList3" />
-
-            <TextView
-                android:id="@+id/emailList4"
-                android:layout_width="240dp"
-                android:layout_height="27dp"
-                android:layout_weight="1"
-                andriod:layout_constraintEnd_toEndOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/emailList3" />
-
-            <TextView
-                android:id="@+id/emailList5"
-                android:layout_width="240dp"
-                android:layout_height="27dp"
-                android:layout_weight="1"
-                andriod:layout_constraintEnd_toEndOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/emailList4" />
-
-            <TextView
-                android:id="@+id/nameList5"
-                android:layout_width="117dp"
-                android:layout_height="27dp"
-                andriod:layout_constraintStart_toStartOf="parent"
-                andriod:layout_constraintTop_toBottomOf="@+id/nameList4" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mary"
+                    andriod:layout_column="0"
+                    andriod:layout_row="1"
+                    android:fontFamily="@font/averiasanslibre_regular"
+                    android:gravity="center"
+                    android:textSize="@dimen/_12sdp"/>
+            </androidx.gridlayout.widget.GridLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -348,9 +345,20 @@
             android:id="@+id/space2"
             android:layout_width="358dp"
             android:layout_height="26dp"
-            andriod:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            andriod:layout_constraintBottom_toTopOf="@+id/space3"
             andriod:layout_constraintStart_toStartOf="parent"
             andriod:layout_constraintTop_toBottomOf="@+id/gridLayoutB" />
+        <TextView
+            android:id="@+id/space3"
+            android:layout_width="358dp"
+            android:layout_height="26dp"
+            andriod:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            andriod:layout_constraintStart_toStartOf="parent"
+            andriod:layout_constraintTop_toBottomOf="@+id/space2"
+            android:text="Friends"
+            android:paddingLeft="@dimen/_16sdp"
+            android:fontFamily="@font/averiasanslibre_bolditalic"
+            android:textSize="@dimen/_16sdp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

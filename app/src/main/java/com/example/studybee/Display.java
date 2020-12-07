@@ -1,8 +1,11 @@
 package com.example.studybee;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -28,10 +31,13 @@ public class Display extends AppCompatActivity implements AuthConstants, OnTaskC
     String email;
     EditText et_username;
     String msgType;
-    Button SButton;
+    ImageButton SButton;
     ImageButton NButton;
     ImageButton NButton1;
     ImageButton NButton2;
+
+//    Typeface typeface = ResourcesCompat.getFont(this, R.font.averiasanslibre_regular);
+
 
     TextView[] showViews= new TextView[6];
 
@@ -119,26 +125,26 @@ public class Display extends AppCompatActivity implements AuthConstants, OnTaskC
         }
     }
 
-    public void RefreshButtonOnClickHandler(View v) {
-        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
-        showViews[0] = (TextView) findViewById(R.id.nameList1);
-        showViews[1] = (TextView) findViewById(R.id.emailList1);
-        showViews[2] = (TextView) findViewById(R.id.nameList2);
-        showViews[3] = (TextView) findViewById(R.id.emailList2);
-        showViews[4] = (TextView) findViewById(R.id.nameList3);
-        showViews[5] = (TextView) findViewById(R.id.nameList3);
-
-//        //search user recent friend added
-//        String jsonString = convertToJSONretrieveFriends();
-//        //access database network
-//        HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
-//        task.execute("http://" + HOST + "/" + DIR + "/retrieveFriends.php", jsonString);
-
-        showViews[0].setText("tommy");
-        showViews[1].setText("tom@e.ntu.edu.sg");
-        showViews[2].setText("Santa");
-        showViews[3].setText("San@e.ntu.edu.sg");
-    }
+//    public void RefreshButtonOnClickHandler(View v) {
+//        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
+//        showViews[0] = (TextView) findViewById(R.id.nameList1);
+//        showViews[1] = (TextView) findViewById(R.id.emailList1);
+//        showViews[2] = (TextView) findViewById(R.id.nameList2);
+//        showViews[3] = (TextView) findViewById(R.id.emailList2);
+//        showViews[4] = (TextView) findViewById(R.id.nameList3);
+//        showViews[5] = (TextView) findViewById(R.id.nameList3);
+//
+////        //search user recent friend added
+////        String jsonString = convertToJSONretrieveFriends();
+////        //access database network
+////        HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
+////        task.execute("http://" + HOST + "/" + DIR + "/retrieveFriends.php", jsonString);
+//
+//        showViews[0].setText("tommy");
+//        showViews[1].setText("tom@e.ntu.edu.sg");
+//        showViews[2].setText("Santa");
+//        showViews[3].setText("San@e.ntu.edu.sg");
+//    }
 
 //    private String convertToJSONretrieveFriends() {
 //        JSONStringer jsonText = new JSONStringer();
@@ -207,6 +213,7 @@ public void retrieveFromJSON(String message) {
                 int comma = 1;
                 comma += countCommas();
                 String fusername[] = username.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\"", "").replaceAll("\"", "").split(",");
+
                 textViews[0] = (TextView) findViewById(R.id.textViewA);
                 textViews[1] = (TextView) findViewById(R.id.textViewB);
                 textViews[2] = (TextView) findViewById(R.id.textViewC);
@@ -218,7 +225,7 @@ public void retrieveFromJSON(String message) {
                     for (k = 1; k <= 2; k++) {
                         textViews[k].setText("");
                     }
-                    Drawable defsmall = getResources().getDrawable(R.drawable.defsmall1);
+                    Drawable defsmall = getResources().getDrawable(R.drawable.girl);
                     ImageButton image = (ImageButton) findViewById(R.id.imageButtonA);
                     image.setImageDrawable(defsmall);
                     NButton.setVisibility(View.VISIBLE);
@@ -231,7 +238,7 @@ public void retrieveFromJSON(String message) {
                         textViews[k].setText("");
 
                     }
-                    Drawable defsmall = getResources().getDrawable(R.drawable.defsmall1);
+                    Drawable defsmall = getResources().getDrawable(R.drawable.boy);
                     ImageButton image = (ImageButton) findViewById(R.id.imageButtonA);
                     image.setImageDrawable(defsmall);
                     Drawable defsmall1 = getResources().getDrawable(R.drawable.defsmall1);
@@ -242,7 +249,7 @@ public void retrieveFromJSON(String message) {
                     NButton2.setVisibility(View.INVISIBLE);
                 }
                 if (comma == 3) {
-                    Drawable defsmall = getResources().getDrawable(R.drawable.defsmall1);
+                    Drawable defsmall = getResources().getDrawable(R.drawable.girl);
                     ImageButton image = (ImageButton) findViewById(R.id.imageButtonA);
                     image.setImageDrawable(defsmall);
                     Drawable defsmall1 = getResources().getDrawable(R.drawable.defsmall1);

@@ -20,7 +20,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:gravity="">
+            android:gravity="center">
 
 
             <TextView
@@ -45,8 +45,6 @@
                 android:layout_centerHorizontal="true"
                 android:paddingTop="@dimen/_40sdp"
                 android:background="@drawable/profile_pic" />
-
-
         </RelativeLayout>
 
 
