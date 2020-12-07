@@ -952,8 +952,8 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
             meetingShareHelper.stopShare();
         }
         finish();
-        mInMeetingService.leaveCurrentMeeting(end);
 //        startActivity(new Intent(MyMeetingActivity.this, MainActivity.class));
+        mInMeetingService.leaveCurrentMeeting(end);
 
     }
 

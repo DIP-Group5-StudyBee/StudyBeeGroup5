@@ -45,6 +45,7 @@ public class RecordFragment extends Fragment implements AuthConstants, OnTaskCom
     String host_name;
     String[] Meet_str =new String[3];
     String[] StartTime_str= new String[3];
+    int user_id;
 
     String time;
     int numMeet = 0;
@@ -70,6 +71,7 @@ public class RecordFragment extends Fragment implements AuthConstants, OnTaskCom
         //obtain and display username at the top
 //        Username =  (TextView) v.findViewById(R.id.Username_record);
         SharedPreferences sh = this.getActivity().getSharedPreferences("preference", MODE_PRIVATE);
+        user_id = sh.getInt("id",0);
 //        host_name = sh.getString("username","");
 //        Username.setText(host_name);
 
@@ -111,8 +113,8 @@ public class RecordFragment extends Fragment implements AuthConstants, OnTaskCom
             jsonText.object();
             jsonText.key("type");
             jsonText.value(msgType);
-//            jsonText.key("host_name");
-//            jsonText.value(host_name);
+            jsonText.key("user_id");
+            jsonText.value(user_id);
             jsonText.key("start_time");
             jsonText.value(time);
             jsonText.endObject();
@@ -135,7 +137,7 @@ public class RecordFragment extends Fragment implements AuthConstants, OnTaskCom
                     numMeet = jsonObject.getInt("number");
                     for (int i = 0; i<numMeet; i++) {
                         Meet_str[i] = jsonObject.getString("meeting_name"+i);
-                        StartTime_str[i] = jsonObject.getString("start_time"+i);
+                        StartTime_str[i] = jsonObject.getString("meeting_time"+i);
                     }
                     for (int i = numMeet +1; i<3; i++){
                         //not value return
