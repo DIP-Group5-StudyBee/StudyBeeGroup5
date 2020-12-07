@@ -32,28 +32,41 @@
         android:paddingLeft="@dimen/_12sdp"
         android:paddingRight="@dimen/_12sdp">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="152dp"
-            android:visibility="invisible" />
-
+        <ImageView
+            android:id="@+id/zoomLogo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/newbeelogo"
+            android:contentDescription="ZoomICon"
+            android:layout_gravity="center"/>
 
 
 
             <RelativeLayout
-                android:layout_width="260dp"
-                android:layout_height="260dp"
+                android:layout_width="400dp"
+                android:layout_height="400dp"
                 android:layout_gravity="center"
                 android:padding="@dimen/_8sdp">
+                <com.sdsmdg.harjot.longshadows.LongShadowsWrapper xmlns:android="http://schemas.android.com/apk/res/android"
+                    app:background_transparent="true"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_300sdp">
+                    <Button
+                        android:id="@+id/quickjoinButton"
+                        android:layout_width="220dp"
+                        android:layout_height="220dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/round_button"
+                        android:textSize="@dimen/_60sdp"
+                        android:text="GO"
+                        android:fontFamily="@font/averiasanslibre_bold"
+                        android:textColor="@color/black"/>
+                    <com.sdsmdg.harjot.longshadows.LongShadowsImageView android:layout_width="220dp" android:layout_height="220dp" android:layout_centerHorizontal="true" android:src="@drawable/round_button"
+                        />
+                </com.sdsmdg.harjot.longshadows.LongShadowsWrapper>
 
-                <Button
-                    android:id="@+id/quickjoinButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/round_button"
-                    android:textSize="@dimen/_60sdp"
-                    android:text="GO" />
+
 
 
             </RelativeLayout>

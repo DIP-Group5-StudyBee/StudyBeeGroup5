@@ -12,7 +12,7 @@
     <Button
         android:id="@+id/btnSchedule"
         android:layout_width="400dp"
-        android:layout_height="50dp"
+        android:layout_height="36dp"
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
         android:background="@drawable/roundedbutton"
@@ -20,7 +20,7 @@
         android:fontFamily="@font/averiasanslibre_bold"
         android:padding="3dp"
         android:text="SCHEDULE MEETING"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -61,6 +61,7 @@
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:hint="MEETING PASSWORD"
+                    android:inputType="textPassword"
                     android:layout_height="@dimen/_40sdp"
                     android:maxLength="10"
                     android:singleLine="true"
