@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/averiasanslibre_italic"
             android:paddingLeft="@dimen/_12sdp"
-            android:text="@string/title_upcoming"
+            android:text="@string/title_past"
             android:textColor="@color/black"
             android:textSize="@dimen/upcoming_meeting_text"
             android:textStyle="bold" />
@@ -92,7 +92,7 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="80dp"
                             android:fontFamily="@font/averiasanslibre_regular"
-                            android:text="12hrs"
+                            android:text="@string/label_default"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_10ssp" />
 
@@ -140,7 +140,7 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="80dp"
                             android:fontFamily="@font/averiasanslibre_regular"
-                            android:text="12hrs"
+                            android:text="@string/label_default"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_10ssp" />
 
@@ -188,7 +188,7 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="80dp"
                             android:fontFamily="@font/averiasanslibre_regular"
-                            android:text="12hrs"
+                            android:text="@string/label_default"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_10ssp" />
 
