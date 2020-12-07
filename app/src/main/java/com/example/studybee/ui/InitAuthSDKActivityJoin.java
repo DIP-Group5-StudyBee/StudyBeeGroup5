@@ -116,7 +116,7 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
                     }
                     else {
                         view.setVisibility(View.INVISIBLE);
-                        layoutJoin.setVisibility(View.INVISIBLE);
+                        layoutJoin.setVisibility(View.VISIBLE);
                     }
                 }
 
@@ -288,12 +288,12 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
 //            mBtnWithoutLogin.setVisibility(View.VISIBLE);
 //            mBtnEmailLogin.setVisibility(ZoomSDK.getInstance().isEmailLoginEnable() ? View.VISIBLE : View.GONE);
 //            mBtnSSOLogin.setVisibility(View.VISIBLE);
-            if (isTA.equals("Teaching Assistant")) {
+//            if (isTA.equals("Teaching Assistant")) {
                 mdescription.setText(roomDescription);
                 mProgressPanel.setVisibility(View.GONE);
                 layoutJoin.setVisibility(View.VISIBLE);
                 mReturnMeeting.setVisibility(View.GONE);
-            }
+//            }
         }
     }
 
