@@ -4,13 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/profile_top_bg"
+    android:background="@color/filter_page_bg"
     android:orientation="vertical"
     tools:context="com.example.studybee.RegisterActivity">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/newbeelogo">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/Register"
+        android:text="Create New Account"
+        android:fontFamily="@font/averiasanslibre_bold"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="13dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="45dp"/>
+
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Register"
+        android:background="@drawable/scrollview_background">
 
         <LinearLayout
             android:id="@+id/login_layout"
@@ -23,9 +47,9 @@
             <EditText
                 android:id="@+id/username"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
-                android:background="@android:color/transparent"
+                android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/zm_ic_sip_contacts_normal"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
@@ -44,9 +68,9 @@
             <EditText
                 android:id="@+id/firstName"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@android:color/transparent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/firstname"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
@@ -65,9 +89,9 @@
             <EditText
                 android:id="@+id/email"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@android:color/transparent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/room_name_layout"
                 android:drawableLeft="@android:drawable/sym_action_email"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
@@ -91,8 +115,8 @@
                 <TextView
                     android:id="@+id/gender"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="25dp"
                     android:background="@android:color/transparent"
                     android:drawableLeft="@drawable/gender"
                     android:drawablePadding="5dp"
@@ -105,22 +129,22 @@
 
                 <Spinner
                     android:id="@+id/spin_Gender"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="25dp"
                     android:layout_toRightOf="@+id/gender"
                     android:entries="@array/arrayGender"
                     android:padding="5dp" />
 
                 <EditText
                     android:id="@+id/age"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="25dp"
                     android:layout_toRightOf="@+id/spin_Gender"
-                    android:background="@android:color/transparent"
+                    android:background="@drawable/room_name_layout"
                     android:drawableLeft="@drawable/age"
                     android:drawablePadding="8dp"
                     android:gravity="left"
@@ -134,17 +158,17 @@
 
             </RelativeLayout>
 
-            <View
+          <!--  <View
                 android:layout_width="fill_parent"
                 android:layout_height="1px"
-                android:background="@color/white" />
+                android:background="@color/white" /> -->
 
             <EditText
                 android:id="@+id/faculty"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@android:color/transparent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/zm_icon_home"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
@@ -163,9 +187,9 @@
             <EditText
                 android:id="@+id/password"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/transparent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/room_name_layout"
                 android:drawableLeft="@android:drawable/ic_lock_idle_lock"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
@@ -186,9 +210,9 @@
             <EditText
                 android:id="@+id/confirmPassword"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/transparent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/room_name_layout"
                 android:drawableLeft="@android:drawable/ic_lock_idle_lock"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
@@ -242,7 +266,7 @@
                     android:id="@+id/isTA"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="25dp"
                     android:background="@android:color/transparent"
                     android:drawableLeft="@drawable/firstname"
                     android:drawablePadding="5dp"
@@ -256,9 +280,9 @@
                 <Spinner
                     android:id="@+id/spin_Account"
                     android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="25dp"
                     android:layout_toRightOf="@+id/isTA"
                     android:entries="@array/arrayAccType"
                     android:padding="5dp" />
@@ -272,6 +296,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/loginbutton_selector"
                 android:onClick="confirmClicked"

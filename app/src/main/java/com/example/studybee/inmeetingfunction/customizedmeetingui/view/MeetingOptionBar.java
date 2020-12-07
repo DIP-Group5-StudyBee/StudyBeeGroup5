@@ -435,9 +435,9 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
             }
         }
 
-        if (BuildConfig.DEBUG) {
-            menuAdapter.addItem((new SimpleMenuItem(MENU_SWITCH_DOMAIN, "Switch Domain")));
-        }
+//        if (BuildConfig.DEBUG) {
+//            menuAdapter.addItem((new SimpleMenuItem(MENU_SWITCH_DOMAIN, "Switch Domain")));
+//        }
 
         if (BuildConfig.DEBUG) {
             InMeetingUserInfo myUserInfo = mInMeetingService.getMyUserInfo();

@@ -11,7 +11,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/logo"
+        android:background="@drawable/newbeelogo"
         android:contentDescription="Logo"
         android:transitionName="transitionLogo" />
 
@@ -106,7 +106,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:background="@drawable/loginbutton_selector"
+            android:background="@drawable/roundedbutton"
             android:contentDescription="login"
             android:onClick="loginClicked"
             android:padding="3dp"
@@ -120,7 +120,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@drawable/loginbutton_selector"
+            android:background="@drawable/roundedbutton"
             android:contentDescription="start to register"
             android:onClick="registerClicked"
             android:padding="3dp"

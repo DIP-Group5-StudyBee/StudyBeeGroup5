@@ -12,8 +12,8 @@
         android:layout_gravity="center_horizontal"
         android:text="action"
         android:visibility="gone"/>
-     
-	<ListView
+
+    <ListView
         android:id="@+id/meetingsListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

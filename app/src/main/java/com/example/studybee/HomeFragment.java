@@ -58,6 +58,15 @@ public class HomeFragment extends Fragment {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                    startActivity(new Intent(getContext(), HostActivity.class));
+                }
+//            }
+        });
+
+        //OnClick event on join cardView
+        joinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 SharedPreferences sh = getContext().getSharedPreferences("preference", MODE_PRIVATE);
                 isTA = sh.getString("identity", "");
                 if (isTA.equals("Teaching Assistant")) {
@@ -66,16 +75,9 @@ public class HomeFragment extends Fragment {
                     startActivity(new Intent(getContext(), LobbyActivity.class));
                 } else {
                     //Toast.makeText(getApplicationContext(),"Hello FAIL", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getContext(), HostActivity.class));
+                    startActivity(new Intent(getContext(), JoinActivity.class));
                 }
-            }
-        });
 
-        //OnClick event on join cardView
-        joinButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(), JoinActivity.class));
             }
         });
 

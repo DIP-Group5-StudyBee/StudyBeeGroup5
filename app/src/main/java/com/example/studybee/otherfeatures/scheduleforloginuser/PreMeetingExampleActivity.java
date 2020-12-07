@@ -15,7 +15,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.studybee.HttpAsyncTaskForLogin;
+import com.example.studybee.OnTaskCompleted;
 import com.example.studybee.R;
+
+import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,8 +34,10 @@ import us.zoom.sdk.PreMeetingService;
 import us.zoom.sdk.PreMeetingServiceListener;
 import us.zoom.sdk.ZoomSDK;
 
+import static com.example.studybee.initsdk.AuthConstants.ip;
 
-public class PreMeetingExampleActivity extends Activity implements OnClickListener, PreMeetingServiceListener {
+
+public class PreMeetingExampleActivity extends Activity implements OnClickListener, PreMeetingServiceListener, OnTaskCompleted {
 	
 	private final static String TAG = "Zoom";
 	
@@ -38,6 +45,16 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 	private Button mBtnSchedule;
 	
 	private MeetingsListAdapter mAdapter;
+	// Set host address of the WAMP Server
+	public static final String HOST = ip; //using your own IP address
+
+	// Set virtual directory of the host website
+	public static final String DIR = "myproject";
+
+	// Set request ID for all HTTP requests
+	private static final String REQ_DELETE = "1004";
+
+	String msgType,status;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +119,6 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 		Log.d(TAG,"onUpdateMeeting result:"+result+" meetingUniqueId:"+meetingUniqueId);
     }
 
-
 	@Override
 	public void onDeleteMeeting(int result) {
 		// No op
@@ -116,8 +132,29 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 			PreMeetingService preMeetingService = zoomSDK.getPreMeetingService();
 			if(preMeetingService != null) {
 				preMeetingService.deleteMeeting(item.getMeetingUniqueId());
+				//delete
+				msgType = REQ_DELETE;
+				String jsonString = convertToJSON(item.getMeetingUniqueId());
+				HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
+				task.execute("http://"+HOST+"/"+DIR+"/deletemeeting.php",jsonString);
             }
 		}
+	}
+
+	public String convertToJSON(long meetingId) {
+		JSONStringer jsonText = new JSONStringer();
+		try {
+			jsonText.object();
+			jsonText.key("type");
+			jsonText.value(msgType);
+			jsonText.key("zoom_id");
+			jsonText.value(meetingId);
+			jsonText.endObject();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return jsonText.toString();
 	}
 	
 	@Override
@@ -129,11 +166,36 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 			if(preMeetingService != null)
 				preMeetingService.removeListener(this);
 		}
-		
 		super.onDestroy();
 	}
-	
-	
+
+	public void retrieveFromJSON(String message) {
+		try {
+			JSONObject jsonObject = new JSONObject(message);
+			msgType = jsonObject.getString("type");
+			if (msgType.equals(REQ_DELETE)) {
+				status = jsonObject.getString("status");
+				if (status.equals("OK")) {
+					Toast.makeText(getApplicationContext(),"Meeting deleted successfully!",Toast.LENGTH_LONG).show();
+				}else {
+					Toast.makeText(getApplicationContext(),"Meeting deleted fail",Toast.LENGTH_LONG).show();
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void onTaskCompleted(String response) {
+		retrieveFromJSON(response);
+		if (msgType.equals(REQ_DELETE) && status.equals("OK")){
+
+		}
+	}
+
+
 	class MeetingsListAdapter extends BaseAdapter {
 		
 		private ArrayList<MeetingItem> mItems = new ArrayList<MeetingItem>();

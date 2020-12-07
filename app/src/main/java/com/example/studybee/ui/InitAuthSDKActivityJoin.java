@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -44,11 +45,12 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
         MeetingServiceListener, UserLoginCallback.ZoomDemoAuthenticationListener, OnClickListener {
 
     private final static String TAG = "Zoom";
-
+    private String isTA;
 //    private Button mBtnEmailLogin;
 //    private Button mBtnSSOLogin;
     private Button mBtnWithoutLogin;
     private View layoutJoin;
+    private TextView mdescription;
     private View mProgressPanel;
 //    private EditText numberEdit;
 //    private EditText nameEdit;
@@ -56,7 +58,9 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
 
     private Button mReturnMeeting;
 
+
     private boolean isResumed = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +92,7 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
 //        numberEdit = findViewById(R.id.edit_join_number);
 //        nameEdit = findViewById(R.id.edit_join_name);
         mProgressPanel.setVisibility(View.GONE);
+        mdescription = findViewById(R.id.description);
 
          InitAuthSDKHelper.getInstance().initSDK(this, this);
 
@@ -95,12 +100,26 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
 //            mBtnEmailLogin.setVisibility(ZoomSDK.getInstance().isEmailLoginEnable() ? View.INVISIBLE : View.GONE);
 //            mBtnSSOLogin.setVisibility(View.VISIBLE);
 //            mBtnWithoutLogin.setVisibility(View.VISIBLE);
-            layoutJoin.setVisibility(View.VISIBLE);
+            SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+            isTA = sh.getString("identity", "");
 
-            View view = findViewById(R.id.btnSettings);
-            if (null != view) {
-                view.setVisibility(View.VISIBLE);
-            }
+
+                layoutJoin.setVisibility(View.VISIBLE);
+                String roomDescription = sh.getString("room_description", "");
+                mdescription.setText(roomDescription);
+
+                View view = findViewById(R.id.btnSettings);
+                if (null != view) {
+                    if (isTA.equals("Teaching Assistant")) {
+                        view.setVisibility(View.VISIBLE);
+                        layoutJoin.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        view.setVisibility(View.INVISIBLE);
+                        layoutJoin.setVisibility(View.VISIBLE);
+                    }
+                }
+
             ZoomSDK.getInstance().getMeetingService().addListener(this);
             ZoomSDK.getInstance().getMeetingSettingsHelper().enable720p(true);
         } else {
@@ -112,6 +131,8 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
     }
 
     InMeetingNotificationHandle handle=new InMeetingNotificationHandle() {
+
+
 
         @Override
         public boolean handleReturnToConfNotify(Context context, Intent intent) {
@@ -226,7 +247,8 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
         //String number = nameEdit.getText().toString();
         String name = IdPw.getString("username", "");
         String pw = IdPw.getString("zoom_pw", "");
-
+//        String roomDescription = IdPw.getString("room_description", "");
+//        mdescription.setText(roomDescription);
         JoinMeetingParams params = new JoinMeetingParams();
         params.meetingNo = number;
         params.displayName = name;
@@ -236,6 +258,11 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
     }
 
     private void showProgressPanel(boolean show) {
+        SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+        isTA = sh.getString("identity", "");
+        String roomDescription = sh.getString("room_description", "");
+//        mdescription.setText(roomDescription);
+
         if (show) {
 //            mBtnEmailLogin.setVisibility(View.GONE);
 //            mBtnSSOLogin.setVisibility(View.GONE);
@@ -250,14 +277,23 @@ public class InitAuthSDKActivityJoin extends Activity implements InitAuthSDKCall
         } else {
             View view = findViewById(R.id.btnSettings);
             if (null != view) {
-                view.setVisibility(View.VISIBLE);
+                if (isTA.equals("Teaching Assistant")) {
+                    view.setVisibility(View.VISIBLE);
+
+                }
+                else{
+                    view.setVisibility(View.INVISIBLE);
+                }
             }
 //            mBtnWithoutLogin.setVisibility(View.VISIBLE);
 //            mBtnEmailLogin.setVisibility(ZoomSDK.getInstance().isEmailLoginEnable() ? View.VISIBLE : View.GONE);
 //            mBtnSSOLogin.setVisibility(View.VISIBLE);
-            mProgressPanel.setVisibility(View.GONE);
-            layoutJoin.setVisibility(View.VISIBLE);
-            mReturnMeeting.setVisibility(View.GONE);
+//            if (isTA.equals("Teaching Assistant")) {
+                mdescription.setText(roomDescription);
+                mProgressPanel.setVisibility(View.GONE);
+                layoutJoin.setVisibility(View.VISIBLE);
+                mReturnMeeting.setVisibility(View.GONE);
+//            }
         }
     }
 

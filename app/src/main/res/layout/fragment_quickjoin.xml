@@ -1,17 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:backgroundTint="@color/colorPrimary"
+    android:orientation="vertical"
     tools:context=".QuickjoinFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView3"
+        android:padding="@dimen/_15sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:text="Quick Join"
-        android:textSize="30dp"
-        android:textColor="#ffffff"/>
+        android:fontFamily="@font/averiasanslibre_bold"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:paddingTop="40dp"
+        android:paddingBottom="44dp"/>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/scrollview_background"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/_12sdp"
+        android:paddingRight="@dimen/_12sdp">
+
+        <ImageView
+            android:id="@+id/zoomLogo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/newbeelogo"
+            android:contentDescription="ZoomICon"
+            android:layout_gravity="center"/>
+
+
+
+            <RelativeLayout
+                android:layout_width="400dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center"
+                android:padding="@dimen/_8sdp">
+                <com.sdsmdg.harjot.longshadows.LongShadowsWrapper xmlns:android="http://schemas.android.com/apk/res/android"
+                    app:background_transparent="true"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_300sdp">
+                    <Button
+                        android:id="@+id/quickjoinButton"
+                        android:layout_width="220dp"
+                        android:layout_height="220dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/round_button"
+                        android:textSize="@dimen/_60sdp"
+                        android:text="GO"
+                        android:fontFamily="@font/averiasanslibre_bold"
+                        android:textColor="@color/black"/>
+                    <com.sdsmdg.harjot.longshadows.LongShadowsImageView android:layout_width="220dp" android:layout_height="220dp" android:layout_centerHorizontal="true" android:src="@drawable/round_button"
+                        />
+                </com.sdsmdg.harjot.longshadows.LongShadowsWrapper>
+
+
+
+
+            </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

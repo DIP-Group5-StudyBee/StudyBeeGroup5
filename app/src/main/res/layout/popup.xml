@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="#000"
+    android:background="@drawable/popup"
     android:padding="10px">
 
     <TextView
@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:text="This is a popup window"
         android:layout_centerHorizontal="true"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:fontFamily="@font/averiasanslibre_bold"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,13 +24,19 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:text="Join"
-            android:id="@+id/joinPopupBtn"/>
+            android:id="@+id/joinPopupBtn"
+            android:background="@drawable/roundedbutton"
+            android:layout_margin="@dimen/_5sdp"
+            android:fontFamily="@font/averiasanslibre_regular"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Close"
             android:layout_alignParentRight="true"
-            android:id="@+id/closePopupBtn"/>
+            android:background="@drawable/roundedbutton"
+            android:id="@+id/closePopupBtn"
+            android:layout_margin="@dimen/_5sdp"
+            android:fontFamily="@font/averiasanslibre_regular"/>
 
     </LinearLayout>
 

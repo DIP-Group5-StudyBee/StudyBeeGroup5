@@ -1,167 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/profile_top_bg"
-    tools:context=".HostActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HostActivity"
+    android:orientation="vertical"
+    android:background="@color/filter_page_bg">
+    
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/newbeelogo">
+    </ImageView>
+
 
     <TextView
         android:id="@+id/CreateRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Create Your Room"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064"
-        android:textColor="@color/black"/>
+        android:fontFamily="@font/averiasanslibre_bold"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="25dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="44dp"/>
 
-    <TextView
-        android:id="@+id/StudyStyle"
-        android:layout_width="92dp"
-        android:layout_height="20dp"
-        android:text="Study Style:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115"
-        android:textColor="@color/black"/>
 
-    <Spinner
-        android:id="@+id/StyleSpinner"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/arrayStyle"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        android:layout_below="@id/CreateRoom"
+        android:background="@drawable/scrollview_background">
 
-    <TextView
-        android:id="@+id/GroupSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Group Size:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.242"
-        android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/SizeSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/arraySize"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283"
-        android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/StudyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="25dp"
+                android:paddingLeft="20dp"
+                android:text="Study Style:"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textColor="@android:color/black"
+                android:textSize="20sp">
+            </TextView>
 
-    <TextView
-        android:id="@+id/TeachingAssistant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Require Teaching Assistant:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.365" />
-
-    <Spinner
-        android:id="@+id/TASpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/arrayTA"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.424" />
-
-    <TextView
-        android:id="@+id/Course"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="People from same course:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/FACSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/arrayFAC"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556" />
-
-    <EditText
-        android:id="@+id/RoomName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Room Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.293"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
-
-    <EditText
-        android:id="@+id/RoomDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Room Description"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.278"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
-
-    <Button
-        android:id="@+id/SubmitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="SubmitClicked"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.938" />
+            <Spinner
+                android:id="@+id/StyleSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:entries="@array/arrayStyle"
+                android:padding="20dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/GroupSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Group Size:"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textColor="@android:color/black"
+                android:textSize="20sp">
+            </TextView>
+            <Spinner
+                android:id="@+id/SizeSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:entries="@array/arraySize"
+                android:padding="20dp" />
+
+
+
+            <TextView
+                android:id="@+id/TeachingAssistant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Teaching Assistant:"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textColor="@android:color/black"
+                android:textSize="20sp">
+            </TextView>
+
+            <Spinner
+                android:id="@+id/TASpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:entries="@array/arrayTA"
+                android:padding="20dp" />
+
+
+
+
+            <TextView
+                android:id="@+id/Course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Same Course:"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textColor="@android:color/black"
+                android:textSize="20sp">
+            </TextView>
+            <Spinner
+                android:id="@+id/FACSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:entries="@array/arrayFAC"
+                android:padding="20dp" />
+
+
+
+
+
+            <TextView
+                android:id="@+id/RoomNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp"
+                android:text="Room Name:"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textColor="@android:color/black"
+                android:textSize="20sp">
+            </TextView>
+            <EditText
+                android:id="@+id/RoomName"
+                android:maxLines="50"
+                android:gravity="top"
+                android:hint="Enter the room name"
+                android:padding="10dp"
+                android:layout_marginLeft="30dp"
+                android:inputType="textMultiLine"
+                android:background="@drawable/room_name_layout"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/RoomNameText"/>
+
+
+            <TextView
+                android:id="@+id/RoomDescpText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp"
+                android:text="Room Description:"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textColor="@android:color/black"
+                android:textSize="20sp">
+            </TextView>
+            <EditText
+                android:id="@+id/RoomDescription"
+                android:maxLines="50"
+                android:gravity="top"
+                android:hint="Enter the room description"
+                android:padding="10dp"
+                android:layout_marginLeft="30dp"
+                android:inputType="textMultiLine"
+                android:background="@drawable/room_name_layout"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_below="@id/RoomDescpText"/>
+
+
+
+            <Button
+                android:id="@+id/SubmitBtn"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:onClick="SubmitClicked"
+                android:text="Submit"
+                android:background="@drawable/roundedbutton"
+                android:fontFamily="@font/averiasanslibre_regular"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

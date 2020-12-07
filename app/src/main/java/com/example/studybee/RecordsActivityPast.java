@@ -34,6 +34,7 @@ public class RecordsActivityPast extends AppCompatActivity implements AuthConsta
     String host_name;
     String[] Meet_str =new String[3];
     String[] StartTime_str= new String[3];
+    int user_id;
 
     String time;
     int numMeet = 0;
@@ -57,6 +58,7 @@ public class RecordsActivityPast extends AppCompatActivity implements AuthConsta
         Username =  (TextView) findViewById(R.id.Username_record);
         SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
         host_name = sh.getString("username","");
+        user_id = sh.getInt("id",0);
         Username.setText(host_name);
 
         //Get all displayed items
@@ -95,8 +97,8 @@ public class RecordsActivityPast extends AppCompatActivity implements AuthConsta
             jsonText.object();
             jsonText.key("type");
             jsonText.value(msgType);
-            jsonText.key("host_name");
-            jsonText.value(host_name);
+            jsonText.key("user_id");
+            jsonText.value(user_id);
             jsonText.key("start_time");
             jsonText.value(time);
             jsonText.endObject();
@@ -119,7 +121,7 @@ public class RecordsActivityPast extends AppCompatActivity implements AuthConsta
                     numMeet = jsonObject.getInt("number");
                     for (int i = 0; i<numMeet; i++) {
                         Meet_str[i] = jsonObject.getString("meeting_name"+i);
-                        StartTime_str[i] = jsonObject.getString("start_time"+i);
+                        StartTime_str[i] = jsonObject.getString("meeting_time"+i);
                     }
                     for (int i = numMeet +1; i<3; i++){
                         //not value return

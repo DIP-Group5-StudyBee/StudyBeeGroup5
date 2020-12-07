@@ -26,7 +26,7 @@ public class Display extends AppCompatActivity implements AuthConstants, OnTaskC
     String status;
     String faculty;
     String email;
-    EditText et_firstName;
+    EditText et_username;
     String msgType;
     Button SButton;
     ImageButton NButton;
@@ -53,7 +53,7 @@ public class Display extends AppCompatActivity implements AuthConstants, OnTaskC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friend_tab);
 
-        et_firstName = (EditText) findViewById(R.id.editTextTextPersonName);
+        et_username = (EditText) findViewById(R.id.editTextTextPersonName);
         SButton = findViewById(R.id.button);
 
         NButton = findViewById(R.id.imageButtonA);//link to basic details page
@@ -105,20 +105,20 @@ public class Display extends AppCompatActivity implements AuthConstants, OnTaskC
     }
 
     public void SButtonOnClickHandler(View v){
-        if(et_firstName.getText().toString().isEmpty()||et_firstName.getText().toString()== "Enter name")
+        if(et_username.getText().toString().isEmpty()||et_username.getText().toString()== "Enter name")
             Toast.makeText(getApplicationContext(), "Please enter a name.", Toast.LENGTH_LONG).show();
         else {
             // Retrieve the message entered and put into the Intent
             msgType = REQ_DOWNLOAD;
-            firstname = et_firstName.getText().toString();
+            username = et_username.getText().toString();
             String jsonString = convertToJSON();
             //access database network
             HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
             task.execute("http://" + HOST + "/" + DIR + "/checkName.php", jsonString);
 
         }
-
     }
+
     public void RefreshButtonOnClickHandler(View v) {
         Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
         showViews[0] = (TextView) findViewById(R.id.nameList1);
@@ -128,27 +128,47 @@ public class Display extends AppCompatActivity implements AuthConstants, OnTaskC
         showViews[4] = (TextView) findViewById(R.id.nameList3);
         showViews[5] = (TextView) findViewById(R.id.nameList3);
 
+//        //search user recent friend added
+//        String jsonString = convertToJSONretrieveFriends();
+//        //access database network
+//        HttpAsyncTaskForLogin task = new HttpAsyncTaskForLogin(this);
+//        task.execute("http://" + HOST + "/" + DIR + "/retrieveFriends.php", jsonString);
+
         showViews[0].setText("tommy");
         showViews[1].setText("tom@e.ntu.edu.sg");
         showViews[2].setText("Santa");
         showViews[3].setText("San@e.ntu.edu.sg");
     }
 
+//    private String convertToJSONretrieveFriends() {
+//        JSONStringer jsonText = new JSONStringer();
+//        try {
+//            jsonText.object();
+//            jsonText.key("type");
+//            jsonText.value(msgType);
+//            jsonText.key("firstname");
+//            jsonText.value(firstname);
+//            jsonText.endObject();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return jsonText.toString();
+//    }
+
     private String convertToJSON() {
         JSONStringer jsonText = new JSONStringer();
         try {
-
             jsonText.object();
             jsonText.key("type");
             jsonText.value(msgType);
             jsonText.key("username");
             jsonText.value(username);
-            jsonText.key("firstname");
-            jsonText.value(firstname);
-            jsonText.key("faculty");
-            jsonText.value(faculty);
-            jsonText.key("email");
-            jsonText.value(email);
+//            jsonText.key("firstname");
+//            jsonText.value(firstname);
+//            jsonText.key("faculty");
+//            jsonText.value(faculty);
+//            jsonText.key("email");
+//            jsonText.value(email);
             jsonText.endObject();
 
         } catch (Exception e) {
@@ -173,14 +193,12 @@ public void retrieveFromJSON(String message) {
             email = jsonObject.getString("email");
             }
         }
-
         } catch (Exception e) {
             e.printStackTrace();
             }
     }
     @Override
     public void onTaskCompleted(String response) {
-
             //get data from database
             retrieveFromJSON(response);
 

@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.chip.Chip;
+
 import org.json.JSONObject;
 import org.json.JSONStringer;
 
@@ -34,6 +36,9 @@ public class JoinActivity extends AppCompatActivity implements AuthConstants{
     String teachingAssistant;
     String course;
 
+    String host_name;
+
+
 
     //returns the name of the class as written in source file
     private final String TAG = this.getClass().getSimpleName();
@@ -52,10 +57,17 @@ public class JoinActivity extends AppCompatActivity implements AuthConstants{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
 
+        //get username to be updated into meetingevent table
+        SharedPreferences sh = getSharedPreferences("preference", MODE_PRIVATE);
+        host_name = sh.getString("username","");
+
+
+
         size_Spinner= (Spinner) findViewById(R.id.SizeSpinner);
         style_Spinner= (Spinner) findViewById(R.id.StyleSpinner);
         ta_Spinner= (Spinner) findViewById(R.id.TASpinner);
         fac_Spinner= (Spinner) findViewById(R.id.FACSpinner);
+
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item,list);
         SubmitBtn=(Button) findViewById(R.id.SubmitBtn);
     }
@@ -85,6 +97,7 @@ public class JoinActivity extends AppCompatActivity implements AuthConstants{
             saveAsPreferences();
             startActivity(new Intent(JoinActivity.this, LobbyActivity.class));
         }
+
 
     }
 
