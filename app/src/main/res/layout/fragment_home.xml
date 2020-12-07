@@ -57,7 +57,7 @@
                     android:fontFamily="@font/averiasanslibre_bold"
                     android:text="@string/zm_btn_create"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/create_txt"
+                    android:textSize="@dimen/_20ssp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -109,7 +109,7 @@
                     android:text="@string/zm_bo_btn_join_bo"
                     android:textAllCaps="true"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/create_txt"
+                    android:textSize="@dimen/_20ssp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -173,7 +173,7 @@
     <ImageView
         android:id="@+id/top_background_img"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/top_bg_height"
+        android:layout_height="@dimen/_110sdp"
         android:background="@drawable/topbg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

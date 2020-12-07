@@ -17,7 +17,7 @@
         android:paddingLeft="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Randomly Join Meeting"
+        android:text="Quick Join"
         android:fontFamily="@font/averiasanslibre_bold"
         android:textColor="@color/white"
         android:textSize="28sp"
@@ -42,8 +42,8 @@
 
 
             <RelativeLayout
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="260dp"
+                android:layout_height="260dp"
                 android:layout_gravity="center"
                 android:padding="@dimen/_8sdp">
 
@@ -52,9 +52,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/round_button"
-                    android:fontFamily="@font/averiasanslibre_bold"
                     android:textSize="@dimen/_60sdp"
-                    android:text="JOIN" />
+                    android:text="GO" />
 
 
             </RelativeLayout>

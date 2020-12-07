@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="top_bg_height">@dimen/_80sdp</dimen>
+    <dimen name="top_bg_height">@dimen/_100sdp</dimen>
     <dimen name="create_card_img_dimen">@dimen/_64sdp</dimen>
     <dimen name="create_txt">@dimen/_18ssp</dimen>
     <dimen name="create_description_txt">@dimen/_12ssp</dimen>
