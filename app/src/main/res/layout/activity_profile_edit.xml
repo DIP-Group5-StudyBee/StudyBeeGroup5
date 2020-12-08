@@ -26,6 +26,7 @@
     <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
+
             android:layout_alignParentRight="true"
             android:background="@drawable/newbeelogo"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -37,56 +38,82 @@
 
         </ImageView>
 
-
-    <TextView
-        android:id="@+id/profile_name"
-        android:layout_width="338dp"
-        android:layout_height="106dp"
-        android:layout_below="@+id/ProfileEdit"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="98dp"
-        android:layout_marginEnd="35dp"
-        android:background="@drawable/rectangleview"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center"
-        android:text="Name"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RelativeLayout
+        android:id="@+id/topArea"
+        android:background="@drawable/scrollview_profile_background"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:padding="@dimen/upcoming_item_padding"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProfileEdit"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/profile_image"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_below="@+id/ProfileEdit"
-        android:layout_alignBottom="@+id/ProfileEdit"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="-13dp"
-        android:layout_marginEnd="126dp"
-        android:layout_marginBottom="-117dp"
-        android:background="@drawable/profile_pic"
-        android:paddingTop="@dimen/_40sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.546" />
+        android:gravity="center"
+        android:layout_below="@+id/ProfileEdit"
+        android:paddingTop="@dimen/_80sdp"
+        app:layout_constraintTop_toBottomOf="@+id/ProfileEdit">
+
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="@dimen/_260sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="Name"
+                android:textAllCaps="true"
+                android:paddingTop="@dimen/_20sdp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_70sdp"
+                android:background="@drawable/rectangleview"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/profile_pic" /><!--        <TextView-->
+<!--            android:id="@+id/profile_name"-->
+<!--            android:layout_width="338dp"-->
+<!--            android:layout_height="106dp"-->
+<!--            -->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginTop="98dp"-->
+<!--            android:layout_marginEnd="35dp"-->
+<!--            android:background="@drawable/room_name_layout"-->
+<!--            android:fontFamily="sans-serif-black"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Name"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.493"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            -->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/profile_image"-->
+<!--            android:layout_width="@dimen/_100sdp"-->
+<!--            android:layout_height="@dimen/_100sdp"-->
+
+<!--            android:background="@drawable/profile_pic"-->
+<!--            android:paddingTop="@dimen/_40sdp" />-->
+    </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_name"
-        android:layout_marginTop="2dp"
+        android:layout_height="@dimen/_450sdp"
+        android:layout_marginTop="340dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -109,9 +136,10 @@
             android:id="@+id/scrollview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/profile_top_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/scrollview_background"
+            android:fontFamily="@font/averiasanslibre_regular"
+            app:layout_constraintBottom_toBottomOf="@id/topArea"
+            app:layout_constraintEnd_toEndOf="@id/topArea"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/profile_name"
@@ -120,7 +148,8 @@
 
             <EditText
                 android:id="@+id/edit_name"
-                android:layout_width="fill_parent"
+                android:layout_width="@dimen/_280sdp"
+                android:fontFamily="@font/averiasanslibre_regular"
                 android:layout_height="50dp"
                 android:layout_marginTop="88dp"
                 android:background="@drawable/room_name_layout"
@@ -128,13 +157,12 @@
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="First Name"
-                android:padding="10dp"
+                android:padding="6dp"
                 android:singleLine="true"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -143,47 +171,49 @@
                 android:layout_width="140dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/averiasanslibre_regular"
                 android:layout_toRightOf="@+id/spin_Gender"
                 android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/age"
                 android:drawablePadding="8dp"
-                android:gravity="left"
+                android:gravity="center_vertical"
                 android:hint="Age"
+                android:padding="6dp"
                 android:inputType="number"
-                android:padding="5dp"
+                android:paddingTop="10dp"
                 android:singleLine="true"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.09"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 
             <EditText
                 android:id="@+id/edit_school"
-                android:layout_width="fill_parent"
+                android:layout_width="@dimen/_280sdp"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/zm_icon_home"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
+                android:fontFamily="@font/averiasanslibre_regular"
                 android:hint="Faculty"
                 android:padding="10dp"
                 android:singleLine="true"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/edit_email"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/age" />
 
             <EditText
                 android:id="@+id/edit_password"
-                android:layout_width="414dp"
+                android:layout_width="@dimen/_280sdp"
                 android:layout_height="50dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/room_name_layout"
@@ -192,34 +222,34 @@
                 android:gravity="center_vertical"
                 android:hint="Password"
                 android:inputType="textPassword"
+                android:fontFamily="@font/averiasanslibre_regular"
                 android:maxLines="1"
                 android:padding="10dp"
                 android:singleLine="true"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_email"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
                 android:id="@+id/edit_email"
-                android:layout_width="408dp"
-                android:layout_height="41dp"
+                android:layout_width="@dimen/_280sdp"
+                android:layout_height="50dp"
                 android:layout_marginTop="92dp"
                 android:background="@drawable/room_name_layout"
                 android:drawableLeft="@android:drawable/sym_action_email"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
+                android:fontFamily="@font/averiasanslibre_regular"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:padding="5dp"
                 android:singleLine="true"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -227,25 +257,26 @@
 
             <EditText
                 android:id="@+id/edit_username"
-                android:layout_width="fill_parent"
+
+                android:layout_width="@dimen/_280sdp"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/room_name_layout"
                 android:drawableLeft="@drawable/zm_ic_sip_contacts_normal"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
-                android:hint="username"
+                android:hint="Username"
                 android:padding="10dp"
+                android:paddingLeft="@dimen/_16sdp"
                 android:singleLine="true"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:fontFamily="@font/averiasanslibre_regular"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/edit_name"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.239" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/label_gender"
@@ -253,6 +284,7 @@
                 android:layout_height="34dp"
                 android:layout_marginEnd="8dp"
                 android:background="@android:color/transparent"
+
                 android:drawableLeft="@drawable/gender"
                 android:drawablePadding="10dp"
                 android:gravity="left"
@@ -282,19 +314,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/edit_name"
                 app:layout_constraintVertical_bias="0.544" />
 
+
             <Button
                 android:id="@+id/save_button"
-                android:layout_width="91dp"
-                android:layout_height="40dp"
-                android:backgroundTint="@color/colorPrimary"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/roundedbutton"
+                android:contentDescription="login"
                 android:onClick="submitClicked"
+                android:padding="3dp"
                 android:text="@string/save_info"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/edit_password"
-                app:layout_constraintVertical_bias="5.0" />
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
